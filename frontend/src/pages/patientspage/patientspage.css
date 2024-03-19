@@ -1,0 +1,18 @@
+.patient-list .list {
+    padding: 50px 50px;
+    height: 80vh;
+    overflow: scroll;
+}
+
+.patient-list .list::-webkit-scrollbar {
+    display: none;
+}
+
+.patient-list .list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.patient-list .list .card {
+    margin: 30px 0;
+}

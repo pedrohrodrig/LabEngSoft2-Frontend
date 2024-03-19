@@ -1,0 +1,11 @@
+.input {
+    display: flex;
+    padding: 0px 10px;
+    height: 35px;
+    width: 180px;
+    align-items: center;
+    font-family: "Karla", sans-serif;
+    border-radius: 10px;
+    border: 2px solid var(--light-gray);
+    background: var(--light-gray);
+}

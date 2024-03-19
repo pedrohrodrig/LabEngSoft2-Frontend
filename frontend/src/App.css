@@ -1,0 +1,25 @@
+.app {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.app-content {
+    background-color: var(--background-blue);
+}
+
+.app-content .container,
+.app-content .page {
+    width: 75vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 100px 200px;
+    border-radius: 50px 0 0 50px;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 30px var(--shadow);
+    gap: 50px;
+}

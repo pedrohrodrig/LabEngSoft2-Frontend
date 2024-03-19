@@ -1,0 +1,27 @@
+.bignumber {
+    width: 230px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--gradient-trans);
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 4px 4px 30px var(--shadow);
+}
+
+.bignumber .icon {
+    padding: 20px;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+}
+
+.bignumber .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.bignumber .content h1 {
+    font-size: 28px;
+    line-height: 100%;
+}

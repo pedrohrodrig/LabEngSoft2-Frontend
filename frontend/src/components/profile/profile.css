@@ -1,0 +1,29 @@
+.profile-cont {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-cont .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-cont .name {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-cont p {
+    color: var(--dark-gray);
+}
+
+.profile-cont .info-cont {
+    display: none;
+}
+
+.profile-cont.info .info-cont {
+    display: flex;
+}
