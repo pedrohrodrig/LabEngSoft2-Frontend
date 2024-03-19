@@ -6,21 +6,22 @@ import Icon from "../icon/icon";
 
 import "./card.css";
 
-function Card({ className, clickable, title, body1, image, path }) {
+function Card({ className, clickable, title, body, image, path }) {
     const classes = clickable ? `card clickable ${className}` : `card ${className}`;
 
     return (
         <Link className={classes} to={path}>
-            <div className="image">
+
+            {image && <div className="image">
                 <img src={image} alt="card"/>
-            </div>
+            </div>}
 
             <div className="content">
                 <div className="text">
                         <h1 className="title">{title}</h1>
-                        <p className="body">{body1}</p>
+                        <p className="body">{body}</p>
                 </div>
-                
+
                 <div className="buttons">
                     <Button className="black outline very-small" text="Button" />
                     <Logo className="black" />
