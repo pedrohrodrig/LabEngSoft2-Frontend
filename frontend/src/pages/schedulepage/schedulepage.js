@@ -26,6 +26,7 @@ const localizer = dateFnsLocalizer({
 });
 
 function SchedulePage() {
+
     return (
         <div className="schedule page">
             <Title head="Agenda" body="Acompanhe seus horários e consultas" />
