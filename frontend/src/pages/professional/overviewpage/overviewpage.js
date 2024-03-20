@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import BigNumber from "../../../components/bignumber/bignumber";
-import AppointmentList from "../../../components/appointmentlist/appointmentlist";
+import AppointmentList from "../../../components/lists/appointmentlist/appointmentlist";
 
-import patientList from "../../../objects/patients";
+import appointmentList from "../../../objects/appointments";
+import UserContext from "../../../contexts/UserContext";
 import "./overviewpage.css";
 
 function OverviewPage() {
+    const { user } = useContext(UserContext);
+    const appointments = appointmentList.filter((appoint) => {
+        return user.appointments.includes(appoint.id)
+    });
+
     return (
         <div className="overview page">
             <div className="bignumbers">
-                <BigNumber number="1k" text="Consultas" />
-                <BigNumber number="40" text="Pacientes" />
-                <BigNumber number="R$200" text="Renda Mensal" />
+                <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
+                <BigNumber number="40" text="Pacientes" iconType="user" to="/patients" />
+                <BigNumber number="R$200" text="Renda Mensal" iconType="dollar" to="/payments" />
             </div>
 
-            <div className="appointments">
-                <h1>Consultas Hoje</h1>
-                <AppointmentList patients={patientList} />
+            <div className="appoint">
+                <h1 className="appoint-title">Consultas Hoje</h1>
+                <AppointmentList appointments={appointments} />
             </div>
         </div>
     );
