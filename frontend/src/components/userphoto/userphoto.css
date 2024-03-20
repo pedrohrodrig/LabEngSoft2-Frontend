@@ -30,3 +30,7 @@
     border: 3px solid transparent;
     background: var(--background) padding-box, var(--gradient-full) border-box;
 }
+
+.disabled-link {
+    pointer-events: none;
+}

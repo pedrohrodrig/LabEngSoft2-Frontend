@@ -1,5 +1,7 @@
 /* Generic Button style specification */
 .but {
+    height: fit-content;
+    width: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -9,7 +11,7 @@
     font-size: 20px;
 }
 
-.but a {
+.but .but-link {
     text-decoration: none;
     padding: 20px 30px;
     display: flex;
@@ -20,7 +22,7 @@
 }
 
 /* Right icon Button style specification */
-.but.right a {
+.but.right .but-link {
     flex-direction: row-reverse;
 }
 
@@ -35,7 +37,7 @@
     font-size: 18px;
 }
 
-.but.medium a {
+.but.medium .but-link {
     padding: 15px 22px;
     gap: 8px;
 }
@@ -50,7 +52,7 @@
     font-size: 16px;
 }
 
-.but.small a {
+.but.small .but-link {
     padding: 10px 15px;
     gap: 4px;
 }
@@ -65,7 +67,7 @@
     font-size: 14px;
 }
 
-.but.very-small a {
+.but.very-small .but-link {
     padding: 8px 16px;
     gap: 3px;
 }
@@ -76,19 +78,21 @@
 
 /* Gradient Button style specification */
 .but.grad {
-    background: var(--gradient-full); 
+    border: 3px solid transparent;
+    background: var(--gradient-full) padding-box, var(--gradient-full) border-box;
 }
 
-.but.grad a {
+.but.grad .but-link {
     color: var(--black);
 }
 
 /* Black Button style specification */
 .but.black {
     background: var(--black);
+    border: 3px solid var(--black);
 }
 
-.but.black a {
+.but.black .but-link {
     color: var(--white)
 }
 
@@ -98,7 +102,7 @@
     background: var(--background) padding-box, var(--gradient-full) border-box;
 }
 
-.but.outline.grad a {
+.but.outline.grad .but-link {
     background: var(--gradient-full);
     background-clip: text;
     -webkit-background-clip: text;
@@ -111,6 +115,6 @@
     background: transparent;
 }
 
-.but.outline.black a {
+.but.outline.black .but-link {
     color: var(--black);
 }

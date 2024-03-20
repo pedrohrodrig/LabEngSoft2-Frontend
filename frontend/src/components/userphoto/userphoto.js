@@ -4,12 +4,12 @@ import UserImage from "../../assets/user.jpeg"
 
 import "./userphoto.css";
 
-function UserPhoto({ className, name }) {
+function UserPhoto({ className, name, to }) {
     const classes = name ? `user name ${className}` : `user ${className}`;
 
     return (
         <div className={classes}>
-            <Link>
+            <Link className={!to && "disabled-link"} to={to}>
                 <img src={UserImage} alt="user" />
                 <h1>Lucas Garieri</h1>
             </Link>
