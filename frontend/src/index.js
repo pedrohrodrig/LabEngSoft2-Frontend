@@ -9,9 +9,12 @@ import PatientsPage from './pages/patientspage/patientspage';
 import AppointmentsPage from './pages/appointmentspage/appointmentspage';
 import PaymentsPage from './pages/paymentspage/paymentspage';
 import TestPage from './pages/testpage/testpage';
+import ServicesPage from './pages/patient/servicesPage/servicesPage';
+
 import App from './App';
 
 import './index.css';
+import ProfessionalListPage from './pages/patient/professionalList/professionalListPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,8 +30,11 @@ root.render(
                     <Route path="appointments" element={<AppointmentsPage />} />
                     <Route path="payments" element={<PaymentsPage />} />
 
+                    <Route path="services" element={<ServicesPage />} />
+
                     <Route path="test" element={<TestPage />} />
-                
+                    <Route path="professionals" element={<ProfessionalListPage />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>
