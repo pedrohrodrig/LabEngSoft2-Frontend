@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 import ApolloLogo from "../../../assets/apollo-logo.svg"
-
+import { Link } from "react-router-dom";
 
 function ServiceCard({title, description}) {
   return (
@@ -13,9 +13,9 @@ function ServiceCard({title, description}) {
         <Card.Text className="text-muted fs-6">
           {description}
         </Card.Text>
-        <div className="d-flex justify-content-end mt-3">
-          <Button variant="secondary">Butao</Button>
-        </div>
+        <Link to="../professionals" state={{ title }}  className="d-flex justify-content-end mt-3 text-decoration-none">
+          <Button variant="secondary">Busque aqui!</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
