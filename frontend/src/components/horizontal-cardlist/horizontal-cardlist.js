@@ -6,7 +6,7 @@ import "./horizontal-cardlist.style.css"
 export const HorizontalCardList = ({ cards }) => {
     return (
         <ul
-            className="cards-list"
+            className="horizontal-cards-list"
             style={{ display: 'flex', listStyleType: 'none', padding: 0 }}
         >
             {
