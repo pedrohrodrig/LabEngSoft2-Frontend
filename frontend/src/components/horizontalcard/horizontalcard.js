@@ -11,7 +11,7 @@ function HorizontalCard({ className, title, body, col1, col2, image, iconType, t
         : `hcard disabled-link ${className}`
     );
 
-    const small = className.includes('small');
+    const small = className ? className.includes('small') : false;
     return (
         <Link className={classes} to={to}>
             {
