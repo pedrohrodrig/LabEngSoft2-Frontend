@@ -11,6 +11,7 @@ import PaymentsPage from './pages/paymentspage/paymentspage';
 import TestPage from './pages/testpage/testpage';
 import ServicesPage from './pages/patient/servicesPage/servicesPage';
 import PatientAppointmentsHistoryPage from './pages/patient/appointmentsHistoryPage/appointmentsHistoryPage';
+import SignUpPage from './pages/signUpPage/signUpPage';
 
 import App from './App';
 
@@ -37,6 +38,7 @@ root.render(
                     <Route path="professionals" element={<ProfessionalListPage />} />
                     <Route path="patient/history" element={<PatientAppointmentsHistoryPage />} />
 
+                    <Route path="signup" element={<SignUpPage/>} />
 
                 </Route>
             </Routes>
