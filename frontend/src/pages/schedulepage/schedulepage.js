@@ -25,6 +25,7 @@ const localizer = dateFnsLocalizer({
     locales,
 });
 
+
 function SchedulePage() {
 
     return (
@@ -49,3 +50,4 @@ function SchedulePage() {
 }
 
 export default SchedulePage;
+
