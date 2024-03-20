@@ -6,15 +6,15 @@ import { professional } from "./objects/profile";
 
 import LayoutPage from './pages/layoutpage/layoutpage';
 import HomePage from './pages/home/homepage';
-import OverviewPage from './pages/professional/overviewpage/overviewpage';
-import PatientsPage from './pages/professional/patientspage/patientspage';
-import AppointmentsPage from './pages/professional/appointmentspage/appointmentspage';
-import PaymentsPage from './pages/professional/paymentspage/paymentspage';
-import PatientProfilePage from './pages/professional/patientprofilepage/patientprofilepage';
-import ProfilePage from './pages/professional/profilepage/profilepage';
-import DocumentsPage from "./pages/professional/documentspage/documentspage";
-import DocDetailPage from "./pages/professional/docdetailpage/docdetailpage";
-import AppointDetailPage from "./pages/professional/appointdetailpage/appointdetailpage";
+import OverviewPage from './pages/personal/overviewpage/overviewpage';
+import PatientsPage from './pages/personal/patientspage/patientspage';
+import AppointmentsPage from './pages/personal/appointmentspage/appointmentspage';
+import PaymentsPage from './pages/personal/paymentspage/paymentspage';
+import PatientProfilePage from './pages/personal/patientprofilepage/patientprofilepage';
+import ProfilePage from './pages/personal/profilepage/profilepage';
+import DocumentsPage from "./pages/personal/documentspage/documentspage";
+import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
+import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
 
 import TestPage from './pages/testpage/testpage';
 

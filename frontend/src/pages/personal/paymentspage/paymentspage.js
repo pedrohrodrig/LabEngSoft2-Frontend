@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../../../components/title/title";
 
-import paymentList from "./payments";
 import "./paymentspage.css";
 
 function PaymentsPage() {
