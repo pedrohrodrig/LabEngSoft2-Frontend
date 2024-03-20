@@ -6,29 +6,40 @@ import Icon from "../icon/icon";
 
 import "./card.css";
 
-function Card({ className, clickable, title, body1, image, path }) {
+function Card({ className, clickable, title, body, col1, col2, image, to }) {
     const classes = clickable ? `card clickable ${className}` : `card ${className}`;
 
     return (
-        <Link className={classes} to={path}>
+        <Link className={classes} to={to}>
             <div className="image">
                 <img src={image} alt="card"/>
             </div>
 
-            <div className="content">
-                <div className="text">
-                        <h1 className="title">{title}</h1>
-                        <p className="body">{body1}</p>
-                </div>
-                
-                <div className="buttons">
-                    <Button className="black outline very-small" text="Button" />
-                    <Logo className="black" />
-                </div>
-            </div>
+            <div className="card-content">
 
-            <div className="iconbox">
-                <Icon iconType="chevron-right" />
+                <div className="card-col">
+                    <div className="text">
+                        <h1 className="title">{title}</h1>
+                        { body && <p className="body">{body}</p> }
+                    </div>
+
+                    <div className="buttons">
+                        <Button className="black outline very-small" text="Button" />
+                        <Logo className="black" />
+                    </div>
+                </div>
+
+                <div className="card-col">
+                    <p className="body">{col1}</p>
+                </div>
+
+                <div className="card-col">
+                    <p className="body">{col2}</p>
+                </div>
+
+                <div className="iconbox">
+                    <Icon iconType="chevron-right" />
+                </div>
             </div>
         </Link>
     );

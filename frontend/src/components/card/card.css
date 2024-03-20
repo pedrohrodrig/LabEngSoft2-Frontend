@@ -21,7 +21,7 @@
     height: stretch;
 }
 
-.card .content {
+.card .card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,32 +64,7 @@
     display: none;
 }
 
-.card.horizontal {
-    height: 100px;
-    width: 500px;
-    flex-direction: row;
-    gap: 0;
-}
-
-.card.horizontal img {
-    height: 100px;
-    width: 100px;
-}
-
-.card.horizontal .content {
-    width: calc(100% - 150px);
-    height: 100%;
-    box-sizing: border-box;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.card.horizontal .buttons {
-    margin: 0;
-}
-
-.card.clickable .content {
-    justify-content: center;
+.card.clickable .card-content {
     padding-right: 0;
 }
 
