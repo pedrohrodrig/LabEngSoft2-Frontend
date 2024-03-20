@@ -12,7 +12,7 @@ function PatientAppointmentsHistoryPage() {
                 head="Histórico de Consultas"
                 body="Veja o histórico de todas as suas consultas marcadas"
             />
-            <Table striped bordered hover >
+            <Table striped hover >
               <thead>
                 <tr>
                   <th style={{width: "35%"}}>Nome</th>
