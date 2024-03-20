@@ -10,11 +10,12 @@ import AppointmentsPage from './pages/appointmentspage/appointmentspage';
 import PaymentsPage from './pages/paymentspage/paymentspage';
 import TestPage from './pages/testpage/testpage';
 import ServicesPage from './pages/patient/servicesPage/servicesPage';
+import PatientAppointmentsHistoryPage from './pages/patient/appointmentsHistoryPage/appointmentsHistoryPage';
 
 import App from './App';
 
 import './index.css';
-import ProfessionalListPage from './pages/patient/professionalList/professionalListPage';
+import ProfessionalListPage from './pages/patient/professionalListPage/professionalListPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -34,6 +35,8 @@ root.render(
 
                     <Route path="test" element={<TestPage />} />
                     <Route path="professionals" element={<ProfessionalListPage />} />
+                    <Route path="patient/history" element={<PatientAppointmentsHistoryPage />} />
+
 
                 </Route>
             </Routes>
