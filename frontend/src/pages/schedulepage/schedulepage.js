@@ -25,9 +25,7 @@ const localizer = dateFnsLocalizer({
     locales,
 });
 
-
 function SchedulePage() {
-
     return (
         <div className="schedule page">
             <Title head="Agenda" body="Acompanhe seus horários e consultas" />
@@ -48,6 +46,5 @@ function SchedulePage() {
         </div>
     );
 }
-
 export default SchedulePage;
 
