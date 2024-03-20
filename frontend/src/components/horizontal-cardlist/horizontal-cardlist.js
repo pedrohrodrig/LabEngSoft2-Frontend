@@ -7,6 +7,7 @@ export const HorizontalCardList = ({ cards }) => {
     return (
         <ul
             className="horizontal-cards-list"
+
             style={{ display: 'flex', listStyleType: 'none', padding: 0 }}
         >
             {
