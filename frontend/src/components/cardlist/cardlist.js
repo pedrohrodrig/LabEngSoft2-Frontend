@@ -6,15 +6,15 @@ import "./cardlist.css";
 function CardList({ objects }) {
     return (
         <div className="card-list">
-            { 
-                objects.map((obj, i) => 
+            {
+                objects.map((obj, i) =>
                 {
                     return (
-                        <Card 
+                        <Card
                             className="horizontal"
-                            clickable={true} 
+                            clickable={true}
                             title={obj.title}
-                            body1={obj.body1}
+                            body={obj.body}
                             image={obj.photo}
                             key={i}
                         />
