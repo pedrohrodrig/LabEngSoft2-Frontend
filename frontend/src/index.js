@@ -9,6 +9,7 @@ import PatientsPage from './pages/patientspage/patientspage';
 import AppointmentsPage from './pages/appointmentspage/appointmentspage';
 import PaymentsPage from './pages/paymentspage/paymentspage';
 import TestPage from './pages/testpage/testpage';
+import SchedulePage from "./pages/schedulepage/schedulepage";
 import App from './App';
 
 import './index.css';
@@ -26,9 +27,10 @@ root.render(
                     <Route path="patients" element={<PatientsPage />} />
                     <Route path="appointments" element={<AppointmentsPage />} />
                     <Route path="payments" element={<PaymentsPage />} />
+                    <Route path="schedule" element={<SchedulePage/>}/>
 
                     <Route path="test" element={<TestPage />} />
-                
+
                 </Route>
             </Routes>
         </BrowserRouter>
