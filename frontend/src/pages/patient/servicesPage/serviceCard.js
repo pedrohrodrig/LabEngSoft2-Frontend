@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function ServiceCard({title, description}) {
   return (
-    <Card>
+    <Card style={{ width: "20rem" }}>
       <Card.Body>
         <Card.Img variant="top" src={ApolloLogo} style={{width: "30%"}} className="mb-3"/>
         <Card.Title>{title}</Card.Title>
