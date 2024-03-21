@@ -1,0 +1,76 @@
+.appoint-detail {
+    gap: 60px !important;
+}
+
+.appoint-detail .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.appoint-detail .content {
+    display: flex;
+    gap: 80px;
+}
+
+.appoint-detail .content .profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 10px;
+}
+
+.appoint-detail .content .grid {
+    display: flex;
+    gap: 50px;
+}
+
+.appoint-detail .content .col {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.appoint-detail .cardbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.appoint-detail .appoint-but {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.appoint-detail .extra {
+    display: flex;
+    flex-direction: column;
+    height: stretch;
+}
+
+.appoint-detail .doc-header {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.appoint-detail .doc-header h1 {
+    font-size: 20px;
+}
+
+.appoint-detail .doc-header a {
+    color: var(--dark-gray);
+    font-size: 14px;
+}
+
+.appoint-detail .patient-docs {
+    height: calc(100% - 40px);
+    width: 280px;
+}
+
+.appoint-detail .patient-docs h1 {
+    font-size: 16px;
+}
