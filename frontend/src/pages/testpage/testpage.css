@@ -1,0 +1,21 @@
+.test .components {
+    display: flex;
+    gap: 50px;
+}
+
+.test .col {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.test .row {
+    display: flex;
+    gap: 30px;
+}
+
+.test .logos .logo {
+    width: 150px;
+}

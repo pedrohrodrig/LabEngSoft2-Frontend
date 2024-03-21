@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import UserPhoto from "../../components/userphoto/userphoto";
 import Icon from "../../components/icon/icon";
 
+import UserContext from "../../contexts/UserContext";
 import "./profile.css"
 
-function Profile({ className, info }) {
+function Profile({ className, name, info, edit, to }) {
     const classes = info ?  `profile-cont info ${className}` : `profile-cont ${className}`;
+    const { user } = useContext(UserContext);
 
     return (
         <div className={classes}>
-            <Icon iconType="chevron-left" />
+            <Icon iconType="chevron-left" to={to} />
             <UserPhoto className="grad" />
 
-            <div className="content">
+            <div className="info">
                 <div className="name">
-                    <h1>Lucas Garieri</h1>
-                    <Icon iconType="edit" />
+                    <h1>{name}</h1>
+                    { edit && <Icon className="edit-icon" iconType="edit" /> }
                 </div>
 
                 <div className="info-cont">
-                    <p>100 reais fdc</p>
+                    <p>{info}</p>
                 </div>
             </div>
         </div>

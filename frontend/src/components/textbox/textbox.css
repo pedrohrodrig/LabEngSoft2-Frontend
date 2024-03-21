@@ -11,11 +11,11 @@
 }
 
 .textbox h1 {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .textbox p {
-    font-size: 18px;
+    font-size: 14px;
     color: var(--dark-gray);
     line-height: 150%;
 }
