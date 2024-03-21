@@ -17,8 +17,9 @@ import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
 import ServicesPage from "./pages/patient/servicesPage/servicesPage";
 import ProfessionalListPage from "./pages/patient/professionalListPage/professionalListPage";
-import PatientAppointmentsHistoryPage from "./pages/patient/appointmentsHistoryPage/appointmentsHistoryPage";
+import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistoryPage";
 import SignUpPage from "./pages/signUpPage/signUpPage";
+import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
 
 import TestPage from './pages/testpage/testpage';
 
@@ -44,9 +45,12 @@ function App() {
                         <Route path="doc" element={<DocDetailPage />} />
                         <Route path="appoint" element={<AppointDetailPage />} />
 
+                        {/* Patient URLs */}
                         <Route path="services" element={<ServicesPage />} />
                         <Route path="professionals" element={<ProfessionalListPage />} />
-                        <Route path="patient/history" element={<PatientAppointmentsHistoryPage />} />
+                        <Route path="history" element={<PatientHistoryPage />} />
+                        <Route path="patient-appointment" element={<PatientHistoryDetailPage />} />
+
                         <Route path="signup" element={<SignUpPage/>} />
 
                         <Route path="test" element={<TestPage />} />
@@ -57,5 +61,4 @@ function App() {
         </UserContext.Provider>
     );
 }
-
 export default App;
