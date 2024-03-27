@@ -19,7 +19,7 @@ function Navbar({ className }) {
                 <UserPhoto name="Lucas Garieri" />
                 <Tabs
                     labels={["Overview", "Serviços", "Agenda", "Histórico"]}
-                    to={["/overview", "/services", "", "/history"]}
+                    to={["/overview", "/services", "/schedule", "/history"]}
                 />
             </div>
 
