@@ -25,6 +25,7 @@ import SchedulePage from "./pages/schedulepage/schedulepage";
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
+import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
                         <Route path="professionals" element={<ProfessionalListPage />} />
                         <Route path="history" element={<PatientHistoryPage />} />
                         <Route path="patient-appointment" element={<PatientHistoryDetailPage />} />
+                        <Route path="patient-home" element={<PatientHomePage />} />
 
                         <Route path="signup" element={<SignUpPage />} />
 

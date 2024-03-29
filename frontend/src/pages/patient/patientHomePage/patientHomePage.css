@@ -1,0 +1,21 @@
+.home {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* Divide a página em duas linhas de altura igual */
+    gap: 20px;
+    /* Espaçamento entre as linhas */
+}
+
+.first-row {
+    display: flex;
+    justify-content: center;
+    /* Centraliza o card na linha */
+}
+
+.second-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Divide a segunda linha em três colunas de largura igual */
+    gap: 20px;
+    /* Espaçamento entre os cards na segunda linha */
+}
