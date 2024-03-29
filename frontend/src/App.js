@@ -26,6 +26,9 @@ import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
 import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
+import TrainingPage from "./pages/patient/patientTrainingPage/patientTrainingPage";
+import DietPage from "./pages/patient/patientDietPage/patientDietPage";
+import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
 
 
 function App() {
@@ -55,6 +58,9 @@ function App() {
                         <Route path="history" element={<PatientHistoryPage />} />
                         <Route path="patient-appointment" element={<PatientHistoryDetailPage />} />
                         <Route path="patient-home" element={<PatientHomePage />} />
+                        <Route path="patient-training" element={<TrainingPage />} />
+                        <Route path="patient-diet" element={<DietPage />} />
+                        <Route path="patient-medical-registers" element={<MedicalPage />} />
 
                         <Route path="signup" element={<SignUpPage />} />
 

@@ -1,9 +1,6 @@
 import React from "react";
 import GeneralInfo from "../../../components/generalinfo/generalinfo";
 import Card from "../../../components/card/card";
-import Dieta from "../../../assets/dieta.png"
-import Workout from "../../../assets/workout.png"
-import Document from "../../../assets/document.png"
 
 import "./patientHomePage.css"
 
@@ -20,13 +17,19 @@ function PatientHomePage() {
             </div>
             <div className="second-row">
                 <Card
+                    clickable={true}
                     title={'Dietas'}
+                    to={"/patient-diet"}
                 />
                 <Card
+                    clickable={true}
                     title={'Treinamentos'}
+                    to={"/patient-training"}
                 />
                 <Card
+                    clickable={true}
                     title={'Registros médicos'}
+                    to={"/patient-medical-registers"}
                 />
             </div>
 
