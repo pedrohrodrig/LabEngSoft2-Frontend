@@ -29,6 +29,7 @@ import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
 import TrainingPage from "./pages/patient/patientTrainingPage/patientTrainingPage";
 import DietPage from "./pages/patient/patientDietPage/patientDietPage";
 import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
+import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
                         <Route path="patient-training" element={<TrainingPage />} />
                         <Route path="patient-diet" element={<DietPage />} />
                         <Route path="patient-medical-registers" element={<MedicalPage />} />
+                        <Route path="rent-service" element={<RentService />} />
 
                         <Route path="signup" element={<SignUpPage />} />
 
