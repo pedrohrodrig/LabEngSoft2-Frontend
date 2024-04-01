@@ -30,6 +30,7 @@ import NutriPatientsPage from "./pages/nutritionist/nutripatientspage/nutripatie
 import NutriPaymentsPage from "./pages/nutritionist/nutripaymentspage/nutripaymentspage";
 import NutriProfileEditPage from "./pages/nutritionist/nutriprofileeditpage/nutriprofileeditpage";
 import NutriProfilePage from "./pages/nutritionist/nutriprofilepage.js/nutriprofilepage";
+import NutriSchedulePage from "./pages/nutritionist/nutrischedulepage.js/nutrischedulepage";
 
 import TestPage from './pages/testpage/testpage';
 
@@ -69,6 +70,7 @@ function App() {
                         <Route path="nutritionist/payments" element={<NutriPaymentsPage/>} />
                         <Route path="nutritionist/profile/edit" element={<NutriProfileEditPage/>} />
                         <Route path="nutritionist/profile" element={<NutriProfilePage/>} />
+                        <Route path="nutritionist/schedule" element={<NutriSchedulePage/>} />
 
                         <Route path="test" element={<TestPage />} />
 
