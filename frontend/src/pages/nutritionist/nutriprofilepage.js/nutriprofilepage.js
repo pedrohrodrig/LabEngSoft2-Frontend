@@ -15,7 +15,7 @@ function NutriProfilePage() {
           name={user.name}
           info={`R$${user.price} p/ consulta`}
           edit={true}
-          to="/overview"
+          to="/nutritionist"
         />
       </div>
 

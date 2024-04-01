@@ -14,14 +14,14 @@ function AppointmentList({ className, appointments, small }) {
                 {
                     while (i < n) {
                         return (
-                            <HorizontalCard
-                                title={obj.patient}
-                                image={obj.photo}
-                                col1={!small && obj.timestamp}
-                                col2={!small && obj.status}
-                                to="/appoint"
-                                key={i}
-                            />
+                          <HorizontalCard
+                            title={obj.patient}
+                            image={obj.photo}
+                            col1={!small && obj.timestamp}
+                            col2={!small && obj.status}
+                            to="/nutritionist/appoint"
+                            key={i}
+                          />
                         );
                     }
                 })

@@ -20,13 +20,13 @@ function NutriOverviewPage() {
           number="40"
           text="Pacientes"
           iconType="user"
-          to="/patients"
+          to="/nutritionist/patients"
         />
         <BigNumber
           number="R$200"
           text="Renda Mensal"
           iconType="dollar"
-          to="/payments"
+          to="/nutritionist/payments"
         />
       </div>
 

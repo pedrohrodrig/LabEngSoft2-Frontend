@@ -33,7 +33,7 @@ function NutriAppointDetailPage() {
                   className="small"
                   image={user.photo}
                   title={user.name}
-                  to="/patient/profile"
+                  to="/nutritionist/patient/profile"
                 />
               </div>
 
@@ -50,7 +50,7 @@ function NutriAppointDetailPage() {
                   className="small"
                   image={user.photo}
                   title={user.name}
-                  to="/profile"
+                  to="/nutritionist/profile"
                 />
               </div>
 
@@ -80,6 +80,7 @@ function NutriAppointDetailPage() {
               icon="left"
               iconType="clipboard"
               onClick={() => setAvaliation(true)}
+              to="/nutritionist/evaluation"
             />
             <Button
               className="black medium outline"

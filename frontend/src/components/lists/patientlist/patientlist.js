@@ -14,15 +14,15 @@ function PatientList({ className, patients, small }) {
                 {
                     while (i < n) {
                         return (
-                            <HorizontalCard
-                                title={`${obj.name}`}
-                                body={!small && `Idade ${obj.age}`}
-                                image={obj.photo}
-                                col1={!small && obj.phone}
-                                col2={!small && obj.email}
-                                to="/patient/profile"
-                                key={i}
-                            />
+                          <HorizontalCard
+                            title={`${obj.name}`}
+                            body={!small && `Idade ${obj.age}`}
+                            image={obj.photo}
+                            col1={!small && obj.phone}
+                            col2={!small && obj.email}
+                            to="/nutritionist/patient/profile"
+                            key={i}
+                          />
                         );
                     }
                 })
