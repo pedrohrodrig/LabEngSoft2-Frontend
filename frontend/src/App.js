@@ -63,7 +63,7 @@ function App() {
                         <Route path="nutritionist/evaluation" element={<NutriEvaluationPage/>} />
                         <Route path="nutritionist/evolution/edit" element={<NutriEvolutionEditPage/>} />
                         <Route path="nutritionist/evolution" element={<NutriEvolutionPage/>} />
-                        <Route path="nutritionist/overview" element={<NutriOverviewPage/>} />
+                        <Route path="nutritionist/" element={<NutriOverviewPage/>} />
                         <Route path="nutritionist/patient/profile" element={<NutriPatientProfilePage/>} />
                         <Route path="nutritionist/patients" element={<NutriPatientsPage/>} />
                         <Route path="nutritionist/payments" element={<NutriPaymentsPage/>} />
