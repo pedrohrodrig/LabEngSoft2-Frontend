@@ -4,6 +4,7 @@ import { professional } from "./objects/profile";
 import { NotificationContainer } from "react-notifications";
 import UserContext from "./contexts/UserContext";
 
+import HomePage from './pages/home/homepage';
 import OverviewPage from './pages/general/overviewpage/overviewpage';
 import PatientsPage from './pages/general/patientspage/patientspage';
 import AppointmentsPage from './pages/general/appointmentspage/appointmentspage';
@@ -12,7 +13,7 @@ import ProfilePage from './pages/general/profilepage/profilepage';
 import ProfileEditPage from "./pages/general/profileeditpage/profileeditpage";
 import DocumentsPage from "./pages/general/documentspage/documentspage";
 import SchedulePage from "./pages/general/schedulepage/schedulepage";
-import HomePage from "./pages/home/homepage";
+import AppointDetailPage from './pages/general/appointdetailpage/appointdetailpage';
 
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
@@ -29,7 +30,6 @@ import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistor
 import SignUpPage from "./pages/signUpPage/signUpPage";
 import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
 import PatientSchedulePage from "./pages/patient/patientSchedulePage/patientSchedulePage";
-import AppointDetailPage from "./pages/general/appointdetailpage/appointdetailpage";
 
 import LoginPage from "./pages/login/LoginPage/LoginPage";
 import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
@@ -55,14 +55,6 @@ import LayoutPage from './pages/layoutpage/layoutpage';
 
 import "react-notifications/lib/notifications.css"
 import "./App.css";
-import DoctorOverviewPage from "./doctor/doctoroverviewpage/doctoroverviewpage";
-import DoctorPatientListPage from "./doctor/doctorpatientlistpage/doctorpatientlistpage";
-import DoctorPatientProfilePage from "./doctor/doctorpatientprofilepage/doctorpatientprofilepage";
-import DoctorSchedulePage from "./doctor/doctorschedulepage/doctorschedulepage";
-import DoctorProfilePage from "./doctor/doctorprofilepage/doctorprofilepage";
-import DoctorPaymentsPage from "./doctor/doctorpaymentspage/doctorpaymentspage";
-import DoctorAppointmentsPage from "./doctor/doctorappointmentspage/doctorappointmentspage";
-
 
 function App() {
     const [user, setUser] = useState(professional);
@@ -133,7 +125,7 @@ function App() {
                 <Route path="evaluation" element={<DoctorEvaluationPage />} />
                 <Route path="appointment" element={<DoctorAppointDetailPage />} />
             </Route>
-          </Routes >
+          </Routes>
         </BrowserRouter>
       </UserContext.Provider>
     );
