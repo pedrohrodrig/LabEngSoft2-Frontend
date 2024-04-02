@@ -12,9 +12,7 @@ function DoctorProfilePage() {
     return (
         <div className="profile page">
             <div className="header">
-
                 <Profile name={user.name} info={`R$${user.price} p/ consulta`} edit={true} to="/doctor-home" />
-
             </div>
 
             <div className="content">
