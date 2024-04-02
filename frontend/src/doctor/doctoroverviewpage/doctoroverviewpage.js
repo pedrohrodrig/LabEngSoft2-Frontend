@@ -15,7 +15,7 @@ function DoctorOverviewPage() {
   return (
     <div className="overview page">
       <div className="bignumbers">
-        <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
+        <BigNumber number="1k" text="Consultas" iconType="activity" to="/doctor-appointments" />
         <BigNumber
           number="40"
           text="Pacientes"
@@ -26,7 +26,7 @@ function DoctorOverviewPage() {
           number="R$200"
           text="Renda Mensal"
           iconType="dollar"
-          to="/payments"
+          to="/doctor-payments"
         />
       </div>
 
