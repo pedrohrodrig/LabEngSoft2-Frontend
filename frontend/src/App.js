@@ -59,6 +59,9 @@ import DoctorOverviewPage from "./doctor/doctoroverviewpage/doctoroverviewpage";
 import DoctorPatientListPage from "./doctor/doctorpatientlistpage/doctorpatientlistpage";
 import DoctorPatientProfilePage from "./doctor/doctorpatientprofilepage/doctorpatientprofilepage";
 import DoctorSchedulePage from "./doctor/doctorschedulepage/doctorschedulepage";
+import DoctorProfilePage from "./doctor/doctorprofilepage/doctorprofilepage";
+import DoctorPaymentsPage from "./doctor/doctorpaymentspage/doctorpaymentspage";
+import DoctorAppointmentsPage from "./doctor/doctorappointmentspage/doctorappointmentspage";
 
 function App() {
     const [user, setUser] = useState(professional);
