@@ -1,0 +1,18 @@
+.payment-list .list {
+    padding: 50px 50px;
+    height: 80vh;
+    overflow: scroll;
+}
+
+.payment-list .list::-webkit-scrollbar {
+    display: none;
+}
+
+.payment-list .list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.payment-list .list .card {
+    margin: 30px 0;
+}
