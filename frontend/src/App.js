@@ -53,6 +53,10 @@ import LayoutPage from './pages/layoutpage/layoutpage';
 
 import "react-notifications/lib/notifications.css"
 import "./App.css";
+import DoctorOverviewPage from "./doctor/doctoroverviewpage/doctoroverviewpage";
+import DoctorPatientListPage from "./doctor/doctorpatientlistpage/doctorpatientlistpage";
+import DoctorPatientProfilePage from "./doctor/doctorpatientprofilepage/doctorpatientprofilepage";
+import DoctorSchedulePage from "./doctor/doctorschedulepage/doctorschedulepage";
 
 function App() {
     const [user, setUser] = useState(professional);
