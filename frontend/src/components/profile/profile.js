@@ -5,7 +5,7 @@ import Icon from "../../components/icon/icon";
 import UserContext from "../../contexts/UserContext";
 import "./profile.css"
 
-function Profile({ className, name, info, edit, to }) {
+function Profile({ className, name, info, edit, to, back }) {
     const classes = info ?  `profile-cont info ${className}` : `profile-cont ${className}`;
     const { user } = useContext(UserContext);
 
@@ -17,7 +17,7 @@ function Profile({ className, name, info, edit, to }) {
             <div className="info">
                 <div className="name">
                     <h1>{name}</h1>
-                    { edit && <Icon className="edit-icon" iconType="edit" /> }
+                    { edit && <Icon className="edit-icon" iconType="edit" to={back} /> }
                 </div>
 
                 <div className="info-cont">
