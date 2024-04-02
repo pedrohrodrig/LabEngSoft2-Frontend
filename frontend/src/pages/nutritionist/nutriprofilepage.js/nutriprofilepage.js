@@ -16,6 +16,7 @@ function NutriProfilePage() {
           info={`R$${user.price} p/ consulta`}
           edit={true}
           to="/nutritionist"
+          back="/nutritionist/profile/edit"
         />
       </div>
 
@@ -40,15 +41,6 @@ function NutriProfilePage() {
           />
           <Textbox title="Endereço" body={user.address} />
           <Textbox title="Biografia" body={user.bio} />
-        </div>
-
-        <div className="extra">
-          <div className="doc-header">
-            <h1>Atendimento</h1>
-            {/* <Link to="/documents" >Ver Todos</Link> */}
-          </div>
-
-          <div className="calendar"></div>
         </div>
       </div>
     </div>
