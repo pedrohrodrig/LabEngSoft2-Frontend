@@ -4,12 +4,14 @@ import EventModal from "../../components/eventmodal/eventmodal";
 
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+
 import format from "date-fns/format";
 import { parse } from "date-fns";
 import { startOfWeek } from "date-fns";
 import getDay from "date-fns/getDay";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 import axios from "axios";
@@ -17,6 +19,7 @@ import axios from "axios";
 import "./doctorschedulepage.css";
 
 const DragAndDropCalendar = withDragAndDrop(Calendar);
+
 
 const locales = {
   "pt-BR": ptBR,
