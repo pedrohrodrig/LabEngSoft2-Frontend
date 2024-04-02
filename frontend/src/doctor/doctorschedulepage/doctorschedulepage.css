@@ -1,0 +1,15 @@
+.schedule .content {
+    display: flex;
+    height: 100%;
+    gap: 30px;
+}
+
+.schedule .calendar-back {
+    display: flex;
+    background-color: var(--light-gray);
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
+}
