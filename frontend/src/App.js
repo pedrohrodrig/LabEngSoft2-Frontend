@@ -12,6 +12,7 @@ import ProfilePage from './pages/general/profilepage/profilepage';
 import ProfileEditPage from "./pages/general/profileeditpage/profileeditpage";
 import DocumentsPage from "./pages/general/documentspage/documentspage";
 import SchedulePage from "./pages/general/schedulepage/schedulepage";
+import HomePage from "./pages/home/homepage";
 
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
@@ -28,6 +29,7 @@ import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistor
 import SignUpPage from "./pages/signUpPage/signUpPage";
 import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
 import PatientSchedulePage from "./pages/patient/patientSchedulePage/patientSchedulePage";
+import AppointDetailPage from "./pages/general/appointdetailpage/appointdetailpage";
 
 import LoginPage from "./pages/login/LoginPage/LoginPage";
 import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
@@ -53,10 +55,6 @@ import LayoutPage from './pages/layoutpage/layoutpage';
 
 import "react-notifications/lib/notifications.css"
 import "./App.css";
-import DoctorOverviewPage from "./doctor/doctoroverviewpage/doctoroverviewpage";
-import DoctorPatientListPage from "./doctor/doctorpatientlistpage/doctorpatientlistpage";
-import DoctorPatientProfilePage from "./doctor/doctorpatientprofilepage/doctorpatientprofilepage";
-import DoctorSchedulePage from "./doctor/doctorschedulepage/doctorschedulepage";
 
 function App() {
     const [user, setUser] = useState(professional);
@@ -127,7 +125,7 @@ function App() {
                 <Route path="evaluation" element={<DoctorEvaluationPage />} />
                 <Route path="appointment" element={<DoctorAppointDetailPage />} />
             </Route>
-
+          </Routes >
         </BrowserRouter>
       </UserContext.Provider>
     );
