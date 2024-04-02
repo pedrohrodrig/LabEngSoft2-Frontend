@@ -5,6 +5,7 @@ import Title from "../../components/title/title";
 import PaymentList from "../../components/lists/paymentlist/paymentlist";
 import paymentsList from "../../objects/payments";
 
+
 function DoctorPaymentsPage() {
   return (
     <div className="payment-list page">
