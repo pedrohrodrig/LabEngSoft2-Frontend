@@ -104,8 +104,9 @@ function DoctorOverviewPage() {
     <div className="overview page">
       <div className="bignumbers">
         <BigNumber number={appointments.length} text="Consultas" iconType="activity" to="/doctor-appointments" />
+        <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
         <BigNumber
-          number={patients.length}
+          number="40"
           text="Pacientes"
           iconType="user"
           to="/doctor-patients"
