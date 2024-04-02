@@ -59,7 +59,6 @@ function DoctorAppointmentsPage() {
                 head="Histórico de Consultas"
                 body="Veja o histórico de todas as suas consultas marcadas"
             />
-
             <AppointmentList appointments={appointments} to={"/doctor-appointments-detail?"} />
         </div>
     );
