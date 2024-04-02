@@ -80,7 +80,6 @@ function NutriAppointDetailPage() {
               icon="left"
               iconType="clipboard"
               onClick={() => setAvaliation(true)}
-              to="/nutritionist/evaluation"
             />
             <Button
               className="black medium outline"
@@ -109,7 +108,8 @@ function NutriAppointDetailPage() {
         closePopup={() => setAvaliation(false)}
         head="Avaliação"
         body="Selecione o tipo de documento:"
-        buttons={["Avaliação", "Treinamento"]}
+        buttons={["Avaliação", "Dieta"]}
+        paths={["/nutritionist/evaluation", "/nutritionist/diet"]}
         iconType="clipboard"
       />
 
