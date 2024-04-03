@@ -16,3 +16,14 @@
 .payment-list .list .card {
     margin: 30px 0;
 }
+
+.payment-list .payment {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 80px);
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 15px;
+    box-sizing: border-box;
+    gap: 0;
+}
