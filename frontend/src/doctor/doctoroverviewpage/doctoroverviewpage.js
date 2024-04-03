@@ -106,7 +106,7 @@ function DoctorOverviewPage() {
         <BigNumber number={appointments.length} text="Consultas" iconType="activity" to="/doctor-appointments" />
         <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
         <BigNumber
-          number="40"
+          number={patients.length}
           text="Pacientes"
           iconType="user"
           to="/doctor-patients"
