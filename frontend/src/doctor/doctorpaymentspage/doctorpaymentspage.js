@@ -10,7 +10,6 @@ function DoctorPaymentsPage() {
     <div className="payment-list page">
       <Title head="Pagamentos" body="Veja o histórico de recebimento mensal" />
       <div className="payment">
-        <h1 className="payments-title">Pagamentos</h1>
         <PaymentList payments={paymentsList} />
       </div>
     </div>
