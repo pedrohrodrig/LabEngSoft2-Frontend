@@ -35,6 +35,7 @@ function DoctorOverviewPage() {
       </div>
 
       <div className="appoint">
+        <h1 className="appoint-title">Consultas Hoje</h1>
         <AppointmentList appointments={appointments} />
       </div>
     </div>

@@ -21,3 +21,8 @@
     box-sizing: border-box;
     gap: 0;
 }
+
+.overview .appoint .appoint-title {
+    font-size: 20px;
+    padding: 0 30px;
+}
