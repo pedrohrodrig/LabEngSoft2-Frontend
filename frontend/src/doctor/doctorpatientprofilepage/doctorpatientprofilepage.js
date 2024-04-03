@@ -14,7 +14,7 @@ function DoctorPatientProfilePage() {
   return (
     <div className="patient-profile page">
       <div className="header">
-        <Profile name={patient.name} info={false} to="/nutritionist/patients" />
+        <Profile name={patient.name} info={false} to="/doctor-patients" />
       </div>
 
       <div className="content">
