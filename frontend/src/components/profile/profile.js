@@ -7,7 +7,7 @@ import PathContext from "../../contexts/PathContext";
 
 import "./profile.css"
 
-function Profile({ className, name, info, edit, to }) {
+function Profile({ className, name, info, edit, to, photo }) {
     const classes = info ?  `profile-cont info ${className}` : `profile-cont ${className}`;
     const { user } = useContext(UserContext);
     const { paths } = useContext(PathContext);
@@ -15,7 +15,7 @@ function Profile({ className, name, info, edit, to }) {
     return (
         <div className={classes}>
             <Icon iconType="chevron-left" to={to} />
-            <UserPhoto className="grad" />
+            <UserPhoto className="grad" photo={photo} />
 
             <div className="info">
                 <div className="name">
