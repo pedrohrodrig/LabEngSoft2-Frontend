@@ -19,7 +19,7 @@ function DoctorAppointmentsPage() {
                 body="Veja o histórico de todas as susas consultas marcadas"
             />
 
-            <AppointmentList appointments={appointments} />
+            <AppointmentList appointments={appointments} to={"/doctor-appointments-detail?"} />
         </div>
     );
 }
