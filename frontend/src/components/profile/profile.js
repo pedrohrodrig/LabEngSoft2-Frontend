@@ -15,7 +15,7 @@ function Profile({ className, name, info, edit, to, photo }) {
     return (
         <div className={classes}>
             <Icon iconType="chevron-left" to={to} />
-            <UserPhoto className="grad" photo={user.photo} />
+            <UserPhoto className="grad" photo={photo} />
 
             <div className="info">
                 <div className="name">
