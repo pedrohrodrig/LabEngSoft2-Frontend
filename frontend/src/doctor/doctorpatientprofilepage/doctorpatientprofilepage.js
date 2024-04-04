@@ -12,6 +12,7 @@ import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import Title from "../../components/title/title";
 
+
 function DoctorPatientProfilePage() {
   const { user } = useContext(UserContext);
   const [patient, setPatient] = useState([]);
