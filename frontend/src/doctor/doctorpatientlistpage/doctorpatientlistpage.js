@@ -19,7 +19,7 @@ function DoctorPatientListPage() {
         body="Confira os pacientes que se consultam com você"
       />
 
-      <PatientList patients={patients} to={"/doctor-patient-profile"}/>
+      <PatientList patients={patients} to={"/doctor-patient-profile?"}/>
     </div>
   );
 }

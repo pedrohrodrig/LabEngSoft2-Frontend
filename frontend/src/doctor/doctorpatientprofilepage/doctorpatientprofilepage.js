@@ -8,13 +8,17 @@ import Textbox from "../../components/textbox/textbox";
 import DocumentList from "../../components/lists/documentlist/documentlist";
 import documentList from "../../objects/documents";
 
+import { useLocation } from 'react-router-dom';
+
 function DoctorPatientProfilePage() {
-  const patient = patientList[0];
+  const location = useLocation();
+  const number = location.search[1];
+  const patient = patientList[number];
 
   return (
     <div className="patient-profile page">
       <div className="header">
-        <Profile name={patient.name} info={false} to="/doctor-patients" />
+        <Profile name={patient.name} info={false} to="/doctor-patients" photo={patient.photo}/>
       </div>
 
       <div className="content">
