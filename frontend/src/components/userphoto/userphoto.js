@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import UserImage from "../../assets/user.jpeg"
 
 import "./userphoto.css";
 
-function UserPhoto({ className, name, to }) {
+function UserPhoto({ className, name, to, photo }) {
     const classes = name ? `user name ${className}` : `user ${className}`;
 
     return (
         <div className={classes}>
             <Link className={!to && "disabled-link"} to={to}>
-                <img src={UserImage} alt="user" />
-                <h1>Lucas Garieri</h1>
+                <img src={photo} alt="user" />
+                <h1>{name}</h1>
             </Link>
         </div>
     );
