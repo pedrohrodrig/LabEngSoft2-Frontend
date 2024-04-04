@@ -14,14 +14,12 @@ import Popup from "../../components/popup/popup";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
 
-
 function DoctorAppointDetailPage() {
     const { user } = useContext(UserContext);
     const [ avaliation, setAvaliation ] = useState(false);
     const [ cancelation, setCancelation ] = useState(false);
     const [ appointment, setAppointment ] = useState();
     const location = useLocation();
-
     const number = location.search.split('?')[1];
 
     const formatDate = (date) => {
