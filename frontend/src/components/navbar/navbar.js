@@ -1,7 +1,7 @@
+import Button from "../button/button";
 import React from "react";
 import Logo from "../logo/logo";
 import UserPhoto from "../userphoto/userphoto";
-import Button from "../button/button";
 import Tabs from "../tabs/tabs";
 
 import "./navbar.css";
@@ -18,11 +18,10 @@ function Navbar({ className }) {
             <div className="content">
                 <UserPhoto name="Lucas Garieri" to="/profile" />
                 <Tabs
-                    labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/overview", "/patients", "", "/appointments"]}
+                    labels={["Overview", "Agenda", "Histórico"]} // Atualizado
+                    to={["/overview", "/appointments", "/history"]} // Atualizado
                 />
             </div>
-
 
             <div className="footer">
                 <Button

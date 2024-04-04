@@ -15,13 +15,14 @@ import ProfilePage from './pages/personal/profilepage/profilepage';
 import DocumentsPage from "./pages/personal/documentspage/documentspage";
 import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
+import HistoryPage from './pages/personal/historypage/historypage';
 
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
 
 function App() {
-    const [ user, setUser ] = useState(professional);
+    const [user, setUser] = useState(professional);
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
@@ -29,7 +30,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LayoutPage />}>
 
-                        <Route index element={<HomePage />} />
+                        <Route index element={<OverviewPage />} />
                         <Route path="overview" element={<OverviewPage />} />
                         <Route path="patients" element={<PatientsPage />} />
                         <Route path="appointments" element={<AppointmentsPage />} />
@@ -39,7 +40,7 @@ function App() {
                         <Route path="documents" element={<DocumentsPage />} />
                         <Route path="doc" element={<DocDetailPage />} />
                         <Route path="appoint" element={<AppointDetailPage />} />
-
+                        <Route path="history" element={<HistoryPage />} />
 
                         <Route path="test" element={<TestPage />} />
 
