@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from "react";
 import { format, parseISO } from 'date-fns';
 
@@ -79,6 +80,7 @@ function DoctorAppointDetailPage() {
                             <div className="cardbox">
                                 <Textbox title="Paciente" />
                                 <HorizontalCard className="small" image={appointment.photo} title={appointment.patient} to={`/doctor-patient-profile`}  />
+
                             </div>
 
                             <Textbox className="horizontal" title="Status" body={appointment.status} />
