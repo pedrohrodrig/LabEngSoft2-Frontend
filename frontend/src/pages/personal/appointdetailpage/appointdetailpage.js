@@ -1,21 +1,63 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Title from "../../../components/title/title";
 import Textbox from "../../../components/textbox/textbox";
-import HorizontalCard from "../../../components/horizontalcard/horizontalcard";
-import DocumentList from "../../../components/lists/documentlist/documentlist";
 import Button from "../../../components/button/button";
 import Popup from "../../../components/popup/popup";
-
-import documentList from "../../../objects/documents";
-import appointmentList from "../../../objects/appointments";
+import { useParams } from "react-router-dom";
 import UserContext from "../../../contexts/UserContext";
 import "./appointdetailpage.css";
 
-function AppointDetailPage() {
+function AppointDetailPage({ match }) { // Assume que você está usando react-router-dom para obter o ID da consulta da URL
     const { user } = useContext(UserContext);
-    const [ avaliation, setAvaliation ] = useState(false);
-    const [ cancelation, setCancelation ] = useState(false);
-    const appointment = appointmentList[0];
+    const { id } = useParams(); // Isso captura o 'id' da URL
+    const [appointment, setAppointment] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
+    const consultationId = match.params.id; // Obtém o ID da consulta da URL
+
+    useEffect(() => {
+        const fetchConsultationDetails = async () => {
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/api/consultations/${id}`);
+                const data = await response.json();
+                setAppointment(data);
+            } catch (error) {
+                console.error("Erro ao buscar os detalhes da consulta:", error);
+            }
+        };
+
+
+        if (id) {
+            fetchConsultationDetails();
+        }
+
+    }, [id]); // Dependência para re-fetch caso o 'id' mude
+
+    // Verifica se o appointment foi carregado antes de tentar acessar suas propriedades
+    if (!appointment) {
+        return <div>Carregando detalhes da consulta...</div>;
+    }
+
+    // Lógica para lidar com a ação do botão com base no status da consulta
+    const handleActionButtonClick = () => {
+        // Implemente a lógica para alterar o status da consulta no backend
+        console.log("Ação do botão executada");
+    };
+
+    // Função para determinar o texto do botão com base no status da consulta
+    const getActionButtonText = (status) => {
+        switch (status) {
+            case "Requested":
+                return "Aceitar Consulta";
+            case "Awaiting Payment":
+                return "Confirmar Pagamento";
+            default:
+                return "Ação";
+        }
+    };
+
+    if (!appointment) {
+        return <div>Carregando...</div>;
+    }
 
     return (
         <div className="appoint-detail page">
@@ -24,60 +66,27 @@ function AppointDetailPage() {
             </div>
 
             <div className="content">
-                <div className="profile-text">
-                    <div className="grid">
-                        <div className="col">
-                            <div className="cardbox">
-                                <Textbox title="Paciente" />
-                                <HorizontalCard className="small" image={user.photo} title={user.name} to="/patient/profile" />
-                            </div>
+                <Textbox title="Status" body={appointment.status} />
+                <Textbox title="Horário" body={new Date(appointment.scheduled_time).toLocaleString()} />
+                {/* Adicione mais campos conforme necessário */}
 
-                            <Textbox className="horizontal" title="Status" body={appointment.status} />
-                        </div>
-                        <div className="col">
-                            <div className="cardbox">
-                                <Textbox title="Profissional" />
-                                <HorizontalCard className="small" image={user.photo} title={user.name} to="/profile" />
-                            </div>
-
-                            <Textbox className="horizontal" title="Tipo" body={appointment.type} />
-                        </div>
-                    </div>
-
-                    <Textbox className="horizontal" title="Horário" body={appointment.timestamp} />
-                    <Textbox className="horizontal" title="Endereço" body={appointment.address} />
-
-                    <div className="appoint-but">
-                        <Button className="grad medium" text="Avaliar" icon="left" iconType="clipboard" onClick={() => setAvaliation(true)} />
-                        <Button className="black medium outline" text="Cancelar" icon="left" iconType="x" onClick={() => setCancelation(true)} />
-                    </div>
-
-                </div>
-
-                <div className="extra">
-                    <div className="doc-header">
-                        <h1>Documentos</h1>
-                    </div>
-                    <DocumentList className="patient-docs" small={true} documents={documentList} />
+                <div className="appoint-but">
+                    <Button
+                        className="grad medium"
+                        text={getActionButtonText(appointment.status)}
+                        onClick={() => setShowPopup(true)}
+                    />
                 </div>
             </div>
 
+            {/* Popup de ação */}
             <Popup
-                isOpen={avaliation}
-                closePopup={() => setAvaliation(false)}
-                head="Avaliação"
-                body="Selecione o tipo de documento:"
-                buttons={["Avaliação", "Treinamento"]}
-                iconType="clipboard"
-            />
-
-            <Popup
-                isOpen={cancelation}
-                closePopup={() => setCancelation(false)}
-                head="Cancelamento"
-                body="Deseja mesmo cancelar essa consulta?"
-                buttons={["Manter", "Cancelar"]}
-                iconType="x"
+                isOpen={showPopup}
+                closePopup={() => setShowPopup(false)}
+                head={getActionButtonText(appointment.status)}
+                body={`Você deseja ${getActionButtonText(appointment.status).toLowerCase()} esta consulta?`}
+                buttons={["Cancelar", "Confirmar"]}
+                onConfirm={handleActionButtonClick}
             />
         </div>
     );

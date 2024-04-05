@@ -39,7 +39,7 @@ function App() {
                         <Route path="profile" element={<ProfilePage />} />
                         <Route path="documents" element={<DocumentsPage />} />
                         <Route path="doc" element={<DocDetailPage />} />
-                        <Route path="appoint" element={<AppointDetailPage />} />
+                        <Route path="/appoint/:id" element={<AppointDetailPage />} />
                         <Route path="history" element={<HistoryPage />} />
 
                         <Route path="test" element={<TestPage />} />
