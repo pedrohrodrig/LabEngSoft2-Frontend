@@ -4,11 +4,14 @@ import Textbox from "../../../components/textbox/textbox";
 import Button from "../../../components/button/button";
 
 import patientList from "../../../objects/patients";
+import evaluationList from "../../../objects/evaluation";
 
 import "./nutrievaluationpage.css";
 
 function NutriEvaluationPage() {
+
   const patient = patientList[0];
+  const evaluation = evaluationList[0];
 
   return (
     <div className="evaluation page">
@@ -84,42 +87,42 @@ function NutriEvaluationPage() {
             <Textbox
               className="horizontal"
               title="Restrição alimentar"
-              body={"Sim, vegetariano"}
+              body={evaluation.restrictions}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Ingestão de bebidas alcóolicas"
-              body={"Socialmente"}
+              body={evaluation.alcohol}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Fumante"
-              body={"Finais de semana"}
+              body={evaluation.smoker}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Refeições por delivery"
-              body={"Almoço e janta de fins de semana"}
+              body={evaluation.delivery}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Hábitos de compras"
-              body={"Feira e atacado"}
+              body={evaluation.shopping}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Moradia"
-              body={"Dois amigos da faculdade"}
+              body={evaluation.living}
             />
           </div>
           <h2 className="subtitle">Histórico de Dieta</h2>
@@ -128,14 +131,14 @@ function NutriEvaluationPage() {
               <Textbox
                 className="horizontal"
                 title="Estratégias realizadas"
-                body={"Keto diet e corte de açúcar"}
+                body={evaluation.diets}
               />
             </div>
             <div className="col">
               <Textbox
                 className="horizontal"
                 title="Acompanhamento profissional?"
-                body={"Não"}
+                body={evaluation.previousprofessional}
               />
             </div>
           </div>
@@ -143,18 +146,14 @@ function NutriEvaluationPage() {
             <Textbox
               className="horizontal"
               title="Como foi o processo anterior"
-              body={
-                "Difícil pois foi uma mudança muito abrupta e não conseguiu manter a dieta, tendo muitas recaídas"
-              }
+              body={evaluation.previousprocess}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Houve perda de peso?"
-              body={
-                "Muita perda de peso no início mas com rápido ganho de peso"
-              }
+              body={evaluation.previousweightloss}
             />
           </div>
           <h2 className="subtitle">Hábitos de Sono</h2>
@@ -163,25 +162,29 @@ function NutriEvaluationPage() {
               <Textbox
                 className="horizontal"
                 title="Qualidade do sono"
-                body={"Dorme mal"}
+                body={evaluation.sleepquality}
               />
             </div>
             <div className="col">
               <Textbox
                 className="horizontal"
                 title="Horas de sono"
-                body={"5h-6h"}
+                body={evaluation.sleephours}
               />
             </div>
             <div className="col">
-              <Textbox className="horizontal" title="Dorme às" body={"00h"} />
+              <Textbox
+                className="horizontal"
+                title="Dorme às"
+                body={evaluation.sleeptime}
+              />
             </div>
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Observações"
-              body={"Tem apneia do sono mas nunca tratou"}
+              body={evaluation.sleepcomments}
             />
           </div>
           <h2 className="subtitle">Atividade Física</h2>
@@ -190,19 +193,23 @@ function NutriEvaluationPage() {
               <Textbox
                 className="horizontal"
                 title="Faz atividade física?"
-                body={"Sim"}
+                body={evaluation.activity}
               />
             </div>
             <div className="col">
               <Textbox
                 className="horizontal"
                 title="Frequência de atividade"
-                body={"30 minutos por dia"}
+                body={evaluation.activityfrequency}
               />
             </div>
           </div>
           <div className="grid">
-            <Textbox className="horizontal" title="Observações" body={"-"} />
+            <Textbox
+              className="horizontal"
+              title="Observações"
+              body={evaluation.activitycomment}
+            />
           </div>
           <h2 className="subtitle">Avaliação Clínica</h2>
           <div className="grid">
@@ -210,21 +217,21 @@ function NutriEvaluationPage() {
               <Textbox
                 className="horizontal"
                 title="Apetite"
-                body={"Aumentado"}
+                body={evaluation.appetite}
               />
             </div>
             <div className="col">
               <Textbox
                 className="horizontal"
                 title="Mastigação"
-                body={"Rápida"}
+                body={evaluation.chewing}
               />
             </div>
             <div className="col">
               <Textbox
                 className="horizontal"
                 title="Hábito intestinal"
-                body={"Variado"}
+                body={evaluation.intestine}
               />
             </div>
           </div>
@@ -232,14 +239,14 @@ function NutriEvaluationPage() {
             <Textbox
               className="horizontal"
               title="Informações sobre evacuação"
-              body={"-"}
+              body={evaluation.evacuation}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Informações sobre hábito urinário"
-              body={"-"}
+              body={evaluation.urination}
             />
           </div>
           <h2 className="subtitle">Hábitos Alimentares</h2>
@@ -247,45 +254,35 @@ function NutriEvaluationPage() {
             <Textbox
               className="horizontal"
               title="Suplementos alimentares"
-              body={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              body={evaluation.supplements}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Alergia alimentar"
-              body={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              body={evaluation.allergies}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Intolerâncias alimentares"
-              body={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              body={evaluation.intolerance}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Aversão alimentares"
-              body={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              body={evaluation.aversions}
             />
           </div>
           <div className="grid">
             <Textbox
               className="horizontal"
               title="Observações"
-              body={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              body={evaluation.comments}
             />
           </div>
         </div>
