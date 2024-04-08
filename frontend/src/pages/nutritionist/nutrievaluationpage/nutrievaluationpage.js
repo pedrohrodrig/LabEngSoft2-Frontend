@@ -23,6 +23,11 @@ function NutriEvaluationPage() {
         />
         <Button
           className="grad outline small"
+          text="Evolução"
+          to="/nutritionist/evolution"
+        />
+        <Button
+          className="grad outline small"
           text="Plano"
           to="/nutritionist/diet"
         />
