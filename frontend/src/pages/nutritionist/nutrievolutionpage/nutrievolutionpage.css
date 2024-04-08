@@ -1,0 +1,50 @@
+.evolution {
+    gap: 30px !important;
+}
+
+.evolution .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.evolution .button {
+    display: flex;
+    gap: 10px;
+}
+
+.evolution .content {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
+}
+
+.evolution::-webkit-scrollbar {
+    display: none;
+}
+
+.evolution .content {
+    scrollbar-width: none;
+}
+
+.evolution .content .evolution-text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.evolution .content .grid {
+    display: flex;
+    gap: 30px;
+    padding: 5px;
+}
+
+.evolution .content .col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
