@@ -4,16 +4,18 @@ import TextInput from "../../../components/textInput/textInput";
 import Button from "../../../components/button/button";
 
 import patientList from "../../../objects/patients";
+import evaluationList from "../../../objects/evaluation";
 
 import "./nutrievaluationeditpage.css";
 
 function NutriEvaluationEditPage() {
   const patient = patientList[0];
+  const evaluation = evaluationList[0];
 
   return (
-    <div className="evaluation page">
+    <div className="evaluation-edit page">
       <div className="header">
-        <Title head="Editar Avaliação Nutricional" />
+        <Title head=" Editar Avaliação Nutricional" />
       </div>
       <div className="button">
         <Button
@@ -69,42 +71,42 @@ function NutriEvaluationEditPage() {
             <TextInput
               className="horizontal"
               title="Restrição alimentar"
-              placeholder={"Sim, vegetariano"}
+              placeholder={evaluation.restrictions}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Ingestão de bebidas alcóolicas"
-              placeholder={"Socialmente"}
+              placeholder={evaluation.alcohol}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Fumante"
-              placeholder={"Finais de semana"}
+              placeholder={evaluation.smoker}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Refeições por delivery"
-              placeholder={"Almoço e janta de fins de semana"}
+              placeholder={evaluation.delivery}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Hábitos de compras"
-              placeholder={"Feira e atacado"}
+              placeholder={evaluation.shopping}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Moradia"
-              placeholder={"Dois amigos da faculdade"}
+              placeholder={evaluation.living}
             />
           </div>
           <h2 className="subtitle">Histórico de Dieta</h2>
@@ -113,14 +115,14 @@ function NutriEvaluationEditPage() {
               <TextInput
                 className="horizontal"
                 title="Estratégias realizadas"
-                placeholder={"Keto diet e corte de açúcar"}
+                placeholder={evaluation.diets}
               />
             </div>
             <div className="col">
               <TextInput
                 className="horizontal"
                 title="Acompanhamento profissional?"
-                placeholder={"Não"}
+                placeholder={evaluation.previousprofessional}
               />
             </div>
           </div>
@@ -128,18 +130,14 @@ function NutriEvaluationEditPage() {
             <TextInput
               className="horizontal"
               title="Como foi o processo anterior"
-              placeholder={
-                "Difícil pois foi uma mudança muito abrupta e não conseguiu manter a dieta, tendo muitas recaídas"
-              }
+              placeholder={evaluation.previousprocess}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Houve perda de peso?"
-              placeholder={
-                "Muita perda de peso no início mas com rápido ganho de peso"
-              }
+              placeholder={evaluation.previousweightloss}
             />
           </div>
           <h2 className="subtitle">Hábitos de Sono</h2>
@@ -148,25 +146,29 @@ function NutriEvaluationEditPage() {
               <TextInput
                 className="horizontal"
                 title="Qualidade do sono"
-                placeholder={"Dorme mal"}
+                placeholder={evaluation.sleepquality}
               />
             </div>
             <div className="col">
               <TextInput
                 className="horizontal"
                 title="Horas de sono"
-                placeholder={"5h-6h"}
+                placeholder={evaluation.sleephours}
               />
             </div>
             <div className="col">
-              <TextInput className="horizontal" title="Dorme às" placeholder={"00h"} />
+              <TextInput
+                className="horizontal"
+                title="Dorme às"
+                placeholder={evaluation.sleeptime}
+              />
             </div>
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Observações"
-              placeholder={"Tem apneia do sono mas nunca tratou"}
+              placeholder={evaluation.sleepcomments}
             />
           </div>
           <h2 className="subtitle">Atividade Física</h2>
@@ -175,19 +177,23 @@ function NutriEvaluationEditPage() {
               <TextInput
                 className="horizontal"
                 title="Faz atividade física?"
-                placeholder={"Sim"}
+                placeholder={evaluation.activity}
               />
             </div>
             <div className="col">
               <TextInput
                 className="horizontal"
                 title="Frequência de atividade"
-                placeholder={"30 minutos por dia"}
+                placeholder={evaluation.activityfrequency}
               />
             </div>
           </div>
           <div className="grid">
-            <TextInput className="horizontal" title="Observações" placeholder={"-"} />
+            <TextInput
+              className="horizontal"
+              title="Observações"
+              placeholder={evaluation.activitycomment}
+            />
           </div>
           <h2 className="subtitle">Avaliação Clínica</h2>
           <div className="grid">
@@ -195,21 +201,21 @@ function NutriEvaluationEditPage() {
               <TextInput
                 className="horizontal"
                 title="Apetite"
-                placeholder={"Aumentado"}
+                placeholder={evaluation.appetite}
               />
             </div>
             <div className="col">
               <TextInput
                 className="horizontal"
                 title="Mastigação"
-                placeholder={"Rápida"}
+                placeholder={evaluation.chewing}
               />
             </div>
             <div className="col">
               <TextInput
                 className="horizontal"
                 title="Hábito intestinal"
-                placeholder={"Variado"}
+                placeholder={evaluation.intestine}
               />
             </div>
           </div>
@@ -217,14 +223,14 @@ function NutriEvaluationEditPage() {
             <TextInput
               className="horizontal"
               title="Informações sobre evacuação"
-              placeholder={"-"}
+              placeholder={evaluation.evacuation}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Informações sobre hábito urinário"
-              placeholder={"-"}
+              placeholder={evaluation.urination}
             />
           </div>
           <h2 className="subtitle">Hábitos Alimentares</h2>
@@ -232,45 +238,35 @@ function NutriEvaluationEditPage() {
             <TextInput
               className="horizontal"
               title="Suplementos alimentares"
-              placeholder={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              placeholder={evaluation.supplements}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Alergia alimentar"
-              placeholder={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              placeholder={evaluation.allergies}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Intolerâncias alimentares"
-              placeholder={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              placeholder={evaluation.intolerance}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Aversão alimentares"
-              placeholder={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              placeholder={evaluation.aversions}
             />
           </div>
           <div className="grid">
             <TextInput
               className="horizontal"
               title="Observações"
-              placeholder={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              }
+              placeholder={evaluation.comments}
             />
           </div>
         </div>

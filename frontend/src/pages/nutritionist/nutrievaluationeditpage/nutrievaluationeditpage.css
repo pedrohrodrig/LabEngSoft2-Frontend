@@ -1,19 +1,19 @@
-.evaluation {
+.evaluation-edit {
     gap: 30px !important;
 }
 
-.evaluation .header {
+.evaluation-edit .header {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.evaluation .button {
+.evaluation-edit .button {
     display: flex;
     gap: 10px;
 }
 
-.evaluation .content {
+.evaluation-edit .content {
     overflow-y: scroll;
     width: 100%;
     height: 100%;
@@ -23,27 +23,27 @@
     box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
 }
 
-.evaluation::-webkit-scrollbar {
+.evaluation-edit::-webkit-scrollbar {
     display: none;
 }
 
-.evaluation .content {
+.evaluation-edit .content {
     scrollbar-width: none;
 }
 
-.evaluation .content .evaluation-text {
+.evaluation-edit .content .evaluation-text {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.evaluation .content .grid {
+.evaluation-edit .content .grid {
     display: flex;
     gap: 30px;
     padding: 5px;
 }
 
-.evaluation .content .col {
+.evaluation-edit .content .col {
     display: flex;
     flex-direction: column;
     gap: 30px;
