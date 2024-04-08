@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../../../components/title/title";
-import Textbox from "../../../components/textbox/textbox";
 import Button from "../../../components/button/button";
 import MealList from "../../../components/lists/meallist/meallist";
 
@@ -24,6 +23,11 @@ function NutriDietPage() {
           className="grad outline small"
           text="Avaliação"
           to="/nutritionist/evaluation"
+        />
+        <Button
+          className="grad outline small"
+          text="Evolução"
+          to="/nutritionist/evolution"
         />
         <Button
           className="grad small"
