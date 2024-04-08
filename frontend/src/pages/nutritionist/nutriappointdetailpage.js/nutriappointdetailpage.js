@@ -108,8 +108,12 @@ function NutriAppointDetailPage() {
         closePopup={() => setAvaliation(false)}
         head="Avaliação"
         body="Selecione o tipo de documento:"
-        buttons={["Avaliação", "Dieta"]}
-        paths={["/nutritionist/evaluation", "/nutritionist/diet"]}
+        buttons={["Avaliação", "Dieta", "Evolução"]}
+        paths={[
+          "/nutritionist/evaluation",
+          "/nutritionist/diet",
+          "/nutritionist/evolution",
+        ]}
         iconType="clipboard"
       />
 
