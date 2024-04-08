@@ -1,6 +1,5 @@
 import React from "react";
 import Title from "../../../components/title/title";
-import TextInput from "../../../components/textInput/textInput";
 import Button from "../../../components/button/button";
 import EditMealList from "../../../components/lists/editmeallist/editmeallist";
 
