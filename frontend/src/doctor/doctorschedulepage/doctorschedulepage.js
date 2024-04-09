@@ -11,6 +11,9 @@ import { startOfWeek } from "date-fns";
 import getDay from "date-fns/getDay";
 import ptBR from "date-fns/locale/pt-BR";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+
+import eventsList from "../../objects/events";
 
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
@@ -106,6 +109,7 @@ function DoctorSchedulePage() {
     setSelectedEvent(null);
   }
 
+
     const adjustDate = (date) => {
       return new Date(date);
     }
@@ -149,10 +153,16 @@ function DoctorSchedulePage() {
         })
   }, [])
 
+
   return (
     <div className="schedule page">
       <Title head="Agenda de Consultas" />
       <div className="content">
+        <Button
+          className="grad outline small"
+          text="Nova consulta"
+          onClick={handleAddEventOpen}
+        />
         <div className="calendar-back">
           <div className="calendar">
             <DragAndDropCalendar
