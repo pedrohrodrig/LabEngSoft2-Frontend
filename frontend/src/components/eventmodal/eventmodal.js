@@ -144,3 +144,5 @@ function EventModal({ event, onClose, onDelete, onUpdate }) {
 }
 
 export default EventModal;
+
+
