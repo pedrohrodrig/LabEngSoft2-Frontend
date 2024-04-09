@@ -46,7 +46,6 @@ function NewEventModal({ onAdd, onClose }) {
         type: "",
       });
     }
-
     onClose();
 
   };
