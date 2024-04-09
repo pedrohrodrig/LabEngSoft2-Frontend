@@ -40,7 +40,7 @@
     gap: 10px;
 }
 
-.button {
+.event-button {
     text-decoration: none;
     padding: 10px 20px;
     display: flex;

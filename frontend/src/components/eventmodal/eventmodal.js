@@ -131,7 +131,7 @@ function EventModal({ event, onClose, onDelete, onUpdate }) {
                 text="Deletar"
                 onClick={handleDelete}
               />
-              <button className="button" onClick={handleUpdate} type="submit">
+              <button className="event-button" onClick={handleUpdate} type="submit">
                 Salvar
               </button>
             </div>
