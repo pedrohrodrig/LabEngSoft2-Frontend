@@ -99,13 +99,7 @@ function NewEventModal({ onAdd, onClose }) {
               text="Cancelar"
               onClick={onClose}
             />
-            {/* <Button
-              className="grad small"
-              text="Salvar"
-              onClick={onAdd}
-              type="submit"
-            /> */}
-            <button onClick={onAdd} type="submit">Salvar</button>
+            <button className="button" onClick={onAdd} type="submit">Salvar</button>
           </div>
         </form>
       </div>
