@@ -79,6 +79,24 @@ function NutriSchedulePage() {
     setEvents([...events,{...newEvent, id:events.length + 1, appointmentid: events.length + 1}]);
   }
 
+  const handleDeleteEvent = (eventId) => {
+    const updatedEvents = events.filter((event) => event.id !== eventId);
+    setEvents(updatedEvents);
+    setSelectedEvent(null);
+  }
+
+  const handleEditEvent = (updatedEvent) => {
+    const updatedEvents = events.map((event) => {
+      if(event.id === updatedEvent.id) {
+        return updatedEvent;
+      }
+      return event;
+    });
+
+    setEvents(updatedEvents);
+    setSelectedEvent(null);
+  }
+
   return (
     <div className="schedule page">
       <Title head="Agenda de Consultas" />
@@ -103,7 +121,12 @@ function NutriSchedulePage() {
         </div>
       </div>
       {selectedEvent && (
-        <EventModal event={selectedEvent} onClose={handleEventClose} />
+        <EventModal
+          event={selectedEvent}
+          onClose={handleEventClose}
+          onDelete={handleDeleteEvent}
+          onUpdate={handleEditEvent}
+        />
       )}
       {addNewEvent && (
         <NewEventModal onAdd={handleAddEvent} onClose={handleAddEventClose} />
