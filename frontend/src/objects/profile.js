@@ -1,17 +1,16 @@
 const professional = {
-        id: 1,
-        name: "Lucas Garieri",
-        photo: "/images/user.jpeg",
-        phone: "(61) 98265-3119",
-        age: 22,
-        service: "doctor",
-        appointment: "online",
-        email: "lucas_pvg@usp.br",
-        address: "Rua Boturoca 220",
-        price: "100,00",
-        bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis dui dignissim, rhoncus felis a, aliquam tellus. Pellentesque ultrices egestas ipsum, sed convallis tortor dignissim luctus. Etiam hendrerit enim in eleifend consectetur. Lorem ipsum dolor sit amet",
-        appointments: [1, 2, 3, 4, 5],
-        patients: [1, 2, 3, 4, 5]
+        id_user: 1,
+        full_name: "Dr. Alex Mendes",
+        date_of_birth: "1980-04-15",
+        email: "alex.mendes@example.com",
+        phone_number: "(11) 99999-9999",
+        document: "123.456.789-00",
+        start_time_morning: "08:00",
+        end_time_morning: "12:00",
+        start_time_afternoon: "14:00",
+        end_time_afternoon: "18:00",
+        consultation_price: 150.00,
+        profile_picture: "/profile_pictures/alex_mendes_profile.jpg"
 };
 
 const patient = {

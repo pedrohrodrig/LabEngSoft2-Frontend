@@ -1,4 +1,4 @@
-const professionalList = [
+const professionalList = [/*
     {
         id: 1,
         name: "Lucas Garieri",
@@ -53,7 +53,7 @@ const professionalList = [
         appointment: "online",
         email: "lucas_pvg@usp.br",
         price: "100,00"
-    }
+    }*/
 ];
 
 export default professionalList;
