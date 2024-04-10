@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { format, parseISO } from 'date-fns';
 
 import "./doctorappointmentdetailpage.css";
 import UserContext from "../../contexts/UserContext";
-import appointmentList from "../../objects/appointments";
 import Title from "../../components/title/title";
 import Textbox from "../../components/textbox/textbox";
 import HorizontalCard from "../../components/horizontalcard/horizontalcard";
@@ -12,20 +12,61 @@ import documentList from "../../objects/documents";
 import Popup from "../../components/popup/popup";
 
 import { useLocation } from 'react-router-dom';
-import patientList from "../../objects/patients";
+import axios from "axios";
 
 function DoctorAppointDetailPage() {
     const { user } = useContext(UserContext);
     const [ avaliation, setAvaliation ] = useState(false);
     const [ cancelation, setCancelation ] = useState(false);
+    const [ appointment, setAppointment ] = useState();
     const location = useLocation();
     const number = location.search[1];
-    const patient = patientList[number];
-    const appointment = appointmentList[number];
+
+        const formatDate = (date) => {
+        return format(parseISO(date), "dd MMM yyyy ' - ' HH:mm");
+    }
+
+    const appointmentStatus = (status) => {
+        if (status === 1) return "Confirmada";
+        else if (status === 2) return "Finalizada";
+        else return "Cancelada"
+    }
+
+    const createAppointment = (newAppointment) => {
+        return {
+            id: newAppointment.id,
+            patient: newAppointment.patient.first_name + " " + newAppointment.patient.last_name,
+            patientid: newAppointment.patient.id_user,
+            phone: newAppointment.patient.phone,
+            photo: "/images/user.jpeg",
+            professional: user.name,
+            professionalid: newAppointment.id_user_professional,
+            date: "",
+            hour: "",
+            timestamp: formatDate(newAppointment.datetime),
+            status: appointmentStatus(newAppointment.status),
+            type: "Presencial",
+            address: user.address
+        }
+    }
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/appointment/${number+1}`)
+            .then(response => {
+                const newAppointment = createAppointment(response.data)
+                setAppointment(newAppointment);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
 
     return (
+
         <div className="appoint-detail page">
-            <div className="header">
+            { appointment ? (
+                <div>
+                <div className="header">
                 <Title head="Detalhes da Consulta" />
             </div>
 
@@ -35,7 +76,7 @@ function DoctorAppointDetailPage() {
                         <div className="col">
                             <div className="cardbox">
                                 <Textbox title="Paciente" />
-                                <HorizontalCard className="small" image={patient.photo} title={patient.name} to={`/doctor-patient-profile`}  />
+                                <HorizontalCard className="small" image={appointment.photo} title={appointment.patient} to={`/doctor-patient-profile`}  />
                             </div>
 
                             <Textbox className="horizontal" title="Status" body={appointment.status} />
@@ -85,6 +126,12 @@ function DoctorAppointDetailPage() {
                 buttons={["Manter", "Cancelar"]}
                 iconType="x"
             />
+            </div>
+            ) : (
+            <div>
+                <Title head={'Ops'} body={'Não foi possível encontrar a consulta desejada'}/>
+            </div>
+            ) }
         </div>
     );
 }

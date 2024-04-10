@@ -3,7 +3,6 @@ import { format, parseISO } from 'date-fns';
 
 import "./doctorappointmentspage.css";
 import UserContext from "../../contexts/UserContext";
-import appointmentList from "../../objects/appointments";
 import Title from "../../components/title/title";
 import AppointmentList from "../../components/lists/appointmentlist/appointmentlist";
 import axios from "axios";
@@ -11,7 +10,7 @@ import axios from "axios";
 
 function DoctorAppointmentsPage() {
     const { user } = useContext(UserContext);
-    const [appointments, setAppointments] = useState(appointmentList)
+    const [appointments, setAppointments] = useState([])
 
     const formatDate = (date) => {
         return format(parseISO(date), "dd MMM yyyy ' - ' HH:mm");
@@ -21,6 +20,14 @@ function DoctorAppointmentsPage() {
         if (status === 1) return "Confirmada";
         else if (status === 2) return "Finalizada";
         else return "Cancelada"
+    }
+
+    const verifyAppointment = (newAppointment) => {
+        for (const element of appointments) {
+            if (element.patientid !== newAppointment.patientid) return true
+            if (element.timestamp !== newAppointment.timestamp) return true
+        }
+        return false;
     }
 
     const createAppointment = (newAppointment) => {
@@ -44,14 +51,13 @@ function DoctorAppointmentsPage() {
     useEffect(() => {
         axios.get(`http://localhost:8000/appointment/`)
             .then(response => {
-                for (const appointment of response.data) {
-                    const newAppointment = createAppointment(appointment);
-                    if (!appointments.includes(newAppointment) ){
+                for (const element of response.data) {
+                    const newAppointment = createAppointment(element);
+                    if (appointments.length === 0) setAppointments([newAppointment])
+                    if (verifyAppointment(newAppointment)) {
                         setAppointments(prev => [...prev, newAppointment]);
                     }
-
                 }
-
             })
             .catch(error => {
                 console.log(error)
