@@ -1,8 +1,94 @@
 import React from "react";
+import DateTimePicker from "react-datetime-picker";
 
 import TextInput from "../../../components/textInput/textInput";
 import Textbox from "../../../components/textbox/textbox";
+import Title from "../../../components/title/title";
 
-function NutriRegisterPage() {}
+import './nutriregisterpage.css'
+import "react-datetime-picker/dist/DateTimePicker.css";
+import "react-calendar/dist/Calendar.css";
+import "react-clock/dist/Clock.css";
+
+function NutriRegisterPage() {
+    return (
+      <div className="register page">
+        <Title head="Cadastro" />
+        <div className="register-content">
+          <TextInput
+            className="horizontal"
+            title="Nome"
+            placeholder="Insira seu primeiro nome"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="Sobrenome"
+            placeholder="Insira seu sobrenome"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          {/* <div className="register-date">
+          <Textbox title="Data de Nascimento" />
+          <DateTimePicker
+            // onChange={(date) =>
+            //   handleChange({ target: { value: date, name: "start" } })
+            // }
+            name="start"
+            // value={newEvent.start}
+            disableClock={true}
+          />
+        </div> */}
+          {/* Usa o de cima se quiser um datepicker*/}
+          <TextInput
+            className="horizontal"
+            title="Data de Nascimento"
+            placeholder="Insira seu aniversário"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="Email"
+            placeholder="Insira seu email"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="Celular"
+            placeholder="Insira seu telefone"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="CPF"
+            placeholder="Insira seu CPF"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="Endereço"
+            placeholder="Insira seu endereço"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+          <TextInput
+            className="horizontal"
+            title="Gênero"
+            placeholder="Insira seu gênero (F, M ou O)"
+            //   name="desc"
+            //   handleTextInput={handleChange}
+          />
+        </div>
+        <button className="register-button" type="submit">
+          Cadastrar
+        </button>
+      </div>
+    );
+}
 
 export default NutriRegisterPage;
