@@ -22,6 +22,14 @@ function DoctorAppointmentsPage() {
         else return "Cancelada"
     }
 
+    const verifyAppointment = (newAppointment) => {
+        for (const element of appointments) {
+            if (element.patientid !== newAppointment.patientid) return true
+            if (element.timestamp !== newAppointment.timestamp) return true
+        }
+        return false;
+    }
+
     const createAppointment = (newAppointment) => {
         return {
             id: newAppointment.id,

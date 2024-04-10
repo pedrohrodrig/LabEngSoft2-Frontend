@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from "react";
 import { format, parseISO } from 'date-fns';
 
@@ -14,7 +13,9 @@ import Popup from "../../components/popup/popup";
 
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+
 import FileUploadComponent from "../../components/uploadcard/uploadcard";
+
 
 function DoctorAppointDetailPage() {
     const { user } = useContext(UserContext);
@@ -22,6 +23,7 @@ function DoctorAppointDetailPage() {
     const [ cancelation, setCancelation ] = useState(false);
     const [ appointment, setAppointment ] = useState();
     const location = useLocation();
+
     const number = location.search.split('?')[1];
 
     const formatDate = (date) => {
@@ -45,8 +47,10 @@ function DoctorAppointDetailPage() {
             professionalid: newAppointment.id_user_professional,
             date: "",
             hour: "",
+
             start_timestamp: formatDate(newAppointment.start_datetime),
             end_timestamp: formatDate(newAppointment.end_datetime),
+
             status: appointmentStatus(newAppointment.status),
             type: "Presencial",
             address: user.address
@@ -55,6 +59,7 @@ function DoctorAppointDetailPage() {
 
     useEffect(() => {
         axios.get(`http://localhost:8000/appointment/${number}`)
+
             .then(response => {
                 const newAppointment = createAppointment(response.data)
                 setAppointment(newAppointment);
@@ -80,7 +85,6 @@ function DoctorAppointDetailPage() {
                             <div className="cardbox">
                                 <Textbox title="Paciente" />
                                 <HorizontalCard className="small" image={appointment.photo} title={appointment.patient} to={`/doctor-patient-profile`}  />
-
                             </div>
 
                             <Textbox className="horizontal" title="Status" body={appointment.status} />
