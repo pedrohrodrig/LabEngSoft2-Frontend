@@ -1,37 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../../../components/title/title";
 import AppointmentsList from "../../../components/lists/appointmentlist/appointmentlist";
-
-import UserContext from "../../../contexts/UserContext";
+import consultations from "../../../objects/consultations"; // Garanta que este seja o caminho correto para o arquivo
 import "./appointmentspage.css";
 
 function AppointmentsPage() {
-    const { user } = useContext(UserContext);
     const [futureAppointments, setFutureAppointments] = useState([]);
 
     useEffect(() => {
-        const fetchFutureAppointments = async () => {
-            try {
-                const response = await fetch('http://127.0.0.1:8000/api/consultations/');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
+        // Filtrar as consultas futuras
+        const today = new Date();
+        const filteredFutureAppointments = consultations.filter(appointment => {
+            const appointmentDateTime = new Date(appointment.scheduled_time);
+            return appointmentDateTime > today;
+        });
 
-                const today = new Date();
-                const filteredFutureAppointments = data.filter(appointment => {
-                    const appointmentDateTime = new Date(appointment.scheduled_time);
-                    return appointmentDateTime > today;
-                });
-
-                setFutureAppointments(filteredFutureAppointments);
-            } catch (error) {
-                console.error("Falha ao buscar as consultas futuras:", error);
-            }
-        };
-
-        fetchFutureAppointments();
-    }, []); // O array vazio como segundo argumento significa que este efeito só roda uma vez após o primeiro render.
+        setFutureAppointments(filteredFutureAppointments);
+    }, []); // O array vazio como segundo argumento garante que este efeito roda apenas uma vez após o primeiro render
 
     return (
         <div className="appointments page">

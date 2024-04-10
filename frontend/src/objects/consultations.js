@@ -3,7 +3,7 @@ const consultations = [
         psychologist: 1, // Assumindo que este é o ID do psicólogo
         id_patient: 1,
         status: "Requested",
-        scheduled_time: "2024-03-18T18:00:00",
+        scheduled_time: "2024-04-10T18:00:00",
         payment_proof: null, // Nenhum comprovante de pagamento para consultas solicitadas
     },
     {
