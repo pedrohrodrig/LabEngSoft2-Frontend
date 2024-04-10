@@ -1,5 +1,6 @@
 import Button from "../button/button";
-import React from "react";
+import React, { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 import Logo from "../logo/logo";
 import UserPhoto from "../userphoto/userphoto";
 import Tabs from "../tabs/tabs";
@@ -8,6 +9,7 @@ import "./navbar.css";
 
 function Navbar({ className }) {
     const classes = `navbar ${className}`;
+    const { user } = useContext(UserContext);
 
     return (
         <div className={classes}>
@@ -16,7 +18,7 @@ function Navbar({ className }) {
             </div>
 
             <div className="content">
-                <UserPhoto name="Lucas Garieri" to="/profile" />
+                <UserPhoto name={user.full_name} to="/profile" />
                 <Tabs
                     labels={["Overview", "Agenda", "Histórico"]} // Atualizado
                     to={["/overview", "/appointments", "/history"]} // Atualizado

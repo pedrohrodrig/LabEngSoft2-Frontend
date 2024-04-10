@@ -11,7 +11,7 @@ function UserPhoto({ className, name, to }) {
         <div className={classes}>
             <Link className={!to && "disabled-link"} to={to}>
                 <img src={UserImage} alt="user" />
-                <h1>Lucas Garieri</h1>
+                <h1>{name}</h1>
             </Link>
         </div>
     );

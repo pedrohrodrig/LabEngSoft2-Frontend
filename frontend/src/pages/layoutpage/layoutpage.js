@@ -8,9 +8,9 @@ import "../../App.css";
 function LayoutPage() {
     const { user } = useContext(UserContext);
 
-    return(
+    return (
         <div className="app">
-            <Navbar name={user.name}/>
+            <Navbar name={user.full_name} />
             <div className="app-content">
                 <Outlet />
             </div>
