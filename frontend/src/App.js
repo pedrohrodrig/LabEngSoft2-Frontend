@@ -16,7 +16,7 @@ import DocumentsPage from "./pages/personal/documentspage/documentspage";
 import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
 
-import NutriAppointDetailPage from "./pages/nutritionist/nutriappointdetailpage.js/nutriappointdetailpage";
+import NutriAppointDetailPage from "./pages/nutritionist/nutriappointdetailpage/nutriappointdetailpage";
 import NutriAppointmentsPage from "./pages/nutritionist/nutriappointmentspage/nutriappointmentspage";
 import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
@@ -35,6 +35,8 @@ import NutriSchedulePage from "./pages/nutritionist/nutrischedulepage.js/nutrisc
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
+import NutriLoginPage from "./pages/nutritionist/nutriloginpage/nutriloginpage";
+import NutriRegisterPage from "./pages/nutritionist/nutriregisterpage/nutriregisterpage";
 
 function App() {
     const [ user, setUser ] = useState(professional);
@@ -71,6 +73,9 @@ function App() {
                         <Route path="nutritionist/profile/edit" element={<NutriProfileEditPage/>} />
                         <Route path="nutritionist/profile" element={<NutriProfilePage/>} />
                         <Route path="nutritionist/schedule" element={<NutriSchedulePage/>} />
+
+                        <Route path="nutritionist/login" element={<NutriLoginPage/>} />
+                        <Route path="nutritionist/register" element={<NutriRegisterPage/>} />
 
                         <Route path="test" element={<TestPage />} />
 
