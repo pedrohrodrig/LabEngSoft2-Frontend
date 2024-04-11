@@ -32,7 +32,7 @@ function DoctorAppointmentsPage() {
 
     const createAppointment = (newAppointment) => {
         return {
-            id: appointments.length,
+            id: newAppointment.id,
             patient: newAppointment.patient.first_name + " " + newAppointment.patient.last_name,
             patientid: newAppointment.patient.id_user,
             phone: newAppointment.patient.phone,
