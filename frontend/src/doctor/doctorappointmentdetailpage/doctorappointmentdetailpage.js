@@ -20,9 +20,9 @@ function DoctorAppointDetailPage() {
     const [ cancelation, setCancelation ] = useState(false);
     const [ appointment, setAppointment ] = useState();
     const location = useLocation();
-    const number = location.search[1];
+    const number = location.search.split('?')[1];
 
-        const formatDate = (date) => {
+    const formatDate = (date) => {
         return format(parseISO(date), "dd MMM yyyy ' - ' HH:mm");
     }
 
@@ -51,7 +51,7 @@ function DoctorAppointDetailPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/appointment/${number+1}`)
+        axios.get(`http://localhost:8000/appointment/${number}`)
             .then(response => {
                 const newAppointment = createAppointment(response.data)
                 setAppointment(newAppointment);
@@ -125,6 +125,7 @@ function DoctorAppointDetailPage() {
                 body="Deseja mesmo cancelar essa consulta?"
                 buttons={["Manter", "Cancelar"]}
                 iconType="x"
+                number={appointment.id}
             />
             </div>
             ) : (
