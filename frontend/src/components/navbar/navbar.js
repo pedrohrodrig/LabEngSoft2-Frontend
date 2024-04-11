@@ -4,8 +4,11 @@ import Logo from "../logo/logo";
 import UserPhoto from "../userphoto/userphoto";
 import Button from "../button/button";
 import Tabs from "../tabs/tabs";
+import axios from "axios";
+import { NotificationManager } from 'react-notifications';
 
 import "./navbar.css";
+import urls from "../../utils/urls";
 
 function Navbar({ className }) {
     const classes = `navbar ${className}`;
@@ -14,7 +17,22 @@ function Navbar({ className }) {
     useEffect(() => {
       if(Cookies.get('access_token'))
         setIsAuthenticated(true);
-    }, [])
+    }, [isAuthenticated])
+
+    const onLogout = async () => {
+      await axios.get(
+        `${urls.baseURL}/logout/`,
+      )
+      .then(() => {
+        Cookies.remove('access_token');
+        Cookies.remove('refresh_token');
+        setIsAuthenticated(false);
+        //NotificationManager.info("Logout realizado");
+      })
+      .catch((error) => {
+        NotificationManager.error("Erro ao deslogar", error)
+      })
+    }
 
     return (
         <div className={classes}>
@@ -35,11 +53,13 @@ function Navbar({ className }) {
                     text="Logout"
                     icon="left"
                     iconType="logout"
-                    to="" />
+                    to=""
+                    onClick={onLogout}
+                  />
               </div>
             </>
           ) : (
-            <div className="content">
+            <div className="notLogged">
               <Logo className="black" />
               <Tabs
                 labels={["Login", "Cadastro"]}
