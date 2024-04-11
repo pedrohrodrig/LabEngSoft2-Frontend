@@ -59,7 +59,6 @@ function DoctorAppointDetailPage() {
 
     useEffect(() => {
         axios.get(`http://localhost:8000/appointment/${number}`)
-
             .then(response => {
                 const newAppointment = createAppointment(response.data)
                 setAppointment(newAppointment);
