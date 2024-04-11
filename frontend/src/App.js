@@ -19,6 +19,7 @@ import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailp
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
+import LoginPage from "./pages/login/LoginPage/LoginPage";
 
 function App() {
     const [ user, setUser ] = useState(professional);
@@ -39,6 +40,8 @@ function App() {
                         <Route path="documents" element={<DocumentsPage />} />
                         <Route path="doc" element={<DocDetailPage />} />
                         <Route path="appoint" element={<AppointDetailPage />} />
+
+                        <Route path="login" element={<LoginPage />} />
 
 
                         <Route path="test" element={<TestPage />} />
