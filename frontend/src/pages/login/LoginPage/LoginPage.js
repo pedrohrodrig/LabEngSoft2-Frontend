@@ -1,5 +1,7 @@
 import { React, useState } from "react";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import axios from "axios";
 
 import urls from "../../../utils/urls";
@@ -11,6 +13,8 @@ import './LoginPage.css'
 function LoginPage() {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
+
+    const navigate = useNavigate();
 
     const onSubmit = async (e) => {
       e.preventDefault();
@@ -26,19 +30,18 @@ function LoginPage() {
         {headers: {'Content-Type': 'application/json'}},
       )
       .then((data) => {
-        localStorage.clear();
-        localStorage.setItem('access_token', data.access);
-        localStorage.setItem('refresh_token', data.refresh);
+        Cookies.set('access_token', data.access);
+        Cookies.set('refresh_token', data.refresh);
 
-        axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${data.access}`;
 
-        NotificationManager.success("YASSSSSS");
+        NotificationManager.success("Login realizado");
+
+        navigate("/")
       })
       .catch((error) => {
         NotificationManager.error(error);
       });
-
-
     }
 
     return (
@@ -50,18 +53,19 @@ function LoginPage() {
             title="Email"
             placeholder="Insira seu e-mail"
             handleTextInput={e => setEmail(e.target.value)}
+            type="email"
           />
           <TextInput
             className="horizontal"
             title="Senha"
             placeholder="Insira sua senha"
             handleTextInput={e => setPassword(e.target.value)}
+            type="password"
           />
           <button className="login-button" type="submit">
             Entrar
           </button>
         </form>
-        <NotificationContainer />
       </>
     );
 }
