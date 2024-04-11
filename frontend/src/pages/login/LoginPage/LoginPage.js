@@ -32,8 +32,6 @@ function LoginPage() {
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
 
-        window.location.href = '/'
-
         NotificationManager.success("YASSSSSS");
       })
       .catch((error) => {
@@ -49,7 +47,7 @@ function LoginPage() {
           <Title head="Login" />
           <TextInput
             className="horizontal"
-            title="E-mail"
+            title="Email"
             placeholder="Insira seu e-mail"
             handleTextInput={e => setEmail(e.target.value)}
           />

@@ -1,11 +1,27 @@
-.input {
-    display: flex;
-    padding: 0px 10px;
-    height: 35px;
-    width: 180px;
-    align-items: center;
-    font-family: "Karla", sans-serif;
-    border-radius: 10px;
-    border: 2px solid var(--light-gray);
-    background: var(--light-gray);
+.textinput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.textinput.horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.textinput h1 {
+  font-size: 14px;
+}
+
+.textinput input {
+  font-size: 14px;
+  padding: 0px 10px;
+  height: 35px;
+  width: 100%;
+  font-family: "Karla", sans-serif;
+  border-radius: 10px;
+  border: 2px solid var(--light-gray);
+  background: var(--light-gray);
 }
