@@ -1,7 +1,7 @@
 import React from "react";
 import "./textInput.css";
 
-function TextInput({ className, title, placeholder, handleTextInput, name }) {
+function TextInput({ className, title, type, placeholder, handleTextInput, name }) {
 
     const classes = `textinput ${className}`;
 
@@ -13,6 +13,7 @@ function TextInput({ className, title, placeholder, handleTextInput, name }) {
           placeholder={placeholder}
           onChange={handleTextInput}
           name={name}
+          type={type}
         ></input>
       </div>
     );
