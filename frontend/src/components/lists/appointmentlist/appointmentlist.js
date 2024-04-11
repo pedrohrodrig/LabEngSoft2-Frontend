@@ -4,7 +4,6 @@ import PathContext from "../../../contexts/PathContext";
 
 import "../cardlist.css";
 
-
 function AppointmentList({ className, appointments, small, to}) {
     const classes = small ? `small-card-list ${className}` : `card-list ${className}`;
     const n = small ? 3 : appointments.length;
