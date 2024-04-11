@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import UserContext from "./contexts/UserContext";
 import { professional } from "./objects/profile";
+import "react-notifications/lib/notifications.css"
+import { NotificationContainer } from "react-notifications";
 
 import LayoutPage from './pages/layoutpage/layoutpage';
 import HomePage from './pages/home/homepage';
@@ -15,13 +17,12 @@ import ProfilePage from './pages/personal/profilepage/profilepage';
 import DocumentsPage from "./pages/personal/documentspage/documentspage";
 import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
+import LoginPage from "./pages/login/LoginPage/LoginPage";
+import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
-import "react-notifications/lib/notifications.css"
-import LoginPage from "./pages/login/LoginPage/LoginPage";
-import { NotificationContainer } from "react-notifications";
 
 function App() {
     const [ user, setUser ] = useState(professional);
@@ -46,6 +47,7 @@ function App() {
                         <Route path="appoint" element={<AppointDetailPage />} />
 
                         <Route path="login" element={<LoginPage />} />
+                        <Route path="register" element={<RegisterPage />} />
 
 
                         <Route path="test" element={<TestPage />} />
