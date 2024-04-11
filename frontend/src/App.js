@@ -19,12 +19,16 @@ import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailp
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
+import "react-notifications/lib/notifications.css"
 import LoginPage from "./pages/login/LoginPage/LoginPage";
+import { NotificationContainer } from "react-notifications";
 
 function App() {
     const [ user, setUser ] = useState(professional);
 
     return (
+      <>
+        <NotificationContainer />
         <UserContext.Provider value={{ user, setUser }}>
             <BrowserRouter>
                 <Routes>
@@ -50,6 +54,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>
+      </>
     );
 }
 
