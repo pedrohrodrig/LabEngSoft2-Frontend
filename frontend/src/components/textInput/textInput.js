@@ -1,11 +1,20 @@
 import React from "react";
 import "./textInput.css";
 
-const TextInput = ({ placeholder, handleTextInput }) => {
+function TextInput({ className, title, placeholder, handleTextInput, name }) {
+
+    const classes = `textinput ${className}`;
+
     return (
-        <div>
-            <input className="input" placeholder={placeholder} onChange={handleTextInput}></input>
-        </div>
+      <div className={classes}>
+        <h1 className="title">{title}</h1>
+        <input
+          className="input"
+          placeholder={placeholder}
+          onChange={handleTextInput}
+          name={name}
+        ></input>
+      </div>
     );
 };
 

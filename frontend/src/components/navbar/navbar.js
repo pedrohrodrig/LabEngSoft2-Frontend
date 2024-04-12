@@ -16,10 +16,10 @@ function Navbar({ className }) {
             </div>
 
             <div className="content">
-                <UserPhoto name="Lucas Garieri" to="/profile" />
+                <UserPhoto name="Lucas Garieri" to="/nutritionist/profile" />
                 <Tabs
                     labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/overview", "/patients", "", "/appointments"]}
+                    to={["/nutritionist", "/nutritionist/patients", "nutritionist/schedule", "/nutritionist/appointments"]}
                 />
             </div>
 
