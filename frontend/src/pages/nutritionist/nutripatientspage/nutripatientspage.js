@@ -19,7 +19,7 @@ function NutriPatientsPage() {
         body="Confira os pacientes que se consultam com você"
       />
 
-      <PatientList patients={patients} />
+      <PatientList patients={patients} to={"/nutritionist/patient/profile"} />
     </div>
   );
 }

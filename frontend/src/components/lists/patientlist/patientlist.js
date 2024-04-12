@@ -3,7 +3,7 @@ import HorizontalCard from "../../horizontalcard/horizontalcard";
 
 import "../cardlist.css";
 
-function PatientList({ className, patients, small }) {
+function PatientList({ className, patients, small, to }) {
     const classes = small ? `small-card-list ${className}` : `card-list ${className}`;
     const n = small ? 3 : patients.length;
 
@@ -20,7 +20,7 @@ function PatientList({ className, patients, small }) {
                             image={obj.photo}
                             col1={!small && obj.phone}
                             col2={!small && obj.email}
-                            to="/nutritionist/patient/profile"
+                            to={to ? to : "/patient/profile"}
                             key={i}
                           />
                         );

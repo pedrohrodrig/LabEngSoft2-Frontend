@@ -32,7 +32,7 @@ function NutriOverviewPage() {
 
       <div className="appoint">
         <h1 className="appoint-title">Consultas Hoje</h1>
-        <AppointmentList appointments={appointments} />
+        <AppointmentList appointments={appointments} to={"/nutritionist/appoint"} />
       </div>
     </div>
   );

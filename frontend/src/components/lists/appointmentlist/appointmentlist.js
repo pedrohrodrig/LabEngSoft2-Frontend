@@ -3,7 +3,7 @@ import HorizontalCard from "../../horizontalcard/horizontalcard";
 
 import "../cardlist.css";
 
-function AppointmentList({ className, appointments, small }) {
+function AppointmentList({ className, appointments, small, to }) {
     const classes = small ? `small-card-list ${className}` : `card-list ${className}`;
     const n = small ? 3 : appointments.length;
 
@@ -19,7 +19,7 @@ function AppointmentList({ className, appointments, small }) {
                             image={obj.photo}
                             col1={!small && obj.timestamp}
                             col2={!small && obj.status}
-                            to="/nutritionist/appoint"
+                            to= {to ? to : "/appoint"}
                             key={i}
                           />
                         );
