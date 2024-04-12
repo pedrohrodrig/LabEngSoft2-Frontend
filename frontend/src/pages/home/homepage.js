@@ -5,8 +5,8 @@ function HomePage() {
     return(
         <div style={{gap: "30px"}} className="home page">
             <h1>Oi Gente ^^</h1>
-            <p>Foi díficil pra caralho fazer isso, mas ainda n tá pronto, tá?</p>
-            <p style={{marginBottom: "10px"}}>PS: Olha eu sei centralizar div</p>
+            <p>Eu sou o Lucas</p>
+            <p style={{marginBottom: "10px"}}>Bem vindo ao Apollo</p>
 
             <Button
                 className="grad medium"
