@@ -8,7 +8,7 @@ import UserContext from "../../contexts/UserContext";
 import patientList from "../../objects/patients";
 import paymentsList from "../../objects/payments";
 import axios from "axios";
-import { format, isToday, parseISO } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 function DoctorOverviewPage() {
   const { user } = useContext(UserContext);
@@ -61,7 +61,7 @@ function DoctorOverviewPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/appointment/`)
+        axios.get(`http://localhost:8000/appointment_from_professional_id/${user.id}`)
             .then(response => {
               for (const element of response.data) {
                   const newAppointment = createAppointment(element);
