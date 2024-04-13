@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, set } from 'date-fns';
 
 import "./doctorappointmentspage.css";
 import UserContext from "../../contexts/UserContext";
@@ -22,14 +22,6 @@ function DoctorAppointmentsPage() {
         else return "Cancelada"
     }
 
-    const verifyAppointment = (newAppointment) => {
-        for (const element of appointments) {
-            if (element.patientid !== newAppointment.patientid) return true
-            if (element.timestamp !== newAppointment.timestamp) return true
-        }
-        return false;
-    }
-
     const createAppointment = (newAppointment) => {
         return {
             id: newAppointment.id,
@@ -49,15 +41,11 @@ function DoctorAppointmentsPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/appointment/`)
+        axios.get(`http://localhost:8000/appointment_from_professional_id/${user.id}`)
             .then(response => {
-                for (const element of response.data) {
-                    const newAppointment = createAppointment(element);
-                    if (appointments.length === 0) setAppointments([newAppointment])
-                    if (verifyAppointment(newAppointment)) {
-                        setAppointments(prev => [...prev, newAppointment]);
-                    }
-                }
+                const newAppointments = response.data.map(element => createAppointment(element));
+                const history = newAppointments.filter(appoint => appoint.status !== 'Confirmada');
+                setAppointments(history);
             })
             .catch(error => {
                 console.log(error)
