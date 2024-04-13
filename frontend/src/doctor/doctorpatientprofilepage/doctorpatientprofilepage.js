@@ -1,15 +1,12 @@
-
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./doctorpatientprofilepage.css";
 import UserContext from "../../contexts/UserContext";
-
 import Profile from "../../components/profile/profile";
 import Textbox from "../../components/textbox/textbox";
 import DocumentList from "../../components/lists/documentlist/documentlist";
 import documentList from "../../objects/documents";
-
 import axios from "axios";
 
 import { useLocation } from 'react-router-dom';
