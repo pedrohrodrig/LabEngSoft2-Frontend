@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { format, parseISO } from 'date-fns';
+import { format, parseISO, set } from 'date-fns';
 
 import "./doctorappointmentspage.css";
 import UserContext from "../../contexts/UserContext";
@@ -20,14 +20,6 @@ function DoctorAppointmentsPage() {
         if (status === 1) return "Confirmada";
         else if (status === 2) return "Finalizada";
         else return "Cancelada"
-    }
-
-    const verifyAppointment = (newAppointment) => {
-        for (const element of appointments) {
-            if (element.patientid !== newAppointment.patientid) return true
-            if (element.timestamp !== newAppointment.timestamp) return true
-        }
-        return false;
     }
 
     const createAppointment = (newAppointment) => {
