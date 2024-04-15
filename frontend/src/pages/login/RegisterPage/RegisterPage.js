@@ -147,6 +147,7 @@ function RegisterPage() {
           name="weight"
           value={registerData.weight}
           handleTextInput={handleChangePatientExclusiveFields}
+          isFloat
         />}
         {isPatient && <TextInput
           title="Altura"
@@ -155,6 +156,7 @@ function RegisterPage() {
           name="height"
           value={registerData.height}
           handleTextInput={handleChangePatientExclusiveFields}
+          isFloat
         />}
         <TextInput
           title="Celular"
