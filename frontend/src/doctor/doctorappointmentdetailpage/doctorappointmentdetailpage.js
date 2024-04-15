@@ -13,6 +13,7 @@ import Popup from "../../components/popup/popup";
 
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import FileUploadComponent from "../../components/uploadcard/uploadcard";
 
 function DoctorAppointDetailPage() {
     const { user } = useContext(UserContext);
