@@ -4,7 +4,6 @@
     text-emphasis-color: var(--light-gray);;
     border-radius: 10px;
     width: fit-content;
-    margin: 1rem;
     gap: 4px;
     flex: 1 0 0;
     border: 2px solid var(--light-gray);

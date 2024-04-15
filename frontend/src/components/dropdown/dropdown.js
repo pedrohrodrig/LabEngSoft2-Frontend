@@ -12,7 +12,7 @@ const Dropdown = ({placeholder, options, handleSelectedOptions, selectedOption})
             placeholder={placeholder}
             options={options}
             onChange={handleSelectedOptions}
-            value={selectedOption}
+            defaultValue={selectedOption}
             isSearchable={true}
         />
     );
