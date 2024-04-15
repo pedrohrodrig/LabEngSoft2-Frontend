@@ -100,12 +100,10 @@ function DoctorOverviewPage() {
   }, []);
 
 
-
   return (
     <div className="overview page">
       <div className="bignumbers">
         <BigNumber number={appointments.length} text="Consultas" iconType="activity" to="/doctor-appointments" />
-        <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
         <BigNumber
           number={patients.length}
           text="Pacientes"
