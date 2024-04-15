@@ -38,6 +38,7 @@ import "./App.css";
 import "react-notifications/lib/notifications.css"
 import LoginPage from "./pages/login/LoginPage/LoginPage";
 import { NotificationContainer } from "react-notifications";
+import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 function App() {
     const [ user, setUser ] = useState(professional);
@@ -62,6 +63,7 @@ function App() {
                         <Route path="appoint" element={<AppointDetailPage />} />
 
                         <Route path="login" element={<LoginPage />} />
+                        <Route path="register" element={<RegisterPage />} />
 
                         <Route path="nutritionist/appoint" element={<NutriAppointDetailPage/>} />
                         <Route path="nutritionist/appointments" element={<NutriAppointmentsPage/>} />
