@@ -13,6 +13,7 @@ import Popup from "../../components/popup/popup";
 
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import FileUploadComponent from "../../components/uploadcard/uploadcard";
 
 function DoctorAppointDetailPage() {
     const { user } = useContext(UserContext);
@@ -95,8 +96,13 @@ function DoctorAppointDetailPage() {
                     <Textbox className="horizontal" title="Endereço" body={appointment.address} />
 
                     <div className="appoint-but">
-                        <Button className="grad medium" text="Avaliar" icon="left" iconType="clipboard" onClick={() => setAvaliation(true)} />
-                        <Button className="black medium outline" text="Cancelar" icon="left" iconType="x" onClick={() => setCancelation(true)} />
+                        {user.service !== 'doctor' ?
+                            <Button className="grad medium" text="Avaliar" icon="left" iconType="clipboard" onClick={() => setAvaliation(true)} /> :
+                            <FileUploadComponent/>
+                        }
+                        {appointment.status === 'Confirmada' &&
+                            <Button className="black medium outline" text="Cancelar" icon="left" iconType="x" onClick={() => setCancelation(true)} />
+                        }
                     </div>
 
                 </div>
