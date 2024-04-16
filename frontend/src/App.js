@@ -18,7 +18,6 @@ import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailp
 
 import NutriAppointDetailPage from "./pages/nutritionist/nutriappointdetailpage/nutriappointdetailpage";
 import NutriAppointmentsPage from "./pages/nutritionist/nutriappointmentspage/nutriappointmentspage";
-import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationEditPage from "./pages/nutritionist/nutrievaluationeditpage/nutrievaluationeditpage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
@@ -60,7 +59,6 @@ function App() {
 
                         <Route path="nutritionist/appoint" element={<NutriAppointDetailPage/>} />
                         <Route path="nutritionist/appointments" element={<NutriAppointmentsPage/>} />
-                        <Route path="nutritionist/diet/edit" element={<NutriDietEditPage/>} />
                         <Route path="nutritionist/diet" element={<NutriDietPage/>} />
                         <Route path="nutritionist/evaluation/edit" element={<NutriEvaluationEditPage/>} />
                         <Route path="nutritionist/evaluation" element={<NutriEvaluationPage/>} />
