@@ -1,0 +1,25 @@
+.fileinput {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.fileinput.horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.fileinput h1 {
+    font-size: 14px;
+}
+
+.fileinput input {
+    font-size: 14px;
+    height: 35px;
+    width: 100%;
+    font-family: "Karla", sans-serif;
+}
