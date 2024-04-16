@@ -1,18 +1,14 @@
 import React from "react";
+
 import "./fileinput.css";
 
-function FileInput({ title, placeholder, handleFileInput, name }) {
+function FileInput({ placeholder, handleFileInput, name }) {
 
   return (
-    <div className="fileinput horizontal">
-      <h1 className="title">{title}</h1>
-      <input
-        className="input"
-        placeholder={placeholder}
-        onChange={handleFileInput}
-        name={name}
-        type="file"
-      ></input>
+    <div className="file-upload">
+      <h3>{placeholder || "Clique para fazer upload"}</h3>
+      <p>Tamanho máximo 100mb</p>
+      <input type="file" name={name} onChange={handleFileInput} />
     </div>
   );
 }
