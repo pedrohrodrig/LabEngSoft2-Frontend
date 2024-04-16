@@ -1,8 +1,10 @@
 const evaluationList = [
   {
     id: 1,
-    patientid: 1,
-    appointmentid: 2,
+    patienti: 1,
+    date: "27/03",
+    height: "160cm",
+    weight: "60kg",
     restrictions: "Sim, vegetariano",
     alcohol: "Socialmente",
     smoker: "Finais de semana",

@@ -31,7 +31,7 @@ function NutriEvaluationPage() {
         />
         <Button
           className="grad outline small"
-          text="Plano"
+          text="Dieta"
           to="/nutritionist/diet"
         />
         <Button
