@@ -6,9 +6,9 @@ import Button from "../../../components/button/button";
 import UserContext from "../../../contexts/UserContext";
 import PathContext from "../../../contexts/PathContext";
 
-import "./nutriprofileeditpage.css";
+import "./profileeditpage.css";
 
-function NutriProfileEditPage() {
+function ProfileEditPage() {
   const { user } = useContext(UserContext);
   const { paths } = useContext(PathContext);
 
@@ -59,4 +59,4 @@ function NutriProfileEditPage() {
   );
 }
 
-export default NutriProfileEditPage;
+export default ProfileEditPage;

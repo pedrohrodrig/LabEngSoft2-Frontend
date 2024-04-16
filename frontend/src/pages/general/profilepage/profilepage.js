@@ -3,15 +3,18 @@ import Profile from "../../../components/profile/profile";
 import Textbox from "../../../components/textbox/textbox";
 
 import UserContext from "../../../contexts/UserContext";
+import PathContext from "../../../contexts/PathContext";
+
 import "./profilepage.css";
 
 function ProfilePage() {
     const { user } = useContext(UserContext);
+    const { paths } = useContext(PathContext);
 
     return (
         <div className="profile page">
             <div className="header">
-                <Profile name={user.name} info={`R$${user.price} p/ consulta`} edit={true} to="/overview" />
+                <Profile name={user.name} info={`R$${user.price} p/ consulta`} edit={true} to={`${paths.front}`} />
             </div>
 
             <div className="content">

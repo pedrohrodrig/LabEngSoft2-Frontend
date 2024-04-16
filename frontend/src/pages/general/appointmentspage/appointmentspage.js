@@ -1,16 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
+
 import Title from "../../../components/title/title";
 import AppointmentsList from "../../../components/lists/appointmentlist/appointmentlist";
-
 import UserContext from "../../../contexts/UserContext";
-import appointmentList from "../../../objects/appointments";
+import PathContext from "../../../contexts/PathContext";
+
 import "./appointmentspage.css";
 
 function AppointmentsPage() {
     const { user } = useContext(UserContext);
-    const appointments = appointmentList.filter((appoint) => {
-        return user.appointments.includes(appoint.id)
-    });
+    const { paths } = useContext(PathContext);
+    const [ appointments, setAppointments ] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${paths.back}/appointment/list/${user.id}/`)
+        .then(response => {
+            setAppointments(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }, [user.id]);
 
     return (
         <div className="appointments page">
