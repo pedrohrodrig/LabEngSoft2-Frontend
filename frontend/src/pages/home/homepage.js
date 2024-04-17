@@ -27,7 +27,7 @@ function HomePage() {
                     text="Nutricionist"
                     icon="right"
                     iconType="arrow-right"
-                    to="/nutri"
+                    to="/nutritionist"
                 />
             </div>
 

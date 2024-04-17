@@ -8,24 +8,29 @@ import PathContext from "../../../contexts/PathContext";
 function NutriPage() {
     const { user } = useContext(UserContext);
     const [ paths, setPaths ] = useState({
-        front: "/nutri",
+        front: "/nutritionist",
         back: "http://127.0.0.1:8000"
     });
 
-    return(
-        <PathContext.Provider value={{ paths, setPaths }}>
-            <div className="app">
-                <Navbar
-                    name={user.name}
-                    labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/nutri", "/nutri/patients", "/nutri/schedule", "/nutri/appointments"]}
-                />
+    return (
+      <PathContext.Provider value={{ paths, setPaths }}>
+        <div className="app">
+          <Navbar
+            name={user.name}
+            labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
+            to={[
+              "/nutritionist",
+              "/nutritionist/patients",
+              "/nutritionist/schedule",
+              "/nutritionist/appointments",
+            ]}
+          />
 
-                <div className="app-content">
-                    <Outlet />
-                </div>
-            </div>
-        </PathContext.Provider>
+          <div className="app-content">
+            <Outlet />
+          </div>
+        </div>
+      </PathContext.Provider>
     );
 }
 

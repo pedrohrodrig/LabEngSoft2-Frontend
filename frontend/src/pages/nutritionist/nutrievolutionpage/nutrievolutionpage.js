@@ -85,7 +85,7 @@ function NutriEvolutionPage() {
         <Button
           className="grad outline small"
           text="Consulta"
-          to="/nutritionist/appoint"
+          to="/nutritionist/appointment"
         />
         <Button
           className="grad outline small"
