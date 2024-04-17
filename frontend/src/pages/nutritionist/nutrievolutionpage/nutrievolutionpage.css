@@ -8,6 +8,12 @@
     justify-content: center;
 }
 
+.evolution .evolution-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .evolution .button {
     display: flex;
     gap: 10px;
