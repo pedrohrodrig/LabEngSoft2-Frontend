@@ -57,6 +57,14 @@ function NewEventModal({ onAdd, onClose }) {
         <form onSubmit={handleSubmit} className="modal-form">
           <h1>Agendar Consulta</h1>
           <TextBox className="horizontal" body="Escolha a data e o horário da sua consulta"/>
+          <h1>Adicionar Evento</h1>
+          <TextInput
+            className="horizontal"
+            title="Evento"
+            placeholder="Título do Evento"
+            name="title"
+            handleTextInput={handleChange}
+          />
           <div className="modal-date">
             <TextBox title="Início" />
             <DateTimePicker

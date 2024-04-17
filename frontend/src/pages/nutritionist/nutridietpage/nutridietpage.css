@@ -1,0 +1,64 @@
+.diet {
+    gap: 30px !important;
+}
+
+.diet .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.diet .button {
+    display: flex;
+    gap: 10px;
+}
+
+.diet .separation {
+    display: flex;
+    width: 100%;
+    height: 72%;
+    gap: 30px;
+}
+
+.diet .separation .days {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.diet .separation .diet-content {
+    overflow-y: scroll;
+    width: 100%;
+    height: 88%;
+    display: flex;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
+}
+
+.diet::-webkit-scrollbar {
+    display: none;
+}
+
+.diet .separation .diet-content {
+    scrollbar-width: none;
+}
+
+.diet .separation .diet-content .diet-text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.diet .separation .diet-content .grid {
+    display: flex;
+    gap: 30px;
+    padding: 5px;
+}
+
+.diet .separation .diet-content .col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

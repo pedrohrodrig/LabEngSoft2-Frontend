@@ -61,6 +61,7 @@ function EventModal({ event, onClose, onDelete, onUpdate }) {
               className="grad outline small"
               text="Ver Consulta"
               to={`/patient-appointment?${event.appointmentid}`}
+              onClick={onClose}
             />
             <Button
               className="grad outline small"

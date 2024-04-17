@@ -11,8 +11,16 @@
     "react": "^18.2.0",
     "react-big-calendar": "^1.11.3",
     "react-bootstrap": "^2.10.2",
+    "axios": "^1.6.8",
+    "date-fns": "^3.6.0",
+    "js-cookie": "^3.0.5",
+    "js-cookies": "^1.0.4",
+    "react-clock": "^4.6.0",
+    "react-datetime-picker": "^5.6.0",
     "react-dom": "^18.2.0",
+    "react-notifications": "^1.7.4",
     "react-scripts": "5.0.1",
+    "react-select": "^5.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
