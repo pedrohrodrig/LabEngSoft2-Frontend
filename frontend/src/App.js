@@ -5,18 +5,17 @@ import UserContext from "./contexts/UserContext";
 import PathContext from "./contexts/PathContext";
 import { professional } from "./objects/profile";
 
-import LayoutPage from './pages/layoutpage/layoutpage';
-import HomePage from './pages/home/homepage';
-import OverviewPage from './pages/personal/overviewpage/overviewpage';
-import PatientsPage from './pages/personal/patientspage/patientspage';
-import AppointmentsPage from './pages/personal/appointmentspage/appointmentspage';
-import PaymentsPage from './pages/personal/paymentspage/paymentspage';
-import PatientProfilePage from './pages/personal/patientprofilepage/patientprofilepage';
-import ProfilePage from './pages/personal/profilepage/profilepage';
-import DocumentsPage from "./pages/personal/documentspage/documentspage";
-import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
-import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
-import HistoryPage from './pages/personal/historypage/historypage';
+import OverviewPage from './pages/psychologist/overviewpage/overviewpage';
+import PatientsPage from './pages/psychologist/patientspage/patientspage';
+import AppointmentsPage from './pages/psychologist/appointmentspage/appointmentspage';
+import PaymentsPage from './pages/psychologist/paymentspage/paymentspage';
+import PatientProfilePage from './pages/psychologist/patientprofilepage/patientprofilepage';
+import ProfilePage from './pages/psychologist/profilepage/profilepage';
+import DocumentsPage from "./pages/psychologist/documentspage/documentspage";
+import DocDetailPage from "./pages/psychologist/docdetailpage/docdetailpage";
+import AppointDetailPage from "./pages/psychologist/appointdetailpage/appointdetailpage";
+import HistoryPage from './pages/psychologist/historypage/historypage';
+import PsychologistPage from "./pages/psychologist/psychologistpage/psychologistpage";
 
 import TestPage from './pages/testpage/testpage';
 
@@ -25,7 +24,7 @@ import "./App.css";
 function App() {
     const [user, setUser] = useState(professional);
     const [path, setPath] = useState({
-        front: "/personal",
+        front: "/psychologist",
         back: "http://127.0.0.1:8000"
     });
 
@@ -33,10 +32,9 @@ function App() {
         <UserContext.Provider value={{ user, setUser }}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<LayoutPage />}>
+                    <Route path="/psychologist" element={<PsychologistPage />}>
 
                         <Route index element={<OverviewPage />} />
-                        <Route path="overview" element={<OverviewPage />} />
                         <Route path="patients" element={<PatientsPage />} />
                         <Route path="appointments" element={<AppointmentsPage />} />
                         <Route path="payments" element={<PaymentsPage />} />
@@ -44,10 +42,8 @@ function App() {
                         <Route path="profile" element={<ProfilePage />} />
                         <Route path="documents" element={<DocumentsPage />} />
                         <Route path="doc" element={<DocDetailPage />} />
-                        <Route path="/appoint/:id" element={<AppointDetailPage />} />
+                        <Route path="appoint/:id" element={<AppointDetailPage />} />
                         <Route path="history" element={<HistoryPage />} />
-
-                        <Route path="test" element={<TestPage />} />
 
                     </Route>
                 </Routes>

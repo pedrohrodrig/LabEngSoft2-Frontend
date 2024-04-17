@@ -10,7 +10,7 @@ function LayoutPage() {
     const { user } = useContext(UserContext);
     //const { path } = useContext(PathContext);
     const [path, setPath] = useState({
-        front: "/personal",
+        front: "/psychologist",
         back: "http://127.0.0.1:8000"
     });
 

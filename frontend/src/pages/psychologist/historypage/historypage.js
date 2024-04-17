@@ -1,18 +1,21 @@
 import React, { useContext, useState, useEffect } from "react";
 import axios from 'axios';
 import UserContext from "../../../contexts/UserContext";
+import PathContext from "../../../contexts/PathContext";
 import Title from "../../../components/title/title";
 import AppointmentsList from "../../../components/lists/appointmentlist/appointmentlist";
-import "./appointmentspage.css";
+import "./historypage.css";
 
-function AppointmentsPage() {
+function HistoryPage() {
     const { user } = useContext(UserContext);
-    const [path, setPath] = useState("http://127.0.0.1:8000");
+    const { path } = useContext(PathContext);
+    //const [path, setPath] = useState("http://127.0.0.1:8000");
     const [consultations, setConsultations] = useState([]);
-    const [futureConsultations, setFutureConsultations] = useState([]);
+    const [pastConsultations, setPastConsultations] = useState([]);
 
+    // Fetch consultations
     useEffect(() => {
-        axios.get(`${path}/consultation/list/${user.id}/`)
+        axios.get(`${path.back}/consultation/list/${user.id}/`)
             .then(response => {
                 setConsultations(response.data);
             })
@@ -21,26 +24,27 @@ function AppointmentsPage() {
             });
     }, [user.id, path]);
 
+    // Filter past consultations after consultations are updated
     useEffect(() => {
         const today = new Date();
-        const filteredFutureConsultations = consultations.filter(consultation => {
+        const filteredPastConsultations = consultations.filter(consultation => {
             const consultationDateTime = new Date(consultation.scheduled_time);
-            return consultationDateTime > today;
+            return consultationDateTime < today;
         });
 
-        setFutureConsultations(filteredFutureConsultations);
+        setPastConsultations(filteredPastConsultations);
     }, [consultations]);
 
     return (
-        <div className="appointments page">
+        <div className="history page">
             <Title
-                head="Consultas Futuras"
-                body="Veja a lista de todas as suas consultas agendadas para o futuro."
+                head="Histórico de Consultas"
+                body="Veja a lista de todas as suas consultas passadas."
             />
 
-            <AppointmentsList appointments={futureConsultations} />
+            <AppointmentsList appointments={pastConsultations} />
         </div>
     );
 }
 
-export default AppointmentsPage;
+export default HistoryPage;
