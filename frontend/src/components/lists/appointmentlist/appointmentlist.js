@@ -23,7 +23,7 @@ function AppointmentList({ className, appointments, small }) {
                         image={patientPhoto} // Utiliza a foto do paciente
                         col1={!small && scheduledDateTime} // Mostra a data e hora agendadas se não for a versão 'small'
                         col2={!small && appointment.status} // Mostra o status da consulta se não for a versão 'small'
-                        to={`/appoint/${appointment.id}`} // Assume que cada consulta tem um 'id' único para detalhes
+                        to={`/psychologist/appoint/${appointment.id}`} // Assume que cada consulta tem um 'id' único para detalhes
                         key={appointment.id} // Utiliza o 'id' da consulta como chave única
                     />
                 );
