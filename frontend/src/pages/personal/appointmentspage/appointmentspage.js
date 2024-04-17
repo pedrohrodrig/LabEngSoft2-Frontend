@@ -1,22 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
+import UserContext from "../../../contexts/UserContext";
 import Title from "../../../components/title/title";
 import AppointmentsList from "../../../components/lists/appointmentlist/appointmentlist";
-import consultations from "../../../objects/consultations"; // Garanta que este seja o caminho correto para o arquivo
 import "./appointmentspage.css";
 
 function AppointmentsPage() {
-    const [futureAppointments, setFutureAppointments] = useState([]);
+    const { user } = useContext(UserContext);
+    const [path, setPath] = useState("http://127.0.0.1:8000");
+    const [consultations, setConsultations] = useState([]);
+    const [futureConsultations, setFutureConsultations] = useState([]);
 
     useEffect(() => {
-        // Filtrar as consultas futuras
+        axios.get(`${path}/consultation/list/${user.id}/`)
+            .then(response => {
+                setConsultations(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching consultations:", error);
+            });
+    }, [user.id, path]);
+
+    useEffect(() => {
         const today = new Date();
-        const filteredFutureAppointments = consultations.filter(appointment => {
-            const appointmentDateTime = new Date(appointment.scheduled_time);
-            return appointmentDateTime > today;
+        const filteredFutureConsultations = consultations.filter(consultation => {
+            const consultationDateTime = new Date(consultation.scheduled_time);
+            return consultationDateTime > today;
         });
 
-        setFutureAppointments(filteredFutureAppointments);
-    }, []); // O array vazio como segundo argumento garante que este efeito roda apenas uma vez após o primeiro render
+        setFutureConsultations(filteredFutureConsultations);
+    }, [consultations]);
 
     return (
         <div className="appointments page">
@@ -25,7 +38,7 @@ function AppointmentsPage() {
                 body="Veja a lista de todas as suas consultas agendadas para o futuro."
             />
 
-            <AppointmentsList appointments={futureAppointments} />
+            <AppointmentsList appointments={futureConsultations} />
         </div>
     );
 }

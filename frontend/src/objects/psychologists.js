@@ -1,6 +1,6 @@
 const psychologists = [
     {
-        id_user: 1,
+        id: 1,
         full_name: "Dr. Alex Mendes",
         date_of_birth: "1980-04-15",
         email: "alex.mendes@example.com",

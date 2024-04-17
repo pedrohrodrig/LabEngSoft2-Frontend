@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 import Title from "../../../components/title/title";
 import Textbox from "../../../components/textbox/textbox";
 import Button from "../../../components/button/button";
@@ -13,51 +14,45 @@ function AppointDetailPage() {
     const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        const fetchConsultationDetails = async () => {
+        async function fetchConsultationDetails() {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/consultations/${id}`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setAppointment(data);
+                const response = await axios.get(`http://127.0.0.1:8000/consultation/${id}`);
+                setAppointment(response.data);
             } catch (error) {
                 console.error("Erro ao buscar os detalhes da consulta:", error);
             }
-        };
+        }
 
         fetchConsultationDetails();
     }, [id]);
 
     const handleStatusChange = async (newStatus) => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/consultations/${id}/`, {
-                method: 'PATCH',
+            const response = await axios.patch(`http://127.0.0.1:8000/consultation/${id}/`, {
+                status: newStatus
+            }, {
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ status: newStatus }),
+                }
             });
-            if (!response.ok) {
-                throw new Error('Failed to update consultation status');
-            }
-            const updatedAppointment = await response.json();
-            setAppointment(updatedAppointment);
+            console.log("Updated data:", response.data);
+            setAppointment(response.data);
             setShowPopup(false);
         } catch (error) {
             console.error("Erro ao alterar o status da consulta:", error);
         }
     };
 
+
     if (!appointment) {
         return <div>Carregando detalhes da consulta...</div>;
     }
 
-    const actionButton = appointment.status === "Requested" ?
+    const actionButton = appointment && (appointment.status === "Requested" ?
         { text: "Aceitar Consulta", action: () => handleStatusChange("Awaiting Payment") } :
         appointment.status === "Awaiting Payment" && appointment.payment_proof ?
             { text: "Confirmar Pagamento", action: () => handleStatusChange("Confirmed") } :
-            null;
+            null);
 
     return (
         <div className="appoint-detail page">
@@ -73,9 +68,9 @@ function AppointDetailPage() {
                         className="grad medium"
                         text="Baixar Comprovante de Pagamento"
                         to={appointment.payment_proof}
-                        icon="download" // Certifique-se de que você tem um ícone de download
-                        iconType="download" // Ajuste conforme necessário
-                        newTab={true} // Isso faz com que o botão abra o link em uma nova aba
+                        icon="download"
+                        iconType="download"
+                        newTab={true}
                     />
                 )}
                 {actionButton && (
@@ -83,7 +78,7 @@ function AppointDetailPage() {
                         <Button
                             className="grad medium"
                             text={actionButton.text}
-                            onClick={actionButton.action}
+                            onClick={() => setShowPopup(true)}
                         />
                     </div>
                 )}

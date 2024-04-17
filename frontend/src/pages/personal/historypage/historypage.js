@@ -1,22 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from 'axios';
+import UserContext from "../../../contexts/UserContext";
 import Title from "../../../components/title/title";
 import AppointmentsList from "../../../components/lists/appointmentlist/appointmentlist";
-import consultations from "../../../objects/consultations"; // Assegure-se de que este é o caminho correto
 import "./historypage.css";
 
 function HistoryPage() {
-    const [pastAppointments, setPastAppointments] = useState([]);
+    const { user } = useContext(UserContext);
+    const [path, setPath] = useState("http://127.0.0.1:8000");
+    const [consultations, setConsultations] = useState([]);
+    const [pastConsultations, setPastConsultations] = useState([]);
 
+    // Fetch consultations
     useEffect(() => {
-        // Filtrar as consultas passadas
+        axios.get(`${path}/consultation/list/${user.id}/`)
+            .then(response => {
+                setConsultations(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching consultations:", error);
+            });
+    }, [user.id, path]);
+
+    // Filter past consultations after consultations are updated
+    useEffect(() => {
         const today = new Date();
-        const filteredPastAppointments = consultations.filter(appointment => {
-            const appointmentDateTime = new Date(appointment.scheduled_time);
-            return appointmentDateTime < today;
+        const filteredPastConsultations = consultations.filter(consultation => {
+            const consultationDateTime = new Date(consultation.scheduled_time);
+            return consultationDateTime < today;
         });
 
-        setPastAppointments(filteredPastAppointments);
-    }, []); // Vazio para rodar apenas na montagem do componente
+        setPastConsultations(filteredPastConsultations);
+    }, [consultations]);
 
     return (
         <div className="history page">
@@ -25,7 +40,7 @@ function HistoryPage() {
                 body="Veja a lista de todas as suas consultas passadas."
             />
 
-            <AppointmentsList appointments={pastAppointments} />
+            <AppointmentsList appointments={pastConsultations} />
         </div>
     );
 }

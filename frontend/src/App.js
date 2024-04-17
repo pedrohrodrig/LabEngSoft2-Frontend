@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import UserContext from "./contexts/UserContext";
+import PathContext from "./contexts/PathContext";
 import { professional } from "./objects/profile";
 
 import LayoutPage from './pages/layoutpage/layoutpage';
@@ -23,6 +24,10 @@ import "./App.css";
 
 function App() {
     const [user, setUser] = useState(professional);
+    const [path, setPath] = useState({
+        front: "/personal",
+        back: "http://127.0.0.1:8000"
+    });
 
     return (
         <UserContext.Provider value={{ user, setUser }}>
