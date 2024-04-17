@@ -12,19 +12,19 @@ function NutriPage() {
         back: "http://127.0.0.1:8000"
     });
 
-    return (
-      <PathContext.Provider value={{ paths, setPaths }}>
-        <div className="app">
-          <Navbar
-            name={user.name}
-            labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-            to={[
-              "/nutritionist",
-              "/nutritionist/patients",
-              "/nutritionist/schedule",
-              "/nutritionist/appointments",
-            ]}
-          />
+    return(
+        <PathContext.Provider value={{ paths, setPaths }}>
+            <div className="app">
+                <Navbar
+                    name={user.name}
+                    labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
+                    to={[
+                        paths.front,
+                        `${paths.front}/patients`,
+                        `${paths.front}/schedule`,
+                        `${paths.front}/appointments`
+                    ]}
+                />
 
           <div className="app-content">
             <Outlet />

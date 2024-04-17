@@ -16,6 +16,7 @@ import SchedulePage from "./pages/general/schedulepage/schedulepage";
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
 
+import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
 import NutriEvolutionPage from "./pages/nutritionist/nutrievolutionpage/nutrievolutionpage";
