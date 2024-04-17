@@ -4,6 +4,7 @@ import "./icon.css";
 
 import { ReactComponent as Activity } from "../../assets/activity.svg";
 import { ReactComponent as ArrowRight } from "../../assets/arrow-right.svg";
+import { ReactComponent as Check } from "../../assets/check.svg";
 import { ReactComponent as ChevronLeft } from "../../assets/chevron-left.svg";
 import { ReactComponent as ChevronRight } from "../../assets/chevron-right.svg";
 import { ReactComponent as Clipboard } from "../../assets/clipboard.svg";
@@ -24,6 +25,7 @@ function Icon({ className, iconType, to }) {
     switch (iconType) {
         case "activity": return <Link className={classes} to={to}><Activity /></Link>;
         case "arrow-right": return <Link className={classes} to={to}><ArrowRight /></Link>;
+        case "check":  return <Link className={classes} to={to}><Check /></Link>;
         case "chevron-left": return <Link className={classes} to={to}><ChevronLeft /></Link>;
         case "chevron-right": return <Link className={classes} to={to}><ChevronRight /></Link>;
         case "clipboard": return <Link className={classes} to={to}><Clipboard /></Link>;

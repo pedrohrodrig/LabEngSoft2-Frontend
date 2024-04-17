@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import UserPhoto from "../../components/userphoto/userphoto";
 import Icon from "../../components/icon/icon";
-
 import UserContext from "../../contexts/UserContext";
 import PathContext from "../../contexts/PathContext";
 
@@ -22,7 +21,6 @@ function Profile({ className, name, info, edit, to }) {
                     <h1>{name}</h1>
                     { edit && <Icon className="edit-icon" iconType="edit" to={`${paths.front}/profile/edit`} /> }
                 </div>
-
                 <div className="info-cont">
                     <p>{info}</p>
                 </div>
@@ -30,5 +28,4 @@ function Profile({ className, name, info, edit, to }) {
         </div>
     );
 }
-
 export default Profile;

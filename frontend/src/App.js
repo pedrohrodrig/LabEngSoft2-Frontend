@@ -4,6 +4,7 @@ import { professional } from "./objects/profile";
 import { NotificationContainer } from "react-notifications";
 import UserContext from "./contexts/UserContext";
 
+import HomePage from './pages/home/homepage';
 import OverviewPage from './pages/general/overviewpage/overviewpage';
 import PatientsPage from './pages/general/patientspage/patientspage';
 import AppointmentsPage from './pages/general/appointmentspage/appointmentspage';
@@ -12,6 +13,7 @@ import ProfilePage from './pages/general/profilepage/profilepage';
 import ProfileEditPage from "./pages/general/profileeditpage/profileeditpage";
 import DocumentsPage from "./pages/general/documentspage/documentspage";
 import SchedulePage from "./pages/general/schedulepage/schedulepage";
+import AppointDetailPage from './pages/general/appointdetailpage/appointdetailpage';
 
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
@@ -123,7 +125,7 @@ function App() {
                 <Route path="evaluation" element={<DoctorEvaluationPage />} />
                 <Route path="appointment" element={<DoctorAppointDetailPage />} />
             </Route>
-
+          </Routes>
         </BrowserRouter>
       </UserContext.Provider>
     );

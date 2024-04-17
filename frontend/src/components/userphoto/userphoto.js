@@ -16,5 +16,4 @@ function UserPhoto({ className, name, to }) {
         </div>
     );
 }
-
 export default UserPhoto;

@@ -47,6 +47,13 @@ function HomePage() {
                     iconType="arrow-right"
                     to="/doctor"
                 />
+                <Button
+                    className="grad medium"
+                    text="Doctor"
+                    icon="right"
+                    iconType="arrow-right"
+                    to="/doctor"
+                />
             </div>
 
 

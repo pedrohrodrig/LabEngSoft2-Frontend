@@ -53,6 +53,7 @@ function Navbar({ className, labels, to }) {
             </div>
 
 
+
             <div className="footer">
                 <Button
                     className="black small outline"
