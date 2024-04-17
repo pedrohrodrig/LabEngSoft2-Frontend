@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import PathContext from "../../contexts/PathContext";
+
 import Logo from "../logo/logo";
 import UserPhoto from "../userphoto/userphoto";
 import Button from "../button/button";
@@ -6,7 +8,8 @@ import Tabs from "../tabs/tabs";
 
 import "./navbar.css";
 
-function Navbar({ className }) {
+function Navbar({ className, labels, to }) {
+    const { paths } = useContext(PathContext);
     const classes = `navbar ${className}`;
 
     return (
@@ -16,10 +19,10 @@ function Navbar({ className }) {
             </div>
 
             <div className="content">
-                <UserPhoto name="Lucas Garieri" to="/nutritionist/profile" />
+                <UserPhoto name="Lucas Garieri" to={`${paths.front}/profile`} />
                 <Tabs
-                    labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/nutritionist", "/nutritionist/patients", "nutritionist/schedule", "/nutritionist/appointments"]}
+                    labels={labels}
+                    to={to}
                 />
             </div>
 
@@ -30,7 +33,7 @@ function Navbar({ className }) {
                     text="Logout"
                     icon="left"
                     iconType="logout"
-                    to=""
+                    to="/"
                 />
             </div>
         </div>
