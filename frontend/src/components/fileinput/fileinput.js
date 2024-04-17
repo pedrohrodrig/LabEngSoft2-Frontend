@@ -16,3 +16,4 @@ function FileInput({ placeholder, handleFileInput, name }) {
 
 export default FileInput;
 
+
