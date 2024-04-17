@@ -5,13 +5,9 @@ import Icon from "../icon/icon";
 import "./horizontalcard.css";
 
 function HorizontalCard({ className, title, body, col1, col2, image, iconType, to }) {
-    const classes = (
-        to
-        ? `hcard clickable ${className}`
-        : `hcard disabled-link ${className}`
-    );
-
+    const classes = (to ? `hcard clickable ${className}` : `hcard disabled-link ${className}`);
     const small = className ? className.includes('small') : false;
+
     return (
         <Link className={classes} to={to}>
             {

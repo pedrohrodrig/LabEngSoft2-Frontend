@@ -23,6 +23,11 @@
     width: 100%;
     font-family: "Karla", sans-serif;
     border-radius: 10px;
-    border: 2px solid var(--light-gray);
+    border: 2px solid var(--black);
     background: var(--light-gray);
+}
+
+.textinput input:hover {
+    border: 2px solid var(--dark-gray);
+    transition: border .1s ease-in,
 }

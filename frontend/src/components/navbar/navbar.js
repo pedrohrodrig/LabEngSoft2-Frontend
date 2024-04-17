@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState  } from "react";
+import PathContext from "../../contexts/PathContext";
 import Cookies from "js-cookie";
 import Logo from "../logo/logo";
 import UserPhoto from "../userphoto/userphoto";
@@ -10,7 +11,8 @@ import { NotificationManager } from 'react-notifications';
 import "./navbar.css";
 import urls from "../../utils/urls";
 
-function Navbar({ className }) {
+function Navbar({ className, labels, to }) {
+    const { paths } = useContext(PathContext);
     const classes = `navbar ${className}`;
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,10 +45,10 @@ function Navbar({ className }) {
             </div>
 
             <div className="content">
-                <UserPhoto name="Lucas Garieri" />
+                <UserPhoto name="Lucas Garieri" to={`${paths.front}/profile`} />
                 <Tabs
-                    labels={["Overview", "Serviços", "Agenda", "Histórico"]}
-                    to={["/overview", "/services", "/schedule", "/history"]}
+                    labels={labels}
+                    to={to}
                 />
             </div>
 
