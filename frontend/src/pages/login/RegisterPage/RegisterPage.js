@@ -46,40 +46,40 @@ function RegisterPage() {
     });
   };
 
-  const handleChangePatientExclusiveFields = (e) => {
-    const { value, name } = e.target;
-
-    if(registerData.role === rolesValues.patient) {
-      setRegisterData({
-        ...registerData,
-        [name]: value
-      });
+  const cleanDataBeforeSend = (data) => {
+    if(isPatient){
+      delete data.bio;
+      delete data.price;
     }
     else {
-      const { weight, height, ...commonRegisterData } = registerData;
-
-      setRegisterData({ ...commonRegisterData })
+      delete data.weight;
+      delete data.height;
     }
+
+    return data
   }
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(registerData);
+    const data = cleanDataBeforeSend(registerData);
 
-    await axios.post(
-      `${urls.baseURL}/register/`,
-      registerData,
-      {headers: {'Content-Type': 'application/json'}},
-    )
-    .then(() => {
-        NotificationManager.success("Cadastro realizado");
+    console.log(data);
+    console.log(isPatient)
 
-        navigate("/login")
-      })
-    .catch((error) => {
-      NotificationManager.error(error);
-    });
+    // await axios.post(
+    //   `${urls.baseURL}/register/`,
+    //   registerData,
+    //   {headers: {'Content-Type': 'application/json'}},
+    // )
+    // .then(() => {
+    //   NotificationManager.success("Cadastro realizado");
+
+    //   navigate("/login")
+    //   })
+    // .catch((error) => {
+    //   NotificationManager.error(error);
+    // });
   }
 
   return (
@@ -146,7 +146,7 @@ function RegisterPage() {
           type="number"
           name="weight"
           value={registerData.weight}
-          handleTextInput={handleChangePatientExclusiveFields}
+          handleTextInput={handleChange}
           isFloat
         />}
         {isPatient && <TextInput
@@ -155,7 +155,7 @@ function RegisterPage() {
           type="number"
           name="height"
           value={registerData.height}
-          handleTextInput={handleChangePatientExclusiveFields}
+          handleTextInput={handleChange}
           isFloat
         />}
         <TextInput
@@ -180,6 +180,22 @@ function RegisterPage() {
           name="address"
           value={registerData.address}
         />
+        {!isPatient && <TextInput
+          title="Biografia"
+          placeholder="Resuma você mesmo"
+          name="bio"
+          value={registerData.bio}
+          handleTextInput={handleChange}
+        />}
+        {!isPatient && <TextInput
+          title="Preço da consulta"
+          placeholder="Insira o valor em R$"
+          type="number"
+          name="price"
+          value={registerData.price}
+          handleTextInput={handleChange}
+          isFloat
+        />}
         <TextInput
           title="Email"
           placeholder="Insira seu email"
