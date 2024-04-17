@@ -1,0 +1,54 @@
+.schedule {
+    gap: 30px !important;
+}
+
+.schedule .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.schedule .calendar-back {
+    background-color: var(--light-gray);
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
+}
+
+.schedule .rbc-toolbar {
+    height: 9vh;
+    color: var(--black);
+    font-size: 22px;
+    font-family: "Karla", sans-serif;
+}
+
+.schedule .rbc-header {
+    color: white;
+    font-size: 14 !important;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: var(--dark-gray);
+}
+
+.schedule .rcb-today {
+    background: var(--light-gray);
+}
+
+.schedule .rbc-allday-cell {
+    display: none;
+}
+
+.schedule .rbc-time-header-cell .rbc-today {
+    background-color: var(--dark-gray) !important;
+}
+
+.schedule .rbc.time.slot::not(.rbc-today .rbc-time-slot) {
+    background-color: var(--light-gray);
+}
+
+.schedule .rbc-time-slot {
+    color: var(--dark-gray);
+}
