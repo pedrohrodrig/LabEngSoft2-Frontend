@@ -1,7 +1,6 @@
-import { React, useEffect, useState, useContext } from "react";
+import { React, useEffect, useState } from "react";
 import Title from "../../../components/title/title";
 import EventModal from "../../../components/eventmodal/eventmodal";
-import UserContext from "../../../contexts/UserContext";
 
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
@@ -34,7 +33,6 @@ const localizer = dateFnsLocalizer({
 function SchedulePage() {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const { user } = useContext(UserContext);
 
   const eventStyle = (event) => ({
     style: {
@@ -119,7 +117,7 @@ function SchedulePage() {
     return {
       id: event.appointmentid,
       id_user_professional: event.professionalId,
-      patient: user.id,
+      patient: event.patientId,
       start_datetime: event.start,
       end_datetime: event.end,
       is_online: event.type === "Online",
@@ -133,6 +131,7 @@ function SchedulePage() {
       title: "Consulta " + appointment.id,
       appointmentid: appointment.id,
       professionalId: appointment.id_user_professional,
+      patientId: appointment.patient.id,
       start: adjustDate(appointment.start_datetime),
       end: adjustDate(appointment.end_datetime),
       desc: "Consulta",
@@ -143,9 +142,8 @@ function SchedulePage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/appointment`)
+      .get(`http://localhost:8000/appointment/list`)
       .then((response) => {
-        console.log(response.data);
         const newEvents = response.data.map((element) =>
           createEventFromAppointment(element)
         );
