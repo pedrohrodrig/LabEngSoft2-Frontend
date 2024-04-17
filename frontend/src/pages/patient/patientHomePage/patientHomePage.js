@@ -1,8 +1,8 @@
 import React from "react";
 import GeneralInfo from "../../../components/generalinfo/generalinfo";
-import Card from "../../../components/card/card";
 
 import "./patientHomePage.css"
+import Button from "../../../components/button/button";
 
 function PatientHomePage() {
     return (
@@ -16,21 +16,9 @@ function PatientHomePage() {
                 />
             </div>
             <div className="second-row">
-                <Card
-                    clickable={true}
-                    title={'Dietas'}
-                    to={"/patient-diet"}
-                />
-                <Card
-                    clickable={true}
-                    title={'Treinamentos'}
-                    to={"/patient-training"}
-                />
-                <Card
-                    clickable={true}
-                    title={'Registros médicos'}
-                    to={"/patient-medical-registers"}
-                />
+                <Button className='grad medium' to={"/patient-diet"} text={'Dietas'}/>
+                <Button className='grad medium' to={"/patient-training"} text={'Treinamentos'}/>
+                <Button className='grad medium' to={"/patient-medical-registers"} text={'Registros médicos'}/>
             </div>
 
         </div>

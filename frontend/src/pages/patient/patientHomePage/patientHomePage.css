@@ -13,9 +13,10 @@
 }
 
 .second-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Divide a segunda linha em três colunas de largura igual */
-    gap: 20px;
-    /* Espaçamento entre os cards na segunda linha */
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-row .but {
+    margin: 1.6rem;
 }
