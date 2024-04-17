@@ -75,7 +75,7 @@ function RegisterPage() {
       navigate("/login")
       })
     .catch((error) => {
-      NotificationManager.error(error);
+      NotificationManager.error("Erro", "Verifique os campos e tente novamente");
     });
   }
 
@@ -104,7 +104,7 @@ function RegisterPage() {
             selectedOption={registerData.gender}
             placeholder="Gênero"
             name="gender"
-            onChange={(selectedOption) => {
+            handleSelectedOptions={(selectedOption) => {
               setRegisterData({
                 ...registerData,
                 gender: selectedOption.value
@@ -130,10 +130,10 @@ function RegisterPage() {
           <Textbox title="Data de Nascimento" />
           <DateTimePicker
             onChange={(date) =>
-              handleChange({ target: { value: date, name: "birthDate" } })
+              handleChange({ target: { value: date.toISOString().substring(0, 10), name: "birth_date" } })
             }
-            name="birthDate"
-            value={registerData.birthDate}
+            name="birth_date"
+            value={registerData.birth_date}
             disableClock={true}
           />
         </div>
@@ -176,6 +176,7 @@ function RegisterPage() {
           placeholder="Insira seu endereço"
           name="address"
           value={registerData.address}
+          handleTextInput={handleChange}
         />
         {!isPatient && <TextInput
           title="Biografia"
