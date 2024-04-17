@@ -3,7 +3,7 @@ import HorizontalCard from "../../horizontalcard/horizontalcard";
 
 import "../cardlist.css";
 
-function ProfessionalList({ className, professionals, small }) {
+function ProfessionalList({ className, professionals, small, id }) {
     const classes = small ? `small-card-list ${className}` : `card-list ${className}`;
     const n = small ? 3 : professionals.length;
 
@@ -19,7 +19,7 @@ function ProfessionalList({ className, professionals, small }) {
                                 body={!small && `R$${obj.price}`}
                                 image={obj.photo}
                                 col1={!small && obj.specialty}
-                                to={`/rent-service?${i}`}
+                                to={`/rent-service?${obj.id}`}
                                 key={i}
                             />
                         );
