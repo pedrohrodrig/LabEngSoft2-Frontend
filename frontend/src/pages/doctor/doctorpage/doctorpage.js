@@ -12,7 +12,8 @@ function DoctorPage() {
         back: "http://127.0.0.1:8000"
     });
 
-    return (
+    return(
+
         <PathContext.Provider value={{ paths, setPaths }}>
             <div className="app">
                 <Navbar
