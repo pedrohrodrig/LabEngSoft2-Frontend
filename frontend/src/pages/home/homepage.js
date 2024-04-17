@@ -40,6 +40,13 @@ function HomePage() {
                     iconType="arrow-right"
                     to="/nutritionist"
                 />
+                <Button
+                    className="grad medium"
+                    text="Doctor"
+                    icon="right"
+                    iconType="arrow-right"
+                    to="/doctor"
+                />
             </div>
 
 
