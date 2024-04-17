@@ -1,4 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import axios from 'axios';
+
 import Title from "../../../components/title/title";
 import Textbox from "../../../components/textbox/textbox";
 import HorizontalCard from "../../../components/horizontalcard/horizontalcard";
@@ -7,15 +10,41 @@ import Button from "../../../components/button/button";
 import Popup from "../../../components/popup/popup";
 
 import documentList from "../../../objects/documents";
-import appointmentList from "../../../objects/appointments";
 import UserContext from "../../../contexts/UserContext";
+import PathContext from "../../../contexts/PathContext";
+
 import "./appointdetailpage.css";
 
-function AppointDetailPage() {
+function AppointDetailPage(props) {
     const { user } = useContext(UserContext);
+    const { paths } = useContext(PathContext);
+
     const [ avaliation, setAvaliation ] = useState(false);
     const [ cancelation, setCancelation ] = useState(false);
-    const appointment = appointmentList[0];
+    const [ appointment, setAppointment ] = useState({});
+
+    const location = useLocation();
+    const appointmentId = new URLSearchParams(location.search).get('id');
+
+    useEffect(() => {
+        axios.get(`${paths.back}/appointment/${appointmentId}/`)
+        .then(response => {
+            setAppointment(response.data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }, [user.id]);
+
+    const type = appointment.is_online ? "Online" : "Presencial";
+    const date = new Date(appointment.datetime);
+    const options = {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+    }
 
     return (
         <div className="appoint-detail page">
@@ -29,7 +58,7 @@ function AppointDetailPage() {
                         <div className="col">
                             <div className="cardbox">
                                 <Textbox title="Paciente" />
-                                <HorizontalCard className="small" image={user.photo} title={user.name} to="/patient/profile" />
+                                <HorizontalCard className="small" image="/images/user.jpeg" title={appointment.patient_name} to={`${paths.front}/patient?id=${appointment.patient}`} />
                             </div>
 
                             <Textbox className="horizontal" title="Status" body={appointment.status} />
@@ -37,14 +66,14 @@ function AppointDetailPage() {
                         <div className="col">
                             <div className="cardbox">
                                 <Textbox title="Profissional" />
-                                <HorizontalCard className="small" image={user.photo} title={user.name} to="/profile" />
+                                <HorizontalCard className="small" image="/images/user.jpeg" title={user.name} to={`${paths.front}/profile`} />
                             </div>
 
-                            <Textbox className="horizontal" title="Tipo" body={appointment.type} />
+                            <Textbox className="horizontal" title="Tipo" body={type} />
                         </div>
                     </div>
 
-                    <Textbox className="horizontal" title="Horário" body={appointment.timestamp} />
+                    <Textbox className="horizontal" title="Horário" body={date.toLocaleString("en-GB", options)} />
                     <Textbox className="horizontal" title="Endereço" body={appointment.address} />
 
                     <div className="appoint-but">

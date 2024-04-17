@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import axios from "axios";
+
 import HorizontalCard from "../../horizontalcard/horizontalcard";
 import Button from "../../button/button";
 
-import axios from "axios";
+import PathContext from "../../../contexts/PathContext";
 
 import "../cardlist.css";
 import "./documentlist.css";

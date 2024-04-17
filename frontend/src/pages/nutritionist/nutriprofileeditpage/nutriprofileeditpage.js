@@ -4,10 +4,13 @@ import TextInput from "../../../components/textInput/textInput";
 import Button from "../../../components/button/button";
 
 import UserContext from "../../../contexts/UserContext";
+import PathContext from "../../../contexts/PathContext";
+
 import "./nutriprofileeditpage.css";
 
 function NutriProfileEditPage() {
   const { user } = useContext(UserContext);
+  const { paths } = useContext(PathContext);
 
   return (
     <div className="profile-edit page">
@@ -21,7 +24,7 @@ function NutriProfileEditPage() {
         <Button
           className="grad outline small"
           text="Salvar"
-          to="/nutritionist/profile"
+          to={`${paths.front}/profile`}
         />
       </div>
 
