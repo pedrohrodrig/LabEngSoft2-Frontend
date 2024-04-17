@@ -8,7 +8,7 @@ const professionalList = [
         service: "doctor",
         appointment: "online",
         email: "lucas_pvg@usp.br",
-        price: "100,00"
+        price: 100.00
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const professionalList = [
         service: "nutricionist",
         appointment: "online",
         email: "lucas_pvg@usp.br",
-        price: "100,00"
+        price: 100.00
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const professionalList = [
         service: "psychologist",
         appointment: "online",
         email: "lucas_pvg@usp.br",
-        price: "100,00"
+        price: 100.00
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const professionalList = [
         service: "personal",
         appointment: "online",
         email: "lucas_pvg@usp.br",
-        price: "100,00"
+        price: 100.00
     },
     {
         id: 5,
@@ -52,7 +52,7 @@ const professionalList = [
         service: "doctor",
         appointment: "online",
         email: "lucas_pvg@usp.br",
-        price: "100,00"
+        price: 100.00
     }
 ];
 
