@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import DateTimePicker from "react-datetime-picker";
 
-import TextInput from "../../components/textInput/textInput";
-import TextBox from "../../components/textbox/textbox";
 import Button from "../../components/button/button";
+import TextBox from "../../components/textbox/textbox";
+import TextInput from "../../components/textInput/textInput";
 
 import "./neweventmodal.css";
 import "react-datetime-picker/dist/DateTimePicker.css";
@@ -11,14 +11,20 @@ import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
 
 function NewEventModal({ onAdd, onClose }) {
+  const [inputValue, setInputValue] = useState('');
   const [newEvent, setNewEvent] = useState({
-    title: "",
+    title: "Nova consulta",
     start: "",
     end: "",
-    desc: "",
+    desc: "Consulta",
     color: "#CCBAF7",
     type: "",
   });
+
+  const handleChangeInput = event => {
+    setInputValue(event.target.value);
+    handleChange({target: { value: event.target.value, name: "type" }})
+  };
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -49,6 +55,8 @@ function NewEventModal({ onAdd, onClose }) {
     <div className="modal">
       <div className="modal-content">
         <form onSubmit={handleSubmit} className="modal-form">
+          <h1>Agendar Consulta</h1>
+          <TextBox className="horizontal" body="Escolha a data e o horário da sua consulta"/>
           <h1>Adicionar Evento</h1>
           <TextInput
             className="horizontal"
@@ -81,17 +89,10 @@ function NewEventModal({ onAdd, onClose }) {
           </div>
           <TextInput
             className="horizontal"
-            title="Descrição"
-            placeholder="Insira uma descrição breve da consulta"
-            name="desc"
-            handleTextInput={handleChange}
-          />
-          <TextInput
-            className="horizontal"
             title="Tipo"
             placeholder="Insira o tipo de consulta"
             name="type"
-            handleTextInput={handleChange}
+            handleTextInput={handleChangeInput}
           />
           <div className="modal-button">
             <Button

@@ -17,6 +17,14 @@ import ProfilePage from './pages/personal/profilepage/profilepage';
 import DocumentsPage from "./pages/personal/documentspage/documentspage";
 import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
+
+import ServicesPage from "./pages/patient/servicesPage/servicesPage";
+import ProfessionalListPage from "./pages/patient/professionalListPage/professionalListPage";
+import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistoryPage";
+import SignUpPage from "./pages/signUpPage/signUpPage";
+import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
+import SchedulePage from "./pages/schedulepage/schedulepage";
+
 import LoginPage from "./pages/login/LoginPage/LoginPage";
 import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
@@ -39,6 +47,12 @@ import NutriSchedulePage from "./pages/nutritionist/nutrischedulepage.js/nutrisc
 import TestPage from './pages/testpage/testpage';
 
 import "./App.css";
+import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
+import TrainingPage from "./pages/patient/patientTrainingPage/patientTrainingPage";
+import DietPage from "./pages/patient/patientDietPage/patientDietPage";
+import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
+import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
+
 
 import "react-notifications/lib/notifications.css"
 import LoginPage from "./pages/login/LoginPage/LoginPage";
@@ -46,7 +60,7 @@ import { NotificationContainer } from "react-notifications";
 import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 function App() {
-    const [ user, setUser ] = useState(professional);
+    const [user, setUser] = useState(professional);
 
     return (
       <>
@@ -66,7 +80,20 @@ function App() {
                         <Route path="documents" element={<DocumentsPage />} />
                         <Route path="doc" element={<DocDetailPage />} />
                         <Route path="appoint" element={<AppointDetailPage />} />
+                        <Route path="schedule" element={<SchedulePage />} />
 
+                        {/* Patient URLs */}
+                        <Route path="services" element={<ServicesPage />} />
+                        <Route path="professionals" element={<ProfessionalListPage />} />
+                        <Route path="history" element={<PatientHistoryPage />} />
+                        <Route path="patient-appointment" element={<PatientHistoryDetailPage />} />
+                        <Route path="patient-home" element={<PatientHomePage />} />
+                        <Route path="patient-training" element={<TrainingPage />} />
+                        <Route path="patient-diet" element={<DietPage />} />
+                        <Route path="patient-medical-registers" element={<MedicalPage />} />
+                        <Route path="rent-service" element={<RentService />} />
+
+                        <Route path="signup" element={<SignUpPage />} />
                         <Route path="login" element={<LoginPage />} />
                         <Route path="register" element={<RegisterPage />} />
 
@@ -95,5 +122,4 @@ function App() {
       </>
     );
 }
-
 export default App;

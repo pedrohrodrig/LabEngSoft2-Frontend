@@ -40,15 +40,19 @@ function Navbar({ className }) {
             <>
               <div className="header">
                 <Logo className="black" />
-              </div>
-              <div className="content">
-                  <UserPhoto name="Lucas Garieri" to="/profile" />
-                  <Tabs
-                    labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/overview", "/patients", "", "/appointments"]} />
-              </div>
-              <div className="footer">
-                  <Button
+            </div>
+
+            <div className="content">
+                <UserPhoto name="Lucas Garieri" />
+                <Tabs
+                    labels={["Overview", "Serviços", "Agenda", "Histórico"]}
+                    to={["/overview", "/services", "/schedule", "/history"]}
+                />
+            </div>
+
+
+            <div className="footer">
+                <Button
                     className="black small outline"
                     text="Logout"
                     icon="left"
