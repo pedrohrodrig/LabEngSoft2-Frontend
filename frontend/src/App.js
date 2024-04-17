@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserContext from "./contexts/UserContext";
 import { professional } from "./objects/profile";
-import "react-notifications/lib/notifications.css"
 import { NotificationContainer } from "react-notifications";
+import UserContext from "./contexts/UserContext";
 
 import OverviewPage from './pages/general/overviewpage/overviewpage';
 import PatientsPage from './pages/general/patientspage/patientspage';
@@ -12,11 +11,15 @@ import PatientProfilePage from './pages/general/patientprofilepage/patientprofil
 import ProfilePage from './pages/general/profilepage/profilepage';
 import ProfileEditPage from "./pages/general/profileeditpage/profileeditpage";
 import DocumentsPage from "./pages/general/documentspage/documentspage";
-import AppointDetailPage from "./pages/general/appointdetailpage/appointdetailpage";
 import SchedulePage from "./pages/general/schedulepage/schedulepage";
 
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
+import DoctorPage from "./pages/doctor/doctorpage/doctorpage";
+
+import PersonalAppointDetailPage from "./pages/personal/personalappointdetailpage/personalappointdetailpage";
+import PersonalEvaluationPage from "./pages/personal/personalevaluationpage/personalevaluationpage";
+import PersonalTrainPage from "./pages/personal/personaltrainpage/personaltrainpage";
 
 import PatientPage from "./pages/patient/patientpage/patientpage";
 import ServicesPage from "./pages/patient/servicesPage/servicesPage";
@@ -34,11 +37,8 @@ import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrie
 import NutriEvolutionPage from "./pages/nutritionist/nutrievolutionpage/nutrievolutionpage";
 import NutriAppointDetailPage from "./pages/nutritionist/nutriappointdetailpage/nutriappointdetailpage";
 
-import HomePage from './pages/home/homepage';
-import TestPage from './pages/testpage/testpage';
-import LayoutPage from './pages/layoutpage/layoutpage';
-
-import "./App.css";
+import DoctorAppointDetailPage from "./pages/doctor/doctorappointdetailpage/doctorappointdetailpage";
+import DoctorEvaluationPage from "./pages/doctor/doctorevaluationpage/doctorevaluationpage";
 
 import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
 import TrainingPage from "./pages/patient/patientTrainingPage/patientTrainingPage";
@@ -47,6 +47,12 @@ import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedi
 import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
 
 import "react-notifications/lib/notifications.css"
+
+import TestPage from './pages/testpage/testpage';
+import LayoutPage from './pages/layoutpage/layoutpage';
+
+import "react-notifications/lib/notifications.css"
+import "./App.css";
 
 function App() {
     const [user, setUser] = useState(professional);
@@ -104,7 +110,20 @@ function App() {
                 <Route path="rent-service" element={<RentService />} />
             </Route>
 
-          </Routes>
+            <Route path="/doctor" element={<DoctorPage />}>
+                <Route index element={<OverviewPage />} />
+                <Route path="patients" element={<PatientsPage />} />
+                <Route path="patient" element={<PatientProfilePage />} />
+                <Route path="appointments" element={<AppointmentsPage />} />
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="profile/edit" element={<ProfileEditPage />} />
+                <Route path="documents" element={<DocumentsPage />} />
+                <Route path="schedule" element={<SchedulePage />} />
+
+                <Route path="evaluation" element={<DoctorEvaluationPage />} />
+                <Route path="appointment" element={<DoctorAppointDetailPage />} />
+            </Route>
+
         </BrowserRouter>
       </UserContext.Provider>
     );
