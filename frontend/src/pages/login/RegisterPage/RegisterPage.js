@@ -67,19 +67,19 @@ function RegisterPage() {
     console.log(data);
     console.log(isPatient)
 
-    // await axios.post(
-    //   `${urls.baseURL}/register/`,
-    //   registerData,
-    //   {headers: {'Content-Type': 'application/json'}},
-    // )
-    // .then(() => {
-    //   NotificationManager.success("Cadastro realizado");
+    await axios.post(
+      `${urls.baseURL}/register/`,
+      registerData,
+      {headers: {'Content-Type': 'application/json'}},
+    )
+    .then(() => {
+      NotificationManager.success("Cadastro realizado");
 
-    //   navigate("/login")
-    //   })
-    // .catch((error) => {
-    //   NotificationManager.error(error);
-    // });
+      navigate("/login")
+      })
+    .catch((error) => {
+      NotificationManager.error(error);
+    });
   }
 
   return (
