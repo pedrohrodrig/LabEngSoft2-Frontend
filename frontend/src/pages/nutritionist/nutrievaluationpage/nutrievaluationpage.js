@@ -1,17 +1,99 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import Title from "../../../components/title/title";
-import Textbox from "../../../components/textbox/textbox";
 import Button from "../../../components/button/button";
+import TextInput from "../../../components/textInput/textInput";
+import FileInput from "../../../components/fileinput/fileinput";
 
-import patientList from "../../../objects/patients";
-import evaluationList from "../../../objects/evaluation";
+import axios from "axios";
 
 import "./nutrievaluationpage.css";
 
 function NutriEvaluationPage() {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFileName, setSelectedFileName] = useState(null);
+  const [definedName, setDefinedName] = useState("");
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
-  const patient = patientList[0];
-  const evaluation = evaluationList[0];
+  const createEndpoint = "http://127.0.0.1:8000/evaluation/create/";
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/evaluation_from_patient/${1}/`)
+      .then((response) => {
+        setUploadedFiles(response.data);
+      })
+      .catch((err) => console.log(err));
+  }, [selectedFile, uploadedFiles]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file === undefined) {
+      setSelectedFile(null);
+      setSelectedFileName(null);
+    } else {
+      setSelectedFile(file);
+      setSelectedFileName(file.name);
+    }
+  };
+
+  const handleTextInput = (e) => {
+    const name = e.target;
+    setDefinedName(name.value);
+    console.log(definedName);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const url = createEndpoint;
+    const formData = new FormData();
+    formData.append("patientId", 1);
+    formData.append("patient", 1);
+    formData.append("name", definedName);
+    formData.append("file", selectedFile);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .post(url, formData, config)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleFileDelete = (id) => {
+    axios
+      .delete(`http://127.0.0.1:8000/evaluation/${id}`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const forceDownload = (response, title) => {
+    console.log(response);
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", title + ".pdf");
+    document.body.appendChild(link);
+    link.click();
+  };
+
+  const dowloadWithAxios = (url, title) => {
+    axios({
+      method: "get",
+      url,
+      responseType: "arraybuffer",
+    })
+      .then((response) => {
+        forceDownload(response, title);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="evaluation page">
@@ -22,7 +104,7 @@ function NutriEvaluationPage() {
         <Button
           className="grad outline small"
           text="Consulta"
-          to="/nutritionist/appoint"
+          to="/nutritionist/appointment"
         />
         <Button
           className="grad outline small"
@@ -31,260 +113,57 @@ function NutriEvaluationPage() {
         />
         <Button
           className="grad outline small"
-          text="Plano"
+          text="Dieta"
           to="/nutritionist/diet"
         />
-        <Button
-          className="grad small"
-          text="Editar"
-          to="/nutritionist/evaluation/edit"
-        />
       </div>
-      <div className="content">
-        <div className="evaluation-text">
-          <h2 className="subtitle">Dados do perfil</h2>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Nome"
-                body={patient.name}
-              />
+      <div className="separation">
+        <div className="evaluation-content">
+          <form onSubmit={handleSubmit}>
+            <div className="grid">
+              <div className="col">
+                <TextInput
+                  className="horizontal"
+                  title="Nome"
+                  placeholder="Nome Arquivo"
+                  name="name"
+                  handleTextInput={handleTextInput}
+                />
+                <FileInput
+                  handleFileInput={handleFileChange}
+                  name="file"
+                  placeholder={selectedFileName}
+                />
+                <button className="evaluation-button" type="submit">
+                  Upload
+                </button>
+              </div>
+              <div className="col">
+                <h2>Arquivos Enviados</h2>
+                {uploadedFiles.map((file) => {
+                  return (
+                    <div className="uploaded-files">
+                      <Button
+                        className="grad very-small"
+                        text={file.name}
+                        onClick={() =>
+                          dowloadWithAxios(
+                            `http://127.0.0.1:8000${file.file}`,
+                            file.id
+                          )
+                        }
+                      />
+                      <Button
+                        className="black outline very-small"
+                        text="Deletar"
+                        onClick={() => handleFileDelete(file.id)}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Idade"
-                body={patient.age}
-              />
-            </div>
-          </div>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Altura"
-                body={patient.height}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Peso"
-                body={patient.weight}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Data da avaliação"
-                body={"27/03"}
-              />
-            </div>
-          </div>
-          <h2 className="subtitle">Hábitos de vida</h2>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Restrição alimentar"
-              body={evaluation.restrictions}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Ingestão de bebidas alcóolicas"
-              body={evaluation.alcohol}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Fumante"
-              body={evaluation.smoker}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Refeições por delivery"
-              body={evaluation.delivery}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Hábitos de compras"
-              body={evaluation.shopping}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Moradia"
-              body={evaluation.living}
-            />
-          </div>
-          <h2 className="subtitle">Histórico de Dieta</h2>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Estratégias realizadas"
-                body={evaluation.diets}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Acompanhamento profissional?"
-                body={evaluation.previousprofessional}
-              />
-            </div>
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Como foi o processo anterior"
-              body={evaluation.previousprocess}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Houve perda de peso?"
-              body={evaluation.previousweightloss}
-            />
-          </div>
-          <h2 className="subtitle">Hábitos de Sono</h2>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Qualidade do sono"
-                body={evaluation.sleepquality}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Horas de sono"
-                body={evaluation.sleephours}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Dorme às"
-                body={evaluation.sleeptime}
-              />
-            </div>
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Observações"
-              body={evaluation.sleepcomments}
-            />
-          </div>
-          <h2 className="subtitle">Atividade Física</h2>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Faz atividade física?"
-                body={evaluation.activity}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Frequência de atividade"
-                body={evaluation.activityfrequency}
-              />
-            </div>
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Observações"
-              body={evaluation.activitycomment}
-            />
-          </div>
-          <h2 className="subtitle">Avaliação Clínica</h2>
-          <div className="grid">
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Apetite"
-                body={evaluation.appetite}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Mastigação"
-                body={evaluation.chewing}
-              />
-            </div>
-            <div className="col">
-              <Textbox
-                className="horizontal"
-                title="Hábito intestinal"
-                body={evaluation.intestine}
-              />
-            </div>
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Informações sobre evacuação"
-              body={evaluation.evacuation}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Informações sobre hábito urinário"
-              body={evaluation.urination}
-            />
-          </div>
-          <h2 className="subtitle">Hábitos Alimentares</h2>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Suplementos alimentares"
-              body={evaluation.supplements}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Alergia alimentar"
-              body={evaluation.allergies}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Intolerâncias alimentares"
-              body={evaluation.intolerance}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Aversão alimentares"
-              body={evaluation.aversions}
-            />
-          </div>
-          <div className="grid">
-            <Textbox
-              className="horizontal"
-              title="Observações"
-              body={evaluation.comments}
-            />
-          </div>
+          </form>
         </div>
       </div>
     </div>

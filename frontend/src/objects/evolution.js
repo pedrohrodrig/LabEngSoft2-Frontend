@@ -1,9 +1,7 @@
 const evolutionList = [
   {
     id: 1,
-    patient: "Lucas",
     patientid: 1,
-    appointmentid: 1,
     date: "27/04",
     weight: "60kg",
     imc: "20",
@@ -16,9 +14,7 @@ const evolutionList = [
   },
   {
     id: 2,
-    patient: "Lucas",
     patientid: 1,
-    appointmentid: 3,
     date: "20/05",
     weight: "62kg",
     imc: "21",

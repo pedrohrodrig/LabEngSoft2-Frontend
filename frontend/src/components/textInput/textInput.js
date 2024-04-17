@@ -2,6 +2,7 @@ import React from "react";
 import "./textInput.css";
 
 function TextInput({ className, title, placeholder, handleTextInput, name }) {
+
     const classes = `textinput ${className}`;
 
     return (

@@ -18,14 +18,19 @@ function NutriPage() {
                 <Navbar
                     name={user.name}
                     labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={[paths.front, `${paths.front}/patients`, `${paths.front}/schedule`, `${paths.front}/appointments`]}
+                    to={[
+                        paths.front,
+                        `${paths.front}/patients`,
+                        `${paths.front}/schedule`,
+                        `${paths.front}/appointments`
+                    ]}
                 />
 
-                <div className="app-content">
-                    <Outlet />
-                </div>
-            </div>
-        </PathContext.Provider>
+          <div className="app-content">
+            <Outlet />
+          </div>
+        </div>
+      </PathContext.Provider>
     );
 }
 
