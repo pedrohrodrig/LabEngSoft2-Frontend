@@ -27,7 +27,7 @@ function Navbar({ className }) {
         Cookies.remove('access_token');
         Cookies.remove('refresh_token');
         setIsAuthenticated(false);
-        //NotificationManager.info("Logout realizado");
+        NotificationManager.info("Logout realizado");
       })
       .catch((error) => {
         NotificationManager.error("Erro ao deslogar", error)

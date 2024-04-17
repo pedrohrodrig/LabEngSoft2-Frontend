@@ -1,0 +1,50 @@
+.evaluation {
+    gap: 30px !important;
+}
+
+.evaluation .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.evaluation .button {
+    display: flex;
+    gap: 10px;
+}
+
+.evaluation .content {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px 0px var(--Drop-Shadow, #CBD2E0);
+}
+
+.evaluation::-webkit-scrollbar {
+    display: none;
+}
+
+.evaluation .content {
+    scrollbar-width: none;
+}
+
+.evaluation .content .evaluation-text {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.evaluation .content .grid {
+    display: flex;
+    gap: 30px;
+    padding: 5px;
+}
+
+.evaluation .content .col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

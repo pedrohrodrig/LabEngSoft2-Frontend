@@ -3,7 +3,7 @@ import HorizontalCard from "../../horizontalcard/horizontalcard";
 
 import "../cardlist.css";
 
-function PatientList({ className, patients, small }) {
+function PatientList({ className, patients, small, to }) {
     const classes = small ? `small-card-list ${className}` : `card-list ${className}`;
     const n = small ? 3 : patients.length;
 
@@ -14,15 +14,15 @@ function PatientList({ className, patients, small }) {
                 {
                     while (i < n) {
                         return (
-                            <HorizontalCard
-                                title={`${obj.name}`}
-                                body={!small && `Idade ${obj.age}`}
-                                image={obj.photo}
-                                col1={!small && obj.phone}
-                                col2={!small && obj.email}
-                                to="/patient/profile"
-                                key={i}
-                            />
+                          <HorizontalCard
+                            title={`${obj.name}`}
+                            body={!small && `Idade ${obj.age}`}
+                            image={obj.photo}
+                            col1={!small && obj.phone}
+                            col2={!small && obj.email}
+                            to={to ? to : "/patient/profile"}
+                            key={i}
+                          />
                         );
                     }
                 })
