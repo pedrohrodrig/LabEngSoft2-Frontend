@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
 import { professional } from "./objects/profile";
 
-import LayoutPage from './pages/layoutpage/layoutpage';
 import OverviewPage from './pages/general/overviewpage/overviewpage';
 import PatientsPage from './pages/general/patientspage/patientspage';
 import AppointmentsPage from './pages/general/appointmentspage/appointmentspage';
@@ -31,6 +30,7 @@ import NutriRegisterPage from "./pages/nutritionist/nutriregisterpage/nutriregis
 
 import HomePage from './pages/home/homepage';
 import TestPage from './pages/testpage/testpage';
+import LayoutPage from './pages/layoutpage/layoutpage';
 
 import "./App.css";
 
