@@ -1,0 +1,19 @@
+.select {
+    margin: 0.2rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    font-weight: bold;
+}
+
+.description {
+    font-size: medium;
+    margin-top: 0.8rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.divider {
+    height: 2px;
+    background-color: #ccc;
+    margin: 10px 0;
+}

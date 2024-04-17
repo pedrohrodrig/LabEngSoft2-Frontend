@@ -1,7 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import Button from "../../components/button/button";
 
 function HomePage() {
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!Cookies.get('access_token')){
+      navigate("/login");
+    }
+  }, [navigate]);
+  
     return(
         <div style={{gap: "30px"}} className="home page">
             <h1>Oi Gente ^^</h1>

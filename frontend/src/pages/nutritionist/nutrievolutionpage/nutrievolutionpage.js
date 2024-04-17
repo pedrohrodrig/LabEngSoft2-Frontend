@@ -68,7 +68,7 @@ function NutriEvolutionPage() {
 
   const handleEditEvolution = (editedEvent) => {
     axios
-      .put(`http://127.0.0.1:8000/evolution/${editedEvent.id}`, editedEvent)
+      .put(`http://127.0.0.1:8000/evolution/${editedEvent.id}/`, editedEvent)
       .then((response) => {
         console.log(response.data);
       })
