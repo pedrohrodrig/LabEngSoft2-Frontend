@@ -18,18 +18,17 @@ import SchedulePage from "./pages/general/schedulepage/schedulepage";
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
 
+import PatientPage from "./pages/patient/patientpage/patientpage";
 import ServicesPage from "./pages/patient/servicesPage/servicesPage";
 import ProfessionalListPage from "./pages/patient/professionalListPage/professionalListPage";
 import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistoryPage";
 import SignUpPage from "./pages/signUpPage/signUpPage";
 import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
-import SchedulePage from "./pages/schedulepage/schedulepage";
+import PatientSchedulePage from "./pages/patient/patientSchedulePage/patientSchedulePage";
 
 import LoginPage from "./pages/login/LoginPage/LoginPage";
 import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
-import NutriAppointmentsPage from "./pages/nutritionist/nutriappointmentspage/nutriappointmentspage";
-import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
 import NutriEvolutionPage from "./pages/nutritionist/nutrievolutionpage/nutrievolutionpage";
@@ -47,11 +46,7 @@ import DietPage from "./pages/patient/patientDietPage/patientDietPage";
 import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
 import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
 
-
 import "react-notifications/lib/notifications.css"
-import LoginPage from "./pages/login/LoginPage/LoginPage";
-import { NotificationContainer } from "react-notifications";
-import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 function App() {
     const [user, setUser] = useState(professional);
@@ -62,6 +57,9 @@ function App() {
           <Routes>
             <Route path="/" element={<LayoutPage />}>
               <Route index element={<HomePage />} />
+              <Route path="signup" element={<SignUpPage />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
               <Route path="test" element={<TestPage />} />
             </Route>
 
@@ -92,6 +90,20 @@ function App() {
               <Route path="evolution" element={<NutriEvolutionPage />} />
               <Route path="appointment" element={<NutriAppointDetailPage />} />
             </Route>
+
+            <Route path="/patient" element={<PatientPage/>}>
+                <Route index element={<PatientHomePage />} />
+                <Route path="services" element={<ServicesPage />} />
+                <Route path="schedule" element={<PatientSchedulePage/>}/>
+                <Route path="professionals" element={<ProfessionalListPage />} />
+                <Route path="history" element={<PatientHistoryPage />} />
+                <Route path="appointment" element={<PatientHistoryDetailPage />} />
+                <Route path="training" element={<TrainingPage />} />
+                <Route path="diet" element={<DietPage />} />
+                <Route path="medical-registers" element={<MedicalPage />} />
+                <Route path="rent-service" element={<RentService />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

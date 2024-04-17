@@ -15,7 +15,6 @@ import urls from "../../../utils/urls";
 import './RegisterPage.css'
 import "react-datetime-picker/dist/DateTimePicker.css";
 import "react-clock/dist/Clock.css";
-import urls from "../../../utils/urls";
 
 const genderOptions = [
   { value: 'M', label: 'Masculino' },
@@ -45,7 +44,7 @@ function RegisterPage() {
       [name]: value
     });
   };
-  
+
   const cleanDataBeforeSend = (data) => {
     if(isPatient){
       delete data.bio;

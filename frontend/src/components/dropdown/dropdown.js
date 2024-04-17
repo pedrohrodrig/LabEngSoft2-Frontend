@@ -17,7 +17,8 @@ const Dropdown = ({ className, title, placeholder, options, handleSelectedOption
                 value={selectedOption}
                 defaultValue={selectedOption}
                 isSearchable={true}
-        />
+            />
+        </div>
     );
 };
 
