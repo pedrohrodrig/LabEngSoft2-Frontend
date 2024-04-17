@@ -18,11 +18,9 @@ import SchedulePage from "./pages/general/schedulepage/schedulepage";
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
 
-import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
-import NutriEvaluationEditPage from "./pages/nutritionist/nutrievaluationeditpage/nutrievaluationeditpage";
+import NutriDocumentsPage from "./pages/nutritionist/nutridocumentspage/nutridocumentspage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
-import NutriEvolutionEditPage from "./pages/nutritionist/nutrievolutioneditpage/nutrievolutioneditpage";
 import NutriEvolutionPage from "./pages/nutritionist/nutrievolutionpage/nutrievolutionpage";
 import NutriProfileEditPage from "./pages/nutritionist/nutriprofileeditpage/nutriprofileeditpage";
 import NutriLoginPage from "./pages/nutritionist/nutriloginpage/nutriloginpage";
@@ -73,11 +71,8 @@ function App() {
                         <Route path="doc" element={<DocDetailPage />} />
                         <Route path="schedule" element={<SchedulePage/>} />
 
-                        <Route path="diet/edit" element={<NutriDietEditPage/>} />
                         <Route path="diet" element={<NutriDietPage/>} />
-                        <Route path="evaluation/edit" element={<NutriEvaluationEditPage/>} />
                         <Route path="evaluation" element={<NutriEvaluationPage/>} />
-                        <Route path="evolution/edit" element={<NutriEvolutionEditPage/>} />
                         <Route path="evolution" element={<NutriEvolutionPage/>} />
                     </Route>
 
