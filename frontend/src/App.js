@@ -18,6 +18,7 @@ import SchedulePage from "./pages/general/schedulepage/schedulepage";
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
 
+import NutriAppointDetailPage from "./pages/nutritionist/nutriappointdetailpage/nutriappointdetailpage";
 import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationEditPage from "./pages/nutritionist/nutrievaluationeditpage/nutrievaluationeditpage";
@@ -60,12 +61,12 @@ function App() {
                         <Route path="schedule" element={<SchedulePage/>} />
                     </Route>
 
-                    <Route path="/nutri" element={<NutriPage />}>
+                    <Route path="/nutritionist" element={<NutriPage />}>
                         <Route index element={<OverviewPage />} />
                         <Route path="patients" element={<PatientsPage />} />
                         <Route path="patient" element={<PatientProfilePage />} />
                         <Route path="appointments" element={<AppointmentsPage />} />
-                        <Route path="appointment" element={<AppointDetailPage />} />
+                        <Route path="appointment" element={<NutriAppointDetailPage />} />
                         <Route path="payments" element={<PaymentsPage />} />
                         <Route path="profile" element={<ProfilePage />} />
                         <Route path="profile/edit" element={<ProfileEditPage/>} />

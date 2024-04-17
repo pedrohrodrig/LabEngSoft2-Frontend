@@ -8,7 +8,7 @@ import PathContext from "../../../contexts/PathContext";
 function NutriPage() {
     const { user } = useContext(UserContext);
     const [ paths, setPaths ] = useState({
-        front: "/nutri",
+        front: "/nutritionist",
         back: "http://127.0.0.1:8000"
     });
 
@@ -18,7 +18,7 @@ function NutriPage() {
                 <Navbar
                     name={user.name}
                     labels={["Overview", "Pacientes", "Agenda", "Histórico"]}
-                    to={["/nutri", "/nutri/patients", "/nutri/schedule", "/nutri/appointments"]}
+                    to={[paths.front, `${paths.front}/patients`, `${paths.front}/schedule`, `${paths.front}/appointments`]}
                 />
 
                 <div className="app-content">
