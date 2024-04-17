@@ -18,7 +18,7 @@ function NutriEvaluationPage() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/evaluation/list/`)
+      .get(`http://127.0.0.1:8000/evaluation_from_patient/${1}/`)
       .then((response) => {
         setUploadedFiles(response.data);
       })
@@ -104,7 +104,7 @@ function NutriEvaluationPage() {
         <Button
           className="grad outline small"
           text="Consulta"
-          to="/nutritionist/appoint"
+          to="/nutritionist/appointment"
         />
         <Button
           className="grad outline small"

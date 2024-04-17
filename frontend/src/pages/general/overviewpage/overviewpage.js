@@ -28,7 +28,7 @@ function OverviewPage() {
             <div className="bignumbers">
                 <BigNumber number="1k" text="Consultas" iconType="activity" to="" />
                 <BigNumber number="40" text="Pacientes" iconType="user" to={`${paths.front}/patients`} />
-                <BigNumber number="R$200" text="Renda Mensal" iconType="dollar" to={`${paths.front}/payments`} />
+                <BigNumber number="R$200" text="Renda Mensal" iconType="dollar"/>
             </div>
 
             <div className="appoint">

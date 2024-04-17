@@ -56,7 +56,7 @@ function NutriAppointDetailPage() {
                   className="small"
                   image={user.photo}
                   title={user.name}
-                  to="/nutritionist/patient/profile"
+                  to="/nutritionist/patient"
                 />
               </div>
 
