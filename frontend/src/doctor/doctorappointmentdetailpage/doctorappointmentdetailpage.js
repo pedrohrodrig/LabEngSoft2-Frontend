@@ -45,10 +45,8 @@ function DoctorAppointDetailPage() {
             professionalid: newAppointment.id_user_professional,
             date: "",
             hour: "",
-
             start_timestamp: formatDate(newAppointment.start_datetime),
             end_timestamp: formatDate(newAppointment.end_datetime),
-
             status: appointmentStatus(newAppointment.status),
             type: "Presencial",
             address: user.address
