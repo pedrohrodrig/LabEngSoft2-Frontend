@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
 import { professional } from "./objects/profile";
+import "react-notifications/lib/notifications.css"
+import { NotificationContainer } from "react-notifications";
 
 import OverviewPage from './pages/general/overviewpage/overviewpage';
 import PatientsPage from './pages/general/patientspage/patientspage';
@@ -16,6 +18,17 @@ import SchedulePage from "./pages/general/schedulepage/schedulepage";
 import PersonalPage from "./pages/personal/personalpage/personalpage";
 import NutriPage from "./pages/nutritionist/nutripage/nutripage";
 
+import ServicesPage from "./pages/patient/servicesPage/servicesPage";
+import ProfessionalListPage from "./pages/patient/professionalListPage/professionalListPage";
+import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistoryPage";
+import SignUpPage from "./pages/signUpPage/signUpPage";
+import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
+import SchedulePage from "./pages/schedulepage/schedulepage";
+
+import LoginPage from "./pages/login/LoginPage/LoginPage";
+import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
+
+import NutriAppointmentsPage from "./pages/nutritionist/nutriappointmentspage/nutriappointmentspage";
 import NutriDietEditPage from "./pages/nutritionist/nutridieteditpage/nutridieteditpage";
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
@@ -28,8 +41,20 @@ import LayoutPage from './pages/layoutpage/layoutpage';
 
 import "./App.css";
 
+import PatientHomePage from "./pages/patient/patientHomePage/patientHomePage";
+import TrainingPage from "./pages/patient/patientTrainingPage/patientTrainingPage";
+import DietPage from "./pages/patient/patientDietPage/patientDietPage";
+import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
+import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
+
+
+import "react-notifications/lib/notifications.css"
+import LoginPage from "./pages/login/LoginPage/LoginPage";
+import { NotificationContainer } from "react-notifications";
+import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
+
 function App() {
-    const [ user, setUser ] = useState(professional);
+    const [user, setUser] = useState(professional);
 
     return (
       <UserContext.Provider value={{ user, setUser }}>
@@ -72,5 +97,4 @@ function App() {
       </UserContext.Provider>
     );
 }
-
 export default App;

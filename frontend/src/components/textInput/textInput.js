@@ -1,7 +1,7 @@
 import React from "react";
 import "./textInput.css";
 
-function TextInput({ className, title, placeholder, handleTextInput, name }) {
+function TextInput({ className, title, type, placeholder, handleTextInput, name, isFloat }) {
 
     const classes = `textinput ${className}`;
 
@@ -13,7 +13,9 @@ function TextInput({ className, title, placeholder, handleTextInput, name }) {
           placeholder={placeholder}
           onChange={handleTextInput}
           name={name}
-        />
+          type={type}
+          step={type === "number" && isFloat ? "0.01" : undefined}
+        ></input>
       </div>
     );
 };
