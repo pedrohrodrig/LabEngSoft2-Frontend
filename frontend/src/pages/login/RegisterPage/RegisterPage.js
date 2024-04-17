@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { NotificationManager } from 'react-notifications';
 import DateTimePicker from "react-datetime-picker";
 import axios from "axios";
-import { NotificationManager } from 'react-notifications';
-import { useNavigate } from "react-router-dom";
 
 import TextInput from "../../../components/textInput/textInput";
 import Textbox from "../../../components/textbox/textbox";
@@ -14,8 +14,8 @@ import urls from "../../../utils/urls";
 
 import './RegisterPage.css'
 import "react-datetime-picker/dist/DateTimePicker.css";
-import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
+import urls from "../../../utils/urls";
 
 const genderOptions = [
   { value: 'M', label: 'Masculino' },
@@ -45,7 +45,7 @@ function RegisterPage() {
       [name]: value
     });
   };
-
+  
   const cleanDataBeforeSend = (data) => {
     if(isPatient){
       delete data.bio;
