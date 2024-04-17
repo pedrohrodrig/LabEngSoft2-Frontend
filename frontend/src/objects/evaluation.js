@@ -10,7 +10,6 @@ const evaluationList = [
     smoker: "Finais de semana",
     delivery: "Almoço e janta de fins de semana",
     shopping: "Feira e atacado",
-    living: "Dois amigos da faculdade",
     diets: "Keto diet e corte de açúcar",
     previousprofessional: "Não",
     previousprocess:
