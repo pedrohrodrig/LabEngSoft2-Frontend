@@ -11,9 +11,9 @@ function Card({ className, clickable, title, body, col1, col2, image, to }) {
 
     return (
         <Link className={classes} to={to}>
-            <div className="image">
+            {image && <div className="image">
                 <img src={image} alt="card"/>
-            </div>
+            </div>}
 
             <div className="card-content">
 

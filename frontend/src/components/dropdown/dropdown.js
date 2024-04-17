@@ -15,6 +15,7 @@ const Dropdown = ({ className, title, placeholder, options, handleSelectedOption
                 options={options}
                 onChange={handleSelectedOptions}
                 value={selectedOption}
+                defaultValue={selectedOption}
                 isSearchable={true}
             />
         </div>

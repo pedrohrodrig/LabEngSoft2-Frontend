@@ -30,6 +30,14 @@
     justify-content: flex-start;
 }
 
+.navbar .notLogged {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 8vh;
+  justify-content: center;
+}
+
 .navbar .footer {
     display: flex;
     align-items: center;
