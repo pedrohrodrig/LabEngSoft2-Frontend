@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import './index.css';
+import './interceptors/axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
