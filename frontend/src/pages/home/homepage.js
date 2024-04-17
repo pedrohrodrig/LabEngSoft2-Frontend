@@ -4,28 +4,28 @@ import Cookies from "js-cookie";
 import Button from "../../components/button/button";
 
 function HomePage() {
-  
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if(!Cookies.get('access_token')){
-      navigate("/login");
-    }
-  }, [navigate]);
-  
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     if(!Cookies.get('access_token')){
+//       navigate("/login");
+//     }
+//   }, [navigate]);
+
     return(
         <div style={{gap: "30px"}} className="home page">
             <h1>Oi Gente ^^</h1>
             <p>Eu sou o Lucas, bem vindo ao Apollo</p>
 
             <div style={{display:"flex", gap: "30px", marginTop:"30px"}}>
-                <Button
+                {/* <Button
                     className="grad medium"
                     text="Test Page"
                     icon="right"
                     iconType="arrow-right"
                     to="/test"
-                />
+                /> */}
                 <Button
                     className="grad medium"
                     text="Personal"
@@ -47,16 +47,7 @@ function HomePage() {
                     iconType="arrow-right"
                     to="/doctor"
                 />
-                <Button
-                    className="grad medium"
-                    text="Doctor"
-                    icon="right"
-                    iconType="arrow-right"
-                    to="/doctor"
-                />
             </div>
-
-
         </div>
     );
 }

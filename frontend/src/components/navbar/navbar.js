@@ -14,27 +14,27 @@ import urls from "../../utils/urls";
 function Navbar({ className, labels, to }) {
     const { paths } = useContext(PathContext);
     const classes = `navbar ${className}`;
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
 
-    useEffect(() => {
-      if(Cookies.get('access_token'))
-        setIsAuthenticated(true);
-    }, [isAuthenticated])
+    // useEffect(() => {
+    //   if(Cookies.get('access_token'))
+    //     setIsAuthenticated(true);
+    // }, [isAuthenticated])
 
-    const onLogout = async () => {
-      await axios.get(
-        `${urls.baseURL}/logout/`,
-      )
-      .then(() => {
-        Cookies.remove('access_token');
-        Cookies.remove('refresh_token');
-        setIsAuthenticated(false);
-        NotificationManager.info("Logout realizado");
-      })
-      .catch((error) => {
-        NotificationManager.error("Erro ao deslogar", error)
-      })
-    }
+    // const onLogout = async () => {
+    //   await axios.get(
+    //     `${urls.baseURL}/logout/`,
+    //   )
+    //   .then(() => {
+    //     Cookies.remove('access_token');
+    //     Cookies.remove('refresh_token');
+    //     setIsAuthenticated(false);
+    //     NotificationManager.info("Logout realizado");
+    //   })
+    //   .catch((error) => {
+    //     NotificationManager.error("Erro ao deslogar", error)
+    //   })
+    // }
 
     return (
         <div className={classes}>
@@ -60,8 +60,8 @@ function Navbar({ className, labels, to }) {
                     text="Logout"
                     icon="left"
                     iconType="logout"
-                    to=""
-                    onClick={onLogout}
+                    to="/"
+                    // onClick={onLogout}
                   />
               </div>
             </>

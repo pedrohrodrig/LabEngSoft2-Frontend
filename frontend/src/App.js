@@ -48,8 +48,6 @@ import DietPage from "./pages/patient/patientDietPage/patientDietPage";
 import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
 import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
 
-import "react-notifications/lib/notifications.css"
-
 import TestPage from './pages/testpage/testpage';
 import LayoutPage from './pages/layoutpage/layoutpage';
 
@@ -76,11 +74,14 @@ function App() {
               <Route path="patients" element={<PatientsPage />} />
               <Route path="patient" element={<PatientProfilePage />} />
               <Route path="appointments" element={<AppointmentsPage />} />
-              <Route path="appointment" element={<AppointDetailPage />} />
               <Route path="profile" element={<ProfilePage />} />
               <Route path="profile/edit" element={<ProfileEditPage />} />
               <Route path="documents" element={<DocumentsPage />} />
               <Route path="schedule" element={<SchedulePage />} />
+
+              <Route path="train" element={<PersonalTrainPage />} />
+              <Route path="evaluation" element={<PersonalEvaluationPage />} />
+              <Route path="appointment" element={<PersonalAppointDetailPage />} />
             </Route>
 
             <Route path="/nutritionist" element={<NutriPage />}>
