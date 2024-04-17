@@ -21,7 +21,7 @@ function AppointmentList({ className, appointments, small, to }) {
             {
                 appointments.map((obj, i) =>
                 {
-                    const date = new Date(obj.datetime);
+                    const date = new Date(obj.start_datetime);
                     if (i < n) {
                         return (
                           <HorizontalCard
