@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Title from "../../../components/title/title";
 import Textbox from "../../../components/textbox/textbox";
 import HorizontalCard from "../../../components/horizontalcard/horizontalcard";
@@ -9,6 +9,9 @@ import Popup from "../../../components/popup/popup";
 import documentList from "../../../objects/documents";
 import appointmentList from "../../../objects/appointments";
 import UserContext from "../../../contexts/UserContext";
+
+import axios from "axios";
+
 import "./nutriappointdetailpage.css";
 
 function NutriAppointDetailPage() {
@@ -16,6 +19,26 @@ function NutriAppointDetailPage() {
   const [avaliation, setAvaliation] = useState(false);
   const [cancelation, setCancelation] = useState(false);
   const appointment = appointmentList[0];
+
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadedEvaluations, setUploadedEvaluations] = useState([]);
+  const [uploadedDiets, setUploadedDiets] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/evaluation/list/`)
+      .then((response) => {
+        setUploadedEvaluations(response.data);
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get(`http://127.0.0.1:8000/diet/list/`)
+      .then((response) => {
+        setUploadedDiets(response.data);
+      })
+      .catch((err) => console.log(err));
+    setUploadedFiles([...uploadedEvaluations, ...uploadedDiets]);
+  }, [uploadedEvaluations, uploadedDiets]);
 
   return (
     <div className="appoint-detail page">
@@ -93,12 +116,12 @@ function NutriAppointDetailPage() {
 
         <div className="extra">
           <div className="doc-header">
-            <h1>Documentos</h1>
+            <h1>Últimos documentos</h1>
           </div>
           <DocumentList
             className="patient-docs"
             small={true}
-            documents={documentList}
+            documents={uploadedFiles}
           />
         </div>
       </div>

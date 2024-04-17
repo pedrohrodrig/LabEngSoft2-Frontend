@@ -30,7 +30,6 @@ function NewEvolutionModal({ onAdd, onClose }) {
     if (newEvolution.date) {
       onAdd(newEvolution);
       setNewEvolution({
-        patient: 1,
         patientId: 1,
         date: "",
         weight: "",

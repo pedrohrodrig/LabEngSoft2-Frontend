@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState, useEffect}from "react";
 import { Link } from "react-router-dom";
 import Profile from "../../../components/profile/profile";
 import Textbox from "../../../components/textbox/textbox";
@@ -6,10 +6,33 @@ import DocumentList from "../../../components/lists/documentlist/documentlist";
 
 import documentList from "../../../objects/documents";
 import patientList from "../../../objects/patients";
+
+import axios from "axios";
+
 import "./nutripatientprofilepage.css";
 
 function NutriPatientProfilePage() {
   const patient = patientList[0];
+
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [uploadedEvaluations, setUploadedEvaluations] = useState([]);
+  const [uploadedDiets, setUploadedDiets] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/evaluation/list/`)
+      .then((response) => {
+        setUploadedEvaluations(response.data);
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get(`http://127.0.0.1:8000/diet/list/`)
+      .then((response) => {
+        setUploadedDiets(response.data);
+      })
+      .catch((err) => console.log(err));
+    setUploadedFiles([...uploadedEvaluations, ...uploadedDiets]);
+  }, [uploadedEvaluations, uploadedDiets]);
 
   return (
     <div className="patient-profile page">
@@ -56,13 +79,13 @@ function NutriPatientProfilePage() {
 
         <div className="extra">
           <div className="doc-header">
-            <h1>Documentos</h1>
-            <Link to="/documents">Ver Todos</Link>
+            <h1>Últimos documentos</h1>
+            <Link to="/nutritionist/documents">Ver Todos</Link>
           </div>
           <DocumentList
             className="patient-docs"
             small={true}
-            documents={documentList}
+            documents={uploadedFiles}
           />
         </div>
       </div>
