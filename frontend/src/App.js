@@ -4,14 +4,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./contexts/UserContext";
 import { professional } from "./objects/profile";
 
-import LayoutPage from './pages/layoutpage/layoutpage';
-import HomePage from './pages/home/homepage';
-import OverviewPage from './pages/personal/overviewpage/overviewpage';
-import PatientsPage from './pages/personal/patientspage/patientspage';
-import AppointmentsPage from './pages/personal/appointmentspage/appointmentspage';
-import PaymentsPage from './pages/personal/paymentspage/paymentspage';
-import PatientProfilePage from './pages/personal/patientprofilepage/patientprofilepage';
-import ProfilePage from './pages/personal/profilepage/profilepage';
+import LayoutPage from "./pages/layoutpage/layoutpage";
+import HomePage from "./pages/home/homepage";
+import OverviewPage from "./pages/personal/overviewpage/overviewpage";
+import PatientsPage from "./pages/personal/patientspage/patientspage";
+import AppointmentsPage from "./pages/personal/appointmentspage/appointmentspage";
+import PaymentsPage from "./pages/personal/paymentspage/paymentspage";
+import PatientProfilePage from "./pages/personal/patientprofilepage/patientprofilepage";
+import ProfilePage from "./pages/personal/profilepage/profilepage";
 import DocumentsPage from "./pages/personal/documentspage/documentspage";
 import DocDetailPage from "./pages/personal/docdetailpage/docdetailpage";
 import AppointDetailPage from "./pages/personal/appointdetailpage/appointdetailpage";
@@ -30,56 +30,59 @@ import NutriProfileEditPage from "./pages/nutritionist/nutriprofileeditpage/nutr
 import NutriProfilePage from "./pages/nutritionist/nutriprofilepage.js/nutriprofilepage";
 import NutriSchedulePage from "./pages/nutritionist/nutrischedulepage.js/nutrischedulepage";
 
-import TestPage from './pages/testpage/testpage';
+import TestPage from "./pages/testpage/testpage";
 
 import "./App.css";
 import NutriLoginPage from "./pages/nutritionist/nutriloginpage/nutriloginpage";
 import NutriRegisterPage from "./pages/nutritionist/nutriregisterpage/nutriregisterpage";
 
 function App() {
-    const [ user, setUser ] = useState(professional);
+  const [user, setUser] = useState(professional);
 
-    return (
-        <UserContext.Provider value={{ user, setUser }}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<LayoutPage />}>
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LayoutPage />}>
+            <Route index element={<HomePage />} />
+            <Route path="test" element={<TestPage />} />
+          </Route>
 
-                        <Route index element={<HomePage />} />
-                        <Route path="overview" element={<OverviewPage />} />
-                        <Route path="patients" element={<PatientsPage />} />
-                        <Route path="appointments" element={<AppointmentsPage />} />
-                        <Route path="payments" element={<PaymentsPage />} />
-                        <Route path="patient/profile" element={<PatientProfilePage />} />
-                        <Route path="profile" element={<ProfilePage />} />
-                        <Route path="documents" element={<DocumentsPage />} />
-                        <Route path="doc" element={<DocDetailPage />} />
-                        <Route path="appoint" element={<AppointDetailPage />} />
+          <Route path="/personal" element={<PersonalPage />}>
+            <Route index element={<OverviewPage />} />
+            <Route path="patients" element={<PatientsPage />} />
+            <Route path="patient" element={<PatientProfilePage />} />
+            <Route path="appointments" element={<AppointmentsPage />} />
+            <Route path="appointment" element={<AppointDetailPage />} />
+            <Route path="payments" element={<PaymentsPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="profile/edit" element={<ProfileEditPage />} />
+            <Route path="documents" element={<DocumentsPage />} />
+            <Route path="doc" element={<DocDetailPage />} />
+            <Route path="schedule" element={<SchedulePage />} />
+          </Route>
 
-                        <Route path="nutritionist/appoint" element={<NutriAppointDetailPage/>} />
-                        <Route path="nutritionist/appointments" element={<NutriAppointmentsPage/>} />
-                        <Route path="nutritionist/diet" element={<NutriDietPage/>} />
-                        <Route path="nutritionist/documents" element={<NutriDocumentsPage/>} />
-                        <Route path="nutritionist/evaluation" element={<NutriEvaluationPage/>} />
-                        <Route path="nutritionist/evolution" element={<NutriEvolutionPage/>} />
-                        <Route path="nutritionist/" element={<NutriOverviewPage/>} />
-                        <Route path="nutritionist/patient/profile" element={<NutriPatientProfilePage/>} />
-                        <Route path="nutritionist/patients" element={<NutriPatientsPage/>} />
-                        <Route path="nutritionist/payments" element={<NutriPaymentsPage/>} />
-                        <Route path="nutritionist/profile/edit" element={<NutriProfileEditPage/>} />
-                        <Route path="nutritionist/profile" element={<NutriProfilePage/>} />
-                        <Route path="nutritionist/schedule" element={<NutriSchedulePage/>} />
+          <Route path="/nutritionist" element={<NutriPage />}>
+            <Route index element={<OverviewPage />} />
+            <Route path="patients" element={<PatientsPage />} />
+            <Route path="patient" element={<PatientProfilePage />} />
+            <Route path="appointments" element={<AppointmentsPage />} />
+            <Route path="appointment" element={<AppointDetailPage />} />
+            <Route path="payments" element={<PaymentsPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="profile/edit" element={<ProfileEditPage />} />
+            <Route path="documents" element={<DocumentsPage />} />
+            <Route path="doc" element={<DocDetailPage />} />
+            <Route path="schedule" element={<SchedulePage />} />
 
-                        <Route path="nutritionist/login" element={<NutriLoginPage/>} />
-                        <Route path="nutritionist/register" element={<NutriRegisterPage/>} />
-
-                        <Route path="test" element={<TestPage />} />
-
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </UserContext.Provider>
-    );
+            <Route path="diet" element={<NutriDietPage />} />
+            <Route path="evaluation" element={<NutriEvaluationPage />} />
+            <Route path="evolution" element={<NutriEvolutionPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
+  );
 }
 
 export default App;
