@@ -64,12 +64,9 @@ function RegisterPage() {
 
     const data = cleanDataBeforeSend(registerData);
 
-    console.log(data);
-    console.log(isPatient)
-
     await axios.post(
       `${urls.baseURL}/register/`,
-      registerData,
+      data,
       {headers: {'Content-Type': 'application/json'}},
     )
     .then(() => {
