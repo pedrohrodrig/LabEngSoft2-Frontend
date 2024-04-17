@@ -44,7 +44,8 @@ function DoctorAppointDetailPage() {
             professionalid: newAppointment.id_user_professional,
             date: "",
             hour: "",
-            timestamp: formatDate(newAppointment.datetime),
+            start_timestamp: formatDate(newAppointment.start_datetime),
+            end_timestamp: formatDate(newAppointment.end_datetime),
             status: appointmentStatus(newAppointment.status),
             type: "Presencial",
             address: user.address
@@ -92,13 +93,13 @@ function DoctorAppointDetailPage() {
                         </div>
                     </div>
 
-                    <Textbox className="horizontal" title="Horário" body={appointment.timestamp} />
+                    <Textbox className="horizontal" title="Horário" body={appointment.start_timestamp} />
                     <Textbox className="horizontal" title="Endereço" body={appointment.address} />
 
                     <div className="appoint-but">
                         {user.service !== 'doctor' ?
                             <Button className="grad medium" text="Avaliar" icon="left" iconType="clipboard" onClick={() => setAvaliation(true)} /> :
-                            <FileUploadComponent/>
+                            <Button className="grad medium" text="Enviar Documento" icon="left" iconType="clipboard" to={'/doctor-upload-document'}/>
                         }
                         {appointment.status === 'Confirmada' &&
                             <Button className="black medium outline" text="Cancelar" icon="left" iconType="x" onClick={() => setCancelation(true)} />

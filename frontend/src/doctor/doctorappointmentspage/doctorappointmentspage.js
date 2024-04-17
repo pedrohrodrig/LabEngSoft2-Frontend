@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { format, parseISO, set } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 import "./doctorappointmentspage.css";
 import UserContext from "../../contexts/UserContext";
@@ -33,7 +33,8 @@ function DoctorAppointmentsPage() {
             professionalid: newAppointment.id_user_professional,
             date: "",
             hour: "",
-            timestamp: formatDate(newAppointment.datetime),
+            start_timestamp: formatDate(newAppointment.start_datetime),
+            end_timestamp: formatDate(newAppointment.end_datetime),
             status: appointmentStatus(newAppointment.status),
             type: "Presencial",
             address: user.address
