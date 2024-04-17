@@ -153,7 +153,7 @@ function PatientSchedulePage() {
         <Button
           className="grad outline small"
           text="Nova consulta"
-          to={'/services'}
+          to={'/patient/services'}
         />
         <div className="calendar-back">
           <div className="calendar">

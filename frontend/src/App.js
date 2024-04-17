@@ -21,11 +21,16 @@ import PersonalAppointDetailPage from "./pages/personal/personalappointdetailpag
 import PersonalEvaluationPage from "./pages/personal/personalevaluationpage/personalevaluationpage";
 import PersonalTrainPage from "./pages/personal/personaltrainpage/personaltrainpage";
 
+import PatientPage from "./pages/patient/patientpage/patientpage";
 import ServicesPage from "./pages/patient/servicesPage/servicesPage";
 import ProfessionalListPage from "./pages/patient/professionalListPage/professionalListPage";
 import PatientHistoryPage from "./pages/patient/patientHistoryPage/patientHistoryPage";
 import SignUpPage from "./pages/signUpPage/signUpPage";
 import PatientHistoryDetailPage from "./pages/patient/patientHistoryDetailPage/appointdetailpage";
+import PatientSchedulePage from "./pages/patient/patientSchedulePage/patientSchedulePage";
+
+import LoginPage from "./pages/login/LoginPage/LoginPage";
+import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 import NutriDietPage from "./pages/nutritionist/nutridietpage/nutridietpage";
 import NutriEvaluationPage from "./pages/nutritionist/nutrievaluationpage/nutrievaluationpage";
@@ -41,11 +46,10 @@ import DietPage from "./pages/patient/patientDietPage/patientDietPage";
 import MedicalPage from "./pages/patient/patientMedicalRegistersPage/patientMedicalRegisterPage";
 import { RentService } from "./pages/patient/rentServicePage/rentServicePage";
 
-import HomePage from './pages/home/homepage';
+import "react-notifications/lib/notifications.css"
+
 import TestPage from './pages/testpage/testpage';
 import LayoutPage from './pages/layoutpage/layoutpage';
-import LoginPage from "./pages/login/LoginPage/LoginPage";
-import RegisterPage from "./pages/login/RegisterPage/RegisterPage";
 
 import "react-notifications/lib/notifications.css"
 import "./App.css";
@@ -56,57 +60,70 @@ function App() {
     return (
       <UserContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<LayoutPage />}>
-                    <Route index element={<HomePage />} />
-                    <Route path="test" element={<TestPage />} />
-                </Route>
+          <Routes>
+            <Route path="/" element={<LayoutPage />}>
+              <Route index element={<HomePage />} />
+              <Route path="signup" element={<SignUpPage />} />
+              <Route path="login" element={<LoginPage />} />
+              <Route path="register" element={<RegisterPage />} />
+              <Route path="test" element={<TestPage />} />
+            </Route>
 
-                <Route path="/personal" element={<PersonalPage />}>
-                    <Route index element={<OverviewPage />} />
-                    <Route path="patients" element={<PatientsPage />} />
-                    <Route path="patient" element={<PatientProfilePage />} />
-                    <Route path="appointments" element={<AppointmentsPage />} />
-                    <Route path="profile" element={<ProfilePage />} />
-                    <Route path="profile/edit" element={<ProfileEditPage />} />
-                    <Route path="documents" element={<DocumentsPage />} />
-                    <Route path="schedule" element={<SchedulePage />} />
+            <Route path="/personal" element={<PersonalPage />}>
+              <Route index element={<OverviewPage />} />
+              <Route path="patients" element={<PatientsPage />} />
+              <Route path="patient" element={<PatientProfilePage />} />
+              <Route path="appointments" element={<AppointmentsPage />} />
+              <Route path="appointment" element={<AppointDetailPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="profile/edit" element={<ProfileEditPage />} />
+              <Route path="documents" element={<DocumentsPage />} />
+              <Route path="schedule" element={<SchedulePage />} />
+            </Route>
 
-                    <Route path="train" element={<PersonalTrainPage />} />
-                    <Route path="evaluation" element={<PersonalEvaluationPage />} />
-                    <Route path="appointment" element={<PersonalAppointDetailPage />} />
-                </Route>
+            <Route path="/nutritionist" element={<NutriPage />}>
+              <Route index element={<OverviewPage />} />
+              <Route path="patients" element={<PatientsPage />} />
+              <Route path="patient" element={<PatientProfilePage />} />
+              <Route path="appointments" element={<AppointmentsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="profile/edit" element={<ProfileEditPage />} />
+              <Route path="documents" element={<DocumentsPage />} />
+              <Route path="schedule" element={<SchedulePage />} />
 
-                <Route path="/nutritionist" element={<NutriPage />}>
-                    <Route index element={<OverviewPage />} />
-                    <Route path="patients" element={<PatientsPage />} />
-                    <Route path="patient" element={<PatientProfilePage />} />
-                    <Route path="appointments" element={<AppointmentsPage />} />
-                    <Route path="profile" element={<ProfilePage />} />
-                    <Route path="profile/edit" element={<ProfileEditPage />} />
-                    <Route path="documents" element={<DocumentsPage />} />
-                    <Route path="schedule" element={<SchedulePage />} />
+              <Route path="diet" element={<NutriDietPage />} />
+              <Route path="evaluation" element={<NutriEvaluationPage />} />
+              <Route path="evolution" element={<NutriEvolutionPage />} />
+              <Route path="appointment" element={<NutriAppointDetailPage />} />
+            </Route>
 
-                    <Route path="diet" element={<NutriDietPage />} />
-                    <Route path="evaluation" element={<NutriEvaluationPage />} />
-                    <Route path="evolution" element={<NutriEvolutionPage />} />
-                    <Route path="appointment" element={<NutriAppointDetailPage />} />
-                </Route>
+            <Route path="/patient" element={<PatientPage/>}>
+                <Route index element={<PatientHomePage />} />
+                <Route path="services" element={<ServicesPage />} />
+                <Route path="schedule" element={<PatientSchedulePage/>}/>
+                <Route path="professionals" element={<ProfessionalListPage />} />
+                <Route path="history" element={<PatientHistoryPage />} />
+                <Route path="appointment" element={<PatientHistoryDetailPage />} />
+                <Route path="training" element={<TrainingPage />} />
+                <Route path="diet" element={<DietPage />} />
+                <Route path="medical-registers" element={<MedicalPage />} />
+                <Route path="rent-service" element={<RentService />} />
+            </Route>
 
-                <Route path="/doctor" element={<DoctorPage />}>
-                    <Route index element={<OverviewPage />} />
-                    <Route path="patients" element={<PatientsPage />} />
-                    <Route path="patient" element={<PatientProfilePage />} />
-                    <Route path="appointments" element={<AppointmentsPage />} />
-                    <Route path="profile" element={<ProfilePage />} />
-                    <Route path="profile/edit" element={<ProfileEditPage />} />
-                    <Route path="documents" element={<DocumentsPage />} />
-                    <Route path="schedule" element={<SchedulePage />} />
+            <Route path="/doctor" element={<DoctorPage />}>
+                <Route index element={<OverviewPage />} />
+                <Route path="patients" element={<PatientsPage />} />
+                <Route path="patient" element={<PatientProfilePage />} />
+                <Route path="appointments" element={<AppointmentsPage />} />
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="profile/edit" element={<ProfileEditPage />} />
+                <Route path="documents" element={<DocumentsPage />} />
+                <Route path="schedule" element={<SchedulePage />} />
 
-                    <Route path="evaluation" element={<DoctorEvaluationPage />} />
-                    <Route path="appointment" element={<DoctorAppointDetailPage />} />
-                </Route>
-            </Routes>
+                <Route path="evaluation" element={<DoctorEvaluationPage />} />
+                <Route path="appointment" element={<DoctorAppointDetailPage />} />
+            </Route>
+
         </BrowserRouter>
       </UserContext.Provider>
     );
