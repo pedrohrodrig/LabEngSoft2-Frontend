@@ -26,13 +26,13 @@ function NutriAppointDetailPage() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/evaluation/list/`)
+      .get(`http://18.230.206.131/evaluation/list/`)
       .then((response) => {
         setUploadedEvaluations(response.data);
       })
       .catch((err) => console.log(err));
     axios
-      .get(`http://127.0.0.1:8000/diet/list/`)
+      .get(`http://18.230.206.131/diet/list/`)
       .then((response) => {
         setUploadedDiets(response.data);
       })

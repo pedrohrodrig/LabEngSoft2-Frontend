@@ -17,11 +17,11 @@ function DoctorDocumentUploadPage() {
   const [definedName, setDefinedName] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
-  const createEndpoint = "http://127.0.0.1:8000/evaluation/create/";
+  const createEndpoint = "http://18.230.206.131/evaluation/create/";
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/evaluation/list/`)
+      .get(`http://18.230.206.131/evaluation/list/`)
       .then((response) => {
         setUploadedFiles(response.data);
       })
@@ -69,7 +69,7 @@ function DoctorDocumentUploadPage() {
 
   const handleFileDelete = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/evaluation/${id}`)
+      .delete(`http://18.230.206.131/evaluation/${id}`)
       .then((response) => {
         console.log(response);
       })
@@ -152,7 +152,7 @@ function DoctorDocumentUploadPage() {
                         text={file.name}
                         onClick={() =>
                           dowloadWithAxios(
-                            `http://127.0.0.1:8000${file.file}`,
+                            `http://18.230.206.131${file.file}`,
                             file.id
                           )
                         }

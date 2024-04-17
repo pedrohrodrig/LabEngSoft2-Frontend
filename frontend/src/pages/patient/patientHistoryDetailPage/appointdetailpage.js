@@ -51,15 +51,16 @@ function PatientHistoryDetailPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/appointment/${number}`)
-            .then(response => {
-                console.log(response.data);
-                const newAppointment = createAppointment(response.data)
-                setAppointment(newAppointment);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        axios
+          .get(`http://18.230.206.131/appointment/${number}`)
+          .then((response) => {
+            console.log(response.data);
+            const newAppointment = createAppointment(response.data);
+            setAppointment(newAppointment);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }, []);
 
 

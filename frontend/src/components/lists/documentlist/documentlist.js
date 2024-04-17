@@ -54,7 +54,10 @@ function DocumentList({ className, documents, small }) {
                 className="black very-small"
                 text="Download"
                 onClick={() =>
-                  dowloadWithAxios(`http://127.0.0.1:8000${obj.file}`, obj.name)
+                  dowloadWithAxios(
+                    `http://18.230.206.131${obj.file}`,
+                    obj.name
+                  )
                 }
               />
             </div>

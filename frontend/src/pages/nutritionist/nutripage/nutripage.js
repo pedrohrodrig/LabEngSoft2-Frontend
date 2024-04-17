@@ -7,9 +7,9 @@ import PathContext from "../../../contexts/PathContext";
 
 function NutriPage() {
     const { user } = useContext(UserContext);
-    const [ paths, setPaths ] = useState({
-        front: "/nutritionist",
-        back: "http://127.0.0.1:8000"
+    const [paths, setPaths] = useState({
+      front: "/nutritionist",
+      back: "http://18.230.206.131/",
     });
 
     return(

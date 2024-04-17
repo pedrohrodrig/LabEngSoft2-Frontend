@@ -14,13 +14,14 @@ function AppointmentsPage() {
     const [ appointments, setAppointments ] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/appointment/list/${user.id}/`)
-        .then(response => {
+        axios
+          .get(`http://18.230.206.131/appointment/list/${user.id}/`)
+          .then((response) => {
             setAppointments(response.data);
-        })
-        .catch(error => {
+          })
+          .catch((error) => {
             console.log(error);
-        });
+          });
     }, [user.id]);
 
     return (

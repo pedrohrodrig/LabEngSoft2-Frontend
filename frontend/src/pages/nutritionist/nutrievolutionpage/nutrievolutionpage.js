@@ -23,7 +23,7 @@ function NutriEvolutionPage() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/evolution_from_patient/${1}/`)
+      .get(`http://18.230.206.131/evolution_from_patient/${1}/`)
       .then((response) => {
         setEvolutions(response.data);
       })
@@ -50,7 +50,7 @@ function NutriEvolutionPage() {
 
   const handleAddEvolution = (newEvent) => {
     axios
-      .post(`http://127.0.0.1:8000/evolution/create/`, newEvent)
+      .post(`http://18.230.206.131/evolution/create/`, newEvent)
       .then((response) => {
         console.log(response.data);
       })
@@ -59,7 +59,7 @@ function NutriEvolutionPage() {
 
   const handleDeleteClick = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/evolution/${id}`)
+      .delete(`http://18.230.206.131/evolution/${id}`)
       .then((response) => {
         console.log(response.data);
       })
@@ -68,7 +68,7 @@ function NutriEvolutionPage() {
 
   const handleEditEvolution = (editedEvent) => {
     axios
-      .put(`http://127.0.0.1:8000/evolution/${editedEvent.id}/`, editedEvent)
+      .put(`http://18.230.206.131/evolution/${editedEvent.id}/`, editedEvent)
       .then((response) => {
         console.log(response.data);
       })

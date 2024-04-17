@@ -7,9 +7,9 @@ import PathContext from "../../../contexts/PathContext";
 
 function PersonalPage() {
     const { user } = useContext(UserContext);
-    const [ paths, setPaths ] = useState({
-        front: "/personal",
-        back: "http://127.0.0.1:8000"
+    const [paths, setPaths] = useState({
+      front: "/personal",
+      back: "http://18.230.206.131/",
     });
 
     return (

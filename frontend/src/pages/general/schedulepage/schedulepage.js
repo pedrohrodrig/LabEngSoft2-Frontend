@@ -51,7 +51,7 @@ function SchedulePage() {
         });
         axios
           .put(
-            `http://localhost:8000/appointment/${event.appointmentid}/edit/`,
+            `http://18.230.206.131/appointment/${event.appointmentid}/edit/`,
             updated
           )
           .then((response) => {
@@ -91,7 +91,7 @@ function SchedulePage() {
         const updated = createAppointmentFromEvent(updatedEvent);
         axios
           .put(
-            `http://localhost:8000/appointment/${event.appointmentid}/edit/`,
+            `http://18.230.206.131/appointment/${event.appointmentid}/edit/`,
             updated
           )
           .then((response) => {
@@ -142,7 +142,7 @@ function SchedulePage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/appointment/list`)
+      .get(`http://18.230.206.131/appointment/list`)
       .then((response) => {
         const newEvents = response.data.map((element) =>
           createEventFromAppointment(element)

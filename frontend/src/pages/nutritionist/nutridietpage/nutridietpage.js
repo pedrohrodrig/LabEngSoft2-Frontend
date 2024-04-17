@@ -14,11 +14,11 @@ function NutriDietPage() {
   const [definedName, setDefinedName] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
-  const createEndpoint = 'http://127.0.0.1:8000/diet/create/';
+  const createEndpoint = "http://18.230.206.131/diet/create/";
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/diet/list/`)
+      .get(`http://18.230.206.131/diet/list/`)
       .then((response) => {
         setUploadedFiles(response.data);
       })
@@ -66,7 +66,7 @@ function NutriDietPage() {
 
   const handleFileDelete = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/diet/${id}`)
+      .delete(`http://18.230.206.131/diet/${id}`)
       .then((response) => {
         console.log(response);
       })
@@ -146,7 +146,7 @@ function NutriDietPage() {
                         text={file.name}
                         onClick={() =>
                           dowloadWithAxios(
-                            `http://127.0.0.1:8000${file.file}`,
+                            `http://18.230.206.131${file.file}`,
                             file.id
                           )
                         }

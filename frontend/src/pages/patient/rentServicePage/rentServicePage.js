@@ -41,14 +41,15 @@ export const RentService = () => {
 
     const handleAddEvent = (newEvent) => {
         const appointment = createAppointment(newEvent);
-        axios.post('http://localhost:8000/appointment/', appointment)
-            .then(response => {
-                console.log(response);
-                setCreatedAppointment(true);
-            })
-            .catch(error => {
-                console.log(error)
-            });
+        axios
+          .post("http://18.230.206.131/appointment/", appointment)
+          .then((response) => {
+            console.log(response);
+            setCreatedAppointment(true);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
 
     const createProfessional = (professional) => {
@@ -65,15 +66,18 @@ export const RentService = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/Doctor_from_id/${number}/`)
-            .then(response => {
-                const createdProfessional = response.data.map(element => createProfessional(element));
-                setProfessional(createdProfessional);
-                setProfessionalId(number);
-            })
-            .catch(error => {
-                console.log(error)
-            });
+        axios
+          .get(`http://18.230.206.131/Doctor_from_id/${number}/`)
+          .then((response) => {
+            const createdProfessional = response.data.map((element) =>
+              createProfessional(element)
+            );
+            setProfessional(createdProfessional);
+            setProfessionalId(number);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }, [])
 
     return (

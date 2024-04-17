@@ -10,13 +10,14 @@ function Popup({ isOpen, closePopup, head, body, buttons, paths, iconType, numbe
     const [cancel, setCancel] = useState(false);
 
     const setCancelation = () => {
-        axios.patch(`http://localhost:8000/appointment/${number}/cancel`)
-            .then(() => {
-                setCancel(true);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        axios
+          .patch(`http://18.230.206.131/appointment/${number}/cancel`)
+          .then(() => {
+            setCancel(true);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
 
     if (isOpen) {

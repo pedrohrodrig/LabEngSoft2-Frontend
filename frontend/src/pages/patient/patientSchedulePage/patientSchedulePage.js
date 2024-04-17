@@ -52,13 +52,17 @@ function PatientSchedulePage() {
                 start: new Date(start),
                 end: new Date(end),
             });
-        axios.put(`http://localhost:8000/appointment/${event.appointmentid}/edit/`, updated)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        axios
+          .put(
+            `http://18.230.206.131/appointment/${event.appointmentid}/edit/`,
+            updated
+          )
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         return {
           ...event,
           start: new Date(start),
@@ -88,13 +92,17 @@ function PatientSchedulePage() {
     const updatedEvents = events.map((event) => {
       if(event.appointmentid === updatedEvent.appointmentid) {
         const updated = createAppointmentFromEvent(updatedEvent);
-        axios.put(`http://localhost:8000/appointment/${event.appointmentid}/edit/`, updated)
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        axios
+          .put(
+            `http://18.230.206.131/appointment/${event.appointmentid}/edit/`,
+            updated
+          )
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         return updatedEvent;
       }
       return event;
@@ -135,15 +143,18 @@ function PatientSchedulePage() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/appointment`)
-        .then(response => {
-            console.log(response.data);
-            const newEvents = response.data.map(element => createEventFromAppointment(element));
-            setEvents(newEvents);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+    axios
+      .get(`http://18.230.206.131/appointment`)
+      .then((response) => {
+        console.log(response.data);
+        const newEvents = response.data.map((element) =>
+          createEventFromAppointment(element)
+        );
+        setEvents(newEvents);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [])
 
   return (

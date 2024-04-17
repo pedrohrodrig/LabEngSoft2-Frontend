@@ -9,7 +9,7 @@ function PatientPage() {
   const { user } = useContext(UserContext);
   const [paths, setPaths] = useState({
     front: "/patient",
-    back: "http://127.0.0.1:8000",
+    back: "http://18.230.206.131/",
   });
 
   return (

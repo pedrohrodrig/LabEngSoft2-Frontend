@@ -29,14 +29,17 @@ function ProfessionalListPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/${professional}`)
-            .then(response => {
-                const professional = response.data.map(element => createProfessional(element));
-                setProfessionalList(professional);
-            })
-            .catch(error => {
-                console.log(error)
-            });
+        axios
+          .get(`http://18.230.206.131/${professional}`)
+          .then((response) => {
+            const professional = response.data.map((element) =>
+              createProfessional(element)
+            );
+            setProfessionalList(professional);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }, [])
 
     return (
